@@ -1,1 +1,1 @@
- $K_{\mu\nu}$
+ $K_\sqrt{\mu\nu}$
