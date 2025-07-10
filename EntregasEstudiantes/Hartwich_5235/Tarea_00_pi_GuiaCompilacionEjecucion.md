@@ -5,7 +5,7 @@ En sistemas Linux, un compilador que se puede usar es "GCC". Para compilar un ar
 
     g++ <filename> -o <execname>
 
-donde <filename> es el nombre del archivo (por ejemplo mi_archivo.cpp) y <execname> es el nombre el que se le va a asignar al ejecutable (por ejemplo mi_executable.out).
+donde `<filename>` es el nombre del archivo (por ejemplo mi_archivo.cpp) y `<execname>` es el nombre el que se le va a asignar al ejecutable (por ejemplo mi_executable.out).
 Para entonces correr el ejecutable, hay que ingresar al terminal
 
     ./<execname>
