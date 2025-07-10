@@ -13,28 +13,28 @@ Para entonces correr el ejecutable, hay que ingresar al terminal
 Sin embargo, se presta automatizar el proceso, por ejemplo añadiendo la función siguiente al archivo .bashrc (en sistemas Ubuntu):
 
     cpr() {
-
-    outputfiletype=".out"
-
-    clear -x
-
-    if [ -z "$1" ]; then
-        echo "Error: No filename provided."
-        return
-    fi
-
-    if [[ "$1" == *.cpp ]]; then
-        filename="$1"
-        execname="${1%.cpp}${outputfiletype}"
-    elif [[ -f "$1.cpp" ]]; then
-        filename="$1.cpp"
-        execname="${1}${outputfiletype}"
-    else
-        echo "Error: Filename must end in .cpp or corresponding \"filename.cpp\" file must exist."
-        return
-    fi
-
-    g++ "$filename" -o "$execname" && ./"$execname"
+    
+        outputfiletype=".out"
+    
+        clear -x
+    
+        if [ -z "$1" ]; then
+            echo "Error: No filename provided."
+            return
+        fi
+    
+        if [[ "$1" == *.cpp ]]; then
+            filename="$1"
+            execname="${1%.cpp}${outputfiletype}"
+        elif [[ -f "$1.cpp" ]]; then
+            filename="$1.cpp"
+            execname="${1}${outputfiletype}"
+        else
+            echo "Error: Filename must end in .cpp or corresponding \"filename.cpp\" file must exist."
+            return
+        fi
+    
+        g++ "$filename" -o "$execname" && ./"$execname"
 
     }
 
