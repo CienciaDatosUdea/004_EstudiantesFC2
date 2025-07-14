@@ -1,0 +1,23 @@
+#+TITLE: Guide for the program leibnizPi.cpp
+#+AUTHOR: Juan David Salcedo Hernandez
+
+* Concept
+Leibniz's formula for \(\pi\) states that
+\[
+\frac{\pi}{4} = \sum_0^{\infty} \frac{(-1)^k}{2k + 1}.
+\]
+We make use of this fact to find approximations to the value of \(\pi\) both by
+breaking down the series into even and odd terms and performing the straight
+sum.
+
+* Compilation
+To use the g++ compiler on a GNU/Linux system, write:
+#+ATTR_LATEX: :options frame=lines
+#+BEGIN_SRC sh
+g++ leibnizPi.cpp -o leibnizPi
+#+END_SRC
+
+Then excute the resulting binary using the command:
+#+BEGIN_SRC sh
+g++ leibnizPi.cpp -o leibnizPi
+#+END_SRC
