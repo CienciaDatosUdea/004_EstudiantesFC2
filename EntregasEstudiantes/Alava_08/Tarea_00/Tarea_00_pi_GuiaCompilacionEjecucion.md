@@ -1,6 +1,6 @@
 # Guía de Compilación y Ejecución
 
-Este documento describe cómo compilar y ejecutar el programa que aproxima el valor de π utilizando la serie de Leibniz.
+Este documento describe cómo compilar y ejecutar el programa que aproxima el valor de π utilizando la serie de Leibniz y otro metodo alternativo .
 
 Compilación:
 
