@@ -18,14 +18,8 @@ double random_number(double a, double b) {
 
 
 class particula{
-    private:
-        double x;
-        double y;
-    public:
-        particula(): x(0), y(0) {};
+  
 
-       // particula(double x0, double y0): x(x0), y(y0) {};
-       
 };
 
 class sistema{
@@ -35,7 +29,6 @@ class sistema{
 int main(int argc,char *argv [] ){
     int a; 
     int b;
-
     a=std::atoi(argv[1]);
     b=std::atoi(argv[2]);
 
