@@ -19,7 +19,8 @@ double random_number(double a, double b) {
 class particula{
     private:
         double x;
-        double y;
+        double y;        
+        
     public:
         particula(): x(0), y(0) {};
         //particula(double x0, double y0): x(x0), y(y0) {};
@@ -29,6 +30,13 @@ class particula{
             x = cos(theta);
             y = sin(theta);
         }
+
+
+        
+        void update_position(double dx, double dy){
+            x=x+dx;
+            y=x+dy;
+        }
         
         double get_x(){return x; }
         double get_y(){return y; }
@@ -36,18 +44,34 @@ class particula{
        
 };
 
+class sistema{
+    private :
+        std::vector<particula> p ;
+    public:
+        sistema (int N):p(N){};
+    void init_all_particles(){
+        for(auto &v:p){
+            v.init_configuracion();
+            std::cout <<v.get_x()<<"\n";    
+        }
+    }
+};
+
 int main(int argc,char *argv [] ){
     int a; 
     int b;
     int N=10;
-//    particula p[N];
-    std::vector<particula> p(N);
+    //std::vector<particula> p(N);
+    //std::cout<<"---";
     
-    p[0].init_configuracion();
-    std::cout <<p[0].get_x()<<"\n";
-
-     
-
+    // for(int i=0;i<N;i++){
+    //     p[i].init_configuracion();
+    //     std::cout <<p[i].get_x()<<"\n";    
+    // }
+   
+    sistema s(N);
+    s.init_all_particles();
+    
 
     return 0;
 }
