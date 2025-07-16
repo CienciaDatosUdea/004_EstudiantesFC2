@@ -47,20 +47,44 @@ class particula{
 class sistema{
     private :
         std::vector<particula> p ;
+         
     public:
+        double valor_minimo;    
         sistema (int N):p(N){};
+        
     void init_all_particles(){
         for(auto &v:p){
             v.init_configuracion();
             std::cout <<v.get_x()<<"\n";    
         }
     }
+    void distancia_minima(double R){
+        double dx,dy, dij;
+        R=10;
+        for(int i=0;i<N;i++){
+          for(int j=0;j<N;j++){
+            if(i==j)
+                continue;
+            dx = p[i].get_x()-p[j].get_x();
+            dy = p[i].get_y()-p[j].get_y();
+            dij=sqrt(dx*dx+dy*dy);
+            if(dij<R)
+                R=dij;
+          }  
+        }
+        valor_minimo=R;
+    }
+
 };
 
 int main(int argc,char *argv [] ){
     int a; 
     int b;
     int N=10;
+    sistema s(N);
+    s.init_all_particles();    
+    s.distancia_minima(10);
+    std::cout<<s.valor_minimo;
     //std::vector<particula> p(N);
     //std::cout<<"---";
     
@@ -69,9 +93,5 @@ int main(int argc,char *argv [] ){
     //     std::cout <<p[i].get_x()<<"\n";    
     // }
    
-    sistema s(N);
-    s.init_all_particles();
-    
-
     return 0;
 }
