@@ -58,9 +58,18 @@ class sistema{
             std::cout <<v.get_x()<<"\n";    
         }
     }
-    void distancia_minima(double R){
+
+    double posicion_i_esima_x(int i){
+        return p[i].get_x();
+    }
+
+    particula &operator[](int i){
+            return p[i];
+    }
+
+    void distancia_minima(){
         double dx,dy, dij;
-        R=10;
+        double R=10000000.0;
         for(int i=0;i<N;i++){
           for(int j=0;j<N;j++){
             if(i==j)
@@ -92,6 +101,7 @@ int main(int argc,char *argv [] ){
     //     p[i].init_configuracion();
     //     std::cout <<p[i].get_x()<<"\n";    
     // }
-   
+    s.posicion_i_esima_x(1);
+    s[10].get_x();
     return 0;
 }
