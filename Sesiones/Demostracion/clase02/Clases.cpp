@@ -16,26 +16,38 @@ double random_number(double a, double b) {
     return dist(global_rng());
 }
 
-
 class particula{
-  
-
-};
-
-class sistema{
-
+    private:
+        double x;
+        double y;
+    public:
+        particula(): x(0), y(0) {};
+        //particula(double x0, double y0): x(x0), y(y0) {};
+        void init_configuracion(){
+            double theta;
+            theta = random_number(0,2* M_PI);  
+            x = cos(theta);
+            y = sin(theta);
+        }
+        
+        double get_x(){return x; }
+        double get_y(){return y; }
+       // particula(double x0, double y0): x(x0), y(y0) {};
+       
 };
 
 int main(int argc,char *argv [] ){
     int a; 
     int b;
-    a=std::atoi(argv[1]);
-    b=std::atoi(argv[2]);
+    int N=10;
+//    particula p[N];
+    std::vector<particula> p(N);
+    
+    p[0].init_configuracion();
+    std::cout <<p[0].get_x()<<"\n";
 
-    std::cout<<"Cantidad de argumentos "<<argc<<"\n";
-    std::cout<<" Elemtnos 0 "<<argv[0]<<"\n";
-    std::cout<<" Elemtnos 1 "<<argv[1]<<"\n";
-    std::cout<<" Elemtnos 2 "<<argv[2]<<"\n";
-    std::cout<<random_number(a, b);
+     
+
+
     return 0;
 }
