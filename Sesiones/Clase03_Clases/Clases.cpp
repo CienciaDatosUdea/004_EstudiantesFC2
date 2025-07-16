@@ -24,7 +24,7 @@ class particula{
 
 class sistema{
 
-}
+};
 
 int main(){
     
