@@ -92,7 +92,7 @@ int main(int argc,char *argv [] ){
     int N=10;
     sistema s(N);
     s.init_all_particles();    
-    s.distancia_minima(10);
+    s.distancia_minima();
     std::cout<<s.valor_minimo;
     //std::vector<particula> p(N);
     //std::cout<<"---";
