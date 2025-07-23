@@ -1,3 +1,6 @@
+Este programa realiza el cálculo aproximado de PI de dos formas distintas usando la serie de Leibniz.
+Se imprime PI, los dos valores y su error absoluto.
+
 ## Compilación
 Usando `g++` ejecutar:|
 
