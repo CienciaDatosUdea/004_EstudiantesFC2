@@ -1,5 +1,5 @@
-#include "../include/op_complejos.h"
-#include "../src/src.cpp"
+#include "include/op_complejos.h"
+#include "src/src.cpp"
 #include <iostream>
 using namespace std;
 int main() {

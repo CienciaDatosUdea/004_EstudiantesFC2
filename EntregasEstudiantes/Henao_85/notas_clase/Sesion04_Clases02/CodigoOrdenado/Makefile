@@ -9,7 +9,7 @@ CXXFLAGS = -Wall -std=c++17 -Iinclude
 
 
 # Archivos fuente del proyecto (.cpp)
-SRC = src/complejos.cpp src/op_complejos.cpp main.cpp
+SRC = src/src.cpp main.cpp
 
 # Archivos objeto correspondientes (.o), usando una sustitución de sufijo
 #.o no se generan por separado en la regla final
