@@ -1,6 +1,6 @@
 El siguiente programa es una implementación básica de los siguientes conceptos:
-    - estructurar código en archivos diferentes que se juntan usando `include "<filename>"`
-    - `struct` para contener datos y `class` para contener y aplicar métodos
+- estructurar código en archivos diferentes que se juntan usando `include "<filename>"`
+- `struct` para contener datos y `class` para contener y aplicar métodos
 
 En el archivo que termina en clases.h, se implementa un `struct partícula` que define una partícula con las propriedades "número, coordenada x, coordenada y, componente de fuerza x, componente de fuerza y".
 

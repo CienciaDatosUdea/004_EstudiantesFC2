@@ -1,8 +1,8 @@
 El siguiente programa es una implementación básica de los siguientes conceptos:
-    - estructurar código en archivos diferentes que se juntan usando `include "<filename>"`
-    - usar clases
-    - usar el concepto de inherencia de clases
-    - definir operadores para clases
+- estructurar código en archivos diferentes que se juntan usando `include "<filename>"`
+- usar clases
+- usar el concepto de inherencia de clases
+- definir operadores para clases
 
 En el archivo que termina en clases.h, se implementa una clase `complexBase` que define un número complejo. Contiene la información tanto expresada por (parte real, parte imaginaria) como expresada por (magnitud absoluta, ángulo en el plano complejo). Además, tiene dos métodos que se deben usar para que actualice el segundo (primero) par de coordenadas cuando hay habido un cambio en el primero (segundo).
 
