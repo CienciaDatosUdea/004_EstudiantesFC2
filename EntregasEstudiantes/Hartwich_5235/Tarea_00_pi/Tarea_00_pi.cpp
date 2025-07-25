@@ -11,6 +11,9 @@ void displayResults(int, double, double);
 
 int main() {
 
+    // system("clear -x"); // solo funciona en linux (y si tiene clear de Ncurses)
+    std::cout << "\033[H\033[J"; // alternativa para system("clear -x") que debería funcionar en MacOS también (más no Windows)
+    
     // iniciar variables
     int n {0};
     double sumaLeibnitz {0};
