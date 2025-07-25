@@ -2,6 +2,9 @@
 
 int main() {        
 
+    // system("clear -x"); // solo funciona en linux (y si tiene clear de Ncurses)
+    std::cout << "\033[H\033[J"; // alternativa para system("clear -x") que debería funcionar en MacOS también (más no Windows)
+    
     complex c(-1, 0);
 
     // output descriptivo

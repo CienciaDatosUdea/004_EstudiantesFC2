@@ -1,16 +1,16 @@
 El siguiente programa es una implementación básica de los siguientes conceptos:
     - estructurar código en archivos diferentes que se juntan usando `include "<filename>"`
-    - usar clases
-    - usar el concepto de inherencia de clases
-    - definir operadores para clases
+    - `struct` para contener datos y `class` para contener y aplicar métodos
 
-En el archivo que termina en clases.h, se implementa una clase `complexBase` que define un número complejo. Contiene la información tanto expresada por (parte real, parte imaginaria) como expresada por (magnitud absoluta, ángulo en el plano complejo). Además, tiene dos métodos que se deben usar para que actualice el segundo (primero) par de coordenadas cuando hay habido un cambio en el primero (segundo).
+En el archivo que termina en clases.h, se implementa un `struct partícula` que define una partícula con las propriedades "número, coordenada x, coordenada y, componente de fuerza x, componente de fuerza y".
 
-Además, se define una *child class* `complex` de la *parent class* `complexBase`. Esta clase es la única que se va a usar en main.cpp. Hereda todas las variables y los métodos protectados o públicos de complexBase (en el caso implementado: todo). Esta clase contiene todos los demás métodos que se van a usar en main.cpp, entre otros funciones para imprimir el valor del número complejo en las coordenadas deseadas, operadorec para acceder directamente a las coordenadas deseadas (operator[] sobrecargado) y operadores para aritmética básica (+, -, *, /, +=, -=, *=, /=, ==).
+Además, se define una `class pSystem` que representa a un sistema de `N` partículas. El constructor del sistema inicializa automáticamente sus posiciones y les asigna números (consecutivos de 0 a N-1). Los métodos implementados pueden aplicar una perturbación aleatoria de `[-ds, ds]` a las coordenadas `x` y `y` de todas partículas, aplicar una fuerza con componentes `[0, df]` a cada partícula, calcular e imprimir las distancias mínimas y máximas de cualquier dos partículas y calcular e imprimir la magnitud de la fuerza total actuando sobre todo el sistema.
 
-En el archivo main.cpp, se usan las clases y los métodos definidos en clases.h y métodos.cpp para comprobar su funcionamiento. No se implementa ninguna clase nueva ni ningún método nuevo.
+Los dichos métodos están implementados en el archivo que termina en metodos.cpp.
 
-Este programa no requiere más interacción del usuario aparte de compilar `Tarea_02_complejos_main.cpp` y ejecutar el ejecutable según la siguiente descripción.
+En el archivo main.cpp, se usan las clases y los métodos definidos en clases.h y métodos.cpp para comprobar su funcionamiento (imprimiendo informaciones sobre el procedimiento para el usuario que lo ejecuta). No se implementa ninguna clase nueva ni ningún método nuevo.
+
+Este programa no requiere más interacción del usuario aparte de compilar `Tarea_01_EstructurasClases_main.cpp` y ejecutar el ejecutable según la descripción siguiente.
 
 ---
 
