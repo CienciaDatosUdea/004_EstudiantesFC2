@@ -85,7 +85,7 @@ complex complex::operator*(const complex& c) const {
 }
 
 complex complex::operator/(const complex& c) const {
-    double rad2 { c['r'] == 0 ? 0 : abs / c['r'] };
+    double rad2 { c['r'] == 0 ? std::numeric_limits<double>::infinity() : abs / c['r'] };
     double arg2 { arg * c['a'] };
     double re { rad2 * cos(arg2) };
     double im { rad2 * sin(arg2) };

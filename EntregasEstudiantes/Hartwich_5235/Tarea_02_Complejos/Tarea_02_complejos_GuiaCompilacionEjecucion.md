@@ -1,8 +1,8 @@
 El siguiente programa es una implementación básica de los siguientes conceptos:
-- estructurar código en archivos diferentes que se juntan usando `include "<filename>"`
-- usar clases
-- usar el concepto de inherencia de clases
-- definir operadores para clases
+    - estructurar código en archivos diferentes que se juntan usando `include "<filename>"`
+    - usar clases
+    - usar el concepto de inherencia de clases
+    - definir operadores para clases
 
 En el archivo que termina en clases.h, se implementa una clase `complexBase` que define un número complejo. Contiene la información tanto expresada por (parte real, parte imaginaria) como expresada por (magnitud absoluta, ángulo en el plano complejo). Además, tiene dos métodos que se deben usar para que actualice el segundo (primero) par de coordenadas cuando hay habido un cambio en el primero (segundo).
 
@@ -10,7 +10,7 @@ Además, se define una *child class* `complex` de la *parent class* `complexBase
 
 En el archivo main.cpp, se usan las clases y los métodos definidos en clases.h y métodos.cpp para comprobar su funcionamiento. No se implementa ninguna clase nueva ni ningún método nuevo.
 
-Este programa no requiere más interacción del usuario aparte de compilar `Tarea_02_complejos_main.cpp` y ejecutar el ejecutable según la siguiente descripción.
+Este programa no requiere más interacción del usuario aparte de compilar `Tarea_02_complejos_main.cpp` y ejecutar el ejecutable según la descripción siguiente.
 
 ---
 

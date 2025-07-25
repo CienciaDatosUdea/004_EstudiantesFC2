@@ -1,10 +1,10 @@
 #include "Tarea_02_complejos_metodos.cpp"
 
-int main() {        
-
-    // system("clear -x"); // solo funciona en linux (y si tiene clear de Ncurses)
-    std::cout << "\033[H\033[J"; // alternativa para system("clear -x") que debería funcionar en MacOS también (más no Windows)
+int main() {
     
+    // system("clear -x"); // solo funciona en linux (y si tiene clear de Ncurses)
+    std::cout << "\033[H\033[J" << std::endl; // alternativa para system("clear -x") que debería funcionar en MacOS también (más no Windows)
+
     complex c(-1, 0);
 
     // output descriptivo
@@ -58,7 +58,7 @@ int main() {
     z.printCartesian();
     std::cout << "Result is correct up to machine precision." << std::endl;
 
-    std::cout << std::endl;
+    std::cout << std::endl;    
 
     return 0;
 
