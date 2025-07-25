@@ -65,7 +65,7 @@ void pSystem::calculate_total_force() {
     total_force = sqrt(pow(Fx, 2) + pow(Fy, 2));
 }
 
-void pSystem::print_total_force() { // solo esta función estará pública, para evitar que alguién quiera imprimir las distancias sin haberlo calculado antes
+void pSystem::print_total_force() { // solo esta función estará pública, para evitar que alguién quiera imprimir la fuerza total sin haberla calculado antes
     calculate_total_force();
     std::cout << "\nThe magnitude of the total force on the system is:\t" << std::fixed << std::setprecision(5) << total_force << std::endl;
 }
