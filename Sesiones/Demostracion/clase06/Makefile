@@ -9,13 +9,13 @@ CXXFLAGS = -Wall -std=c++17 -Iinclude
 
 
 # Archivos fuente del proyecto (.cpp)
-SRC = src/complejos.cpp src/op_complejos.cpp main.cpp
+SRC = src/difusion_model.cpp  main.cpp
 
 # Archivos objeto correspondientes (.o), usando una sustitución de sufijo
 #.o no se generan por separado en la regla final
 OBJ = $(SRC:.cpp=.o)
 # Nombre del ejecutable que se generará
-TARGET = complejos_app.out
+TARGET = difusion_model.out
 
 # Regla por defecto: si haces "make" sin argumentos, esta es la que se ejecuta
 all: $(TARGET)

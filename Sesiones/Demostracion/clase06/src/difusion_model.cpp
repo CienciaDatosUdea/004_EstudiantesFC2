@@ -7,7 +7,7 @@ Geometria::Geometria(int N_,double xmin_, double xmax_ )
     {
         x.resize(N);
         dx = (xmax-xmin)/(N-1);
-        for(int i;i<N;i++){
+        for(int i=0;i<N;i++){
             x[i]=xmin+i*dx;
         }
 
