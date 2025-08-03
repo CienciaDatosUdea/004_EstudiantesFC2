@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include "../include/op_complejos.h"
+#include "op_complejos.h"
 #include <iostream>
 
 complejos::complejos(double x0, double y0) : real(x0), imaginario(y0) {}
