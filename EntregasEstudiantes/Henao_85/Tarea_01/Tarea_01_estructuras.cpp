@@ -5,41 +5,42 @@
 #include <ctime>
 #include <vector>
 
-
 using namespace std;
+
+// Una estructura es similar a una clase, pero por defecto sus miembros son públicos, mientras que en una clase son privados. 
 
 const int N = 10;         // Número de partículas
 const double R = 1.0;     // Radio de la circunferencia
 const double DELTA = 0.1; // Rango de perturbación aleatoria
 
 // Generador de números aleatorios
-std::mt19937_64& global_rng() {
-    static std::mt19937_64 rng{ std::random_device{}() };
+mt19937_64& global_rng() {
+    static mt19937_64 rng{ random_device{}() };
     return rng;
 }
 
 double random_number(double a, double b) {
-    std::uniform_real_distribution<double> dist(a, b);
+    uniform_real_distribution<double> dist(a, b);
     return dist(global_rng());
 }
 
 // Estructura Partícula
 struct Particula {
-    double x, y;
+    double x, y;     // (miembros públicos)
     double fx, fy;
 
     Particula() : x(0), y(0), fx(0), fy(0) {}
 
     void init_configuracion() {
         double theta = random_number(0, 2 * M_PI);
-        x = cos(theta);
+        x = cos(theta);      // (se accede directamente)
         y = sin(theta);
     }
 
     void perturbar(double delta) {
         double dx = random_number(-delta, delta);
         double dy = random_number(-delta, delta);
-        x += dx;
+        x += dx;             // (se accede directamente)
         y += dy;
     }
 
@@ -49,9 +50,9 @@ struct Particula {
     }
 };
 
-//  Estructura Sistema
+// Estructura Sistema
 struct Sistema {
-    std::vector<Particula> p;
+    vector<Particula> p; // (miembros públicos)
 
     Sistema(int n) : p(n) {}
 
@@ -87,6 +88,7 @@ struct Sistema {
     void fuerza_total(double& fx_total, double& fy_total, double& magnitud) {
         fx_total = fy_total = 0.0;
         for (const auto& part : p) {
+            // Acceso directo a fx, fy
             fx_total += part.fx;
             fy_total += part.fy;
         }
@@ -95,15 +97,16 @@ struct Sistema {
 
     void imprimir_posiciones() {
         for (int i = 0; i < p.size(); ++i) {
-            cout << "Partícula " << i
-                << " -> (" << p[i].x << ", " << p[i].y << ")\n";
+            // Acceso directo a x, y
+            cout << "Partícula " << i+1
+                << " (" << p[i].x << ", " << p[i].y << ")\n";
         }
     }
 };
 
 // Función principal
 int main() {
-    Sistema sistema(N);
+    Sistema sistema(N); // ⟵ Sistema es ahora una struct
 
     sistema.inicializar();
     sistema.perturbar_todas(DELTA);
@@ -124,3 +127,4 @@ int main() {
 
     return 0;
 }
+

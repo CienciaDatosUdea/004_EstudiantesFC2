@@ -14,8 +14,8 @@ const double R = 1.0;     // Radio de la circunferencia
 const double DELTA = 0.1; // Rango de perturbación aleatoria
 
 
-std::mt19937_64& global_rng() {
-    static std::mt19937_64 rng{ /*semilla*/ };
+mt19937_64& global_rng() {
+    static mt19937_64 rng{ /*semilla*/ };
     return rng;
 }
 
@@ -24,7 +24,7 @@ double random_number(double a, double b) {
     return dist(global_rng());
 }
 
-// Clase Partícula
+// Clase Partícula: genera partículas con posición (x, y) sobre la circunferencia de radio 1 a partir de un ángulo aleatorio θ ∈ [0, 2π]
 class Particula {
 private:
     double x, y;      // Posición
@@ -38,6 +38,8 @@ public:
         x = cos(theta);
         y = sin(theta);
     }
+
+  // Perturba la posición de la partícula en un rango aleatorio [-delta, delta]
 
     void perturbar(double delta) {
         double dx = random_number(-delta, delta);
@@ -60,7 +62,7 @@ public:
 // Clase Sistema
 class Sistema {
 private:
-    std::vector<Particula> p;
+    vector<Particula> p;
 
 public:
     Sistema(int N) : p(N) {}
@@ -80,6 +82,8 @@ public:
             part.asignar_fuerza();
     }
 
+    // Calcula la distancia máxima entre todas las partículas
+    // Utiliza la fórmula de distancia euclidiana: d = sqrt((x2 - x1)^2 + (y2 - y1)^2) y devuelve el valor máximo encontrado
     double distancia_maxima() {
         double max_dist = 0.0;
         for (int i = 0; i < p.size(); ++i) {
@@ -94,6 +98,11 @@ public:
         return max_dist;
     }
 
+
+    // Calcula la fuerza total sobre el sistema sumando las componentes de fuerza de todas las partículas
+    // Devuelve las componentes Fx, Fy y la magnitud de la fuerza total
+    // Magnitud de la fuerza total: |F| = sqrt(Fx^2 + Fy^2)
+
     void fuerza_total(double& fx_total, double& fy_total, double& magnitud) {
         fx_total = fy_total = 0.0;
         for (const auto& part : p) {
@@ -105,13 +114,13 @@ public:
 
     void imprimir_posiciones() {
         for (int i = 0; i < p.size(); ++i) {
-            cout << "Partícula " << i
-                << " -> (" << p[i].get_x() << ", " << p[i].get_y() << ")\n";
+            cout << "Partícula " << i+1
+                << " (" << p[i].get_x() << ", " << p[i].get_y() << ")\n";
         }
     }
 };
 
-// Función principal
+// main
 int main() {
     Sistema sistema(N);
 
@@ -119,15 +128,15 @@ int main() {
     sistema.perturbar_todas(DELTA);
     sistema.asignar_fuerzas();
 
-    std::cout << "Posiciones después de la perturbación:\n";
+    cout << "Posiciones después de la perturbación:\n";
     sistema.imprimir_posiciones();
 
     double dmax = sistema.distancia_maxima();
-    std::cout << "Distancia máxima entre partículas: " << dmax << endl;
+    cout << "Distancia máxima entre partículas: " << dmax << endl;
 
     double fx_total, fy_total, magnitud;
     sistema.fuerza_total(fx_total, fy_total, magnitud);
-    std::cout << "Fuerza total:\n"
+    cout << "Fuerza total:\n"
               << "  Fx = " << fx_total << "\n"
               << "  Fy = " << fy_total << "\n"
               << "  |F| = " << magnitud << endl;
