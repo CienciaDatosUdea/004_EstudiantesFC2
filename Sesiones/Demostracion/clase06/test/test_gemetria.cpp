@@ -9,9 +9,14 @@ int main(){
     double xmax=1;   
     
     Geometria G(N, xmin, xmax);
-    Condiciones C(G);
-    C.condicionesIniciales();
-    C.condicionesFrontera();
-   
+    
+    for(int i=0;i<N;i++){
+        std::cout<<G.x[i]<<"\n";
+    }
+    std::cout<<"-----";
+    std::cout<<G.dx<<"\n";
+    std::cout<<G.N<<"\n";
+    std::cout<<G.x.size()<<"\n";
+
     return 0;
 }
