@@ -5,7 +5,7 @@
 # put this Makefile into the main folder of the project
 # create a subfolder "src" that contains all .cpp files
 # create a subfolder "include" that contains all .h files that are included in any of the .cpp files
-# type "make", "make run", "clean-obj" or "clean-all" into terminal depending on what you want (make only compiles the executable, make run compiles it and runs it, clean-obj deletes the object folder, clean-all deletes the object folder and the executable). In case the .o files already exist, all of these only re-compile things if the corresponding .h or .cpp files have changed at a later timestamp (unless the -B flag is provided, in which case everything always recompiles).
+# type "make", "make run", "make clean-obj" or "make clean-all" into terminal depending on what you want (make only compiles the executable, make run compiles it and runs it, make clean-obj deletes the object folder, make clean-all deletes the object folder and the executable). In case the .o files already exist, all of these only re-compile things if the corresponding .h or .cpp files have changed at a later timestamp (unless the -B flag is provided, in which case everything always recompiles).
 
 # toggle useful makeflags
 # MAKEFLAGS += -B # --always-make (always rebuild from scratch, even some files seem to not have changed)
