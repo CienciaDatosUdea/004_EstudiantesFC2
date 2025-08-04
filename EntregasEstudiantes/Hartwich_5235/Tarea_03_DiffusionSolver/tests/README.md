@@ -1,5 +1,9 @@
 The following tests have been conducted:
 
+> "default_output_textfile.txt":
+
+$\rightarrow$ If it exists, this file does not actually contain any specific test. It's just the current default name included in main and therefore created for the given parameters when executing the program.
+
 > "initial_state":
 
 $\rightarrow$ the x values are calculated correctly by the Geometry class.
