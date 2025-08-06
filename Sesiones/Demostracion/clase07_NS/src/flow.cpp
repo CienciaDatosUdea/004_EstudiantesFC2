@@ -38,8 +38,8 @@ FileWriter::FileWriter(const std::string &filename)
 
 void FileWriter::writePosicion(const Grid &G)
 {
-    int nx=G.nx;
-    int ny=G.ny;
+   // int nx=G.nx;
+   // int ny=G.ny;
     
     file<<"ejemplo de escritura de archivios";
     //file << "# i\t\tj\t\tx\t\ty\t\tu\t\tv\t\tp\n";    
