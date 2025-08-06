@@ -29,21 +29,23 @@ CampoVelocidadesPresion::CampoVelocidadesPresion(Grid &G_)
 FileWriter::FileWriter(const std::string &filename)    
     {
         file.open(filename);
-      //  if (!file.is_open()) 
-       //     throw std::runtime_error("No se pudo abrir el archivo: " + filename);
+        if (!file.is_open()) 
+            throw std::runtime_error("No se pudo abrir el archivo: " + filename);
         
         file << std::fixed << std::setprecision(6);
     }
 
 
-void FileWriter::FileWriter(const Grid &G)
+void FileWriter::writePosicion(const Grid &G)
 {
     int nx=G.nx;
     int ny=G.ny;
-    file << "# i\t\tj\t\tx\t\ty\t\tu\t\tv\t\tp\n";    
-    file << "# nx\t\tny\t\t\n";
-    file << "# "<<nx<<"\t\t"<<ny<<"\n";
-    file << "# =================================\n";
+    
+    file<<"ejemplo de escritura de archivios";
+    //file << "# i\t\tj\t\tx\t\ty\t\tu\t\tv\t\tp\n";    
+   // file << "# nx\t\tny\t\t\n";
+    //file << "# "<<nx<<"\t\t"<<ny<<"\n";
+    //file << "# =================================\n";
     
     
 }

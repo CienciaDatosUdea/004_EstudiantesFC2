@@ -12,12 +12,14 @@ int main(){
 
     
     Grid G(xmin, xmax, ymin, ymax, nx, ny);
-    for(int i=0;i<nx;i++){
-        for(int j=0;j<ny;j++){
-            std::cout<<G.XY[i][j][0]<<"\t"<<G.XY[i][j][1]<<"\n"     ;
+    FileWriter f("nombre_archivo.txt");
+    f.writePosicion(G);
+    // for(int i=0;i<nx;i++){
+    //     for(int j=0;j<ny;j++){
+    //         std::cout<<G.XY[i][j][0]<<"\t"<<G.XY[i][j][1]<<"\n"     ;
             
-        }
-    }
+    //     }
+    // }
 
     return 0;
 
