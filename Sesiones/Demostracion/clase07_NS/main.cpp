@@ -10,10 +10,14 @@ int main(){
     int  ny=10;
 
 
-    //std::ofstream file;
-    //file.open("holamundo.txt");
-    //file<<"este es  una forma de escribir un archivo";
-
+    Grid G(xmin, xmax, ymin, ymax, nx, ny);
+    std::ofstream file;
+    file.open("datos/datos.txt");
+     for(int i=0;i<nx;i++){
+        for(int j=0;j<ny;j++){
+            file<<G.XY[i][j][0]<<"\t"<<G.XY[i][j][1]<<"\n";
+        }
+    }
 
     // Grid G(xmin, xmax, ymin, ymax, nx, ny);
     // FileWriter f("nombre_archivo.txt");
