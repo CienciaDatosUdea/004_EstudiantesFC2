@@ -22,7 +22,7 @@ class FileWriter {
         FileWriter(const std::string &filename);
         std::ofstream file;    
       //  void writePosicionCampo(const Grid &G, const CampoVelocidadesPresion &Campo);
-        void writePosicionCampo(const Grid &G);
+        void writePosicion(const Grid &G);
 };
 
 
