@@ -20,11 +20,45 @@ Grid::Grid(double x_min_, double x_max_,
 };
 
 CampoVelocidadesPresion::CampoVelocidadesPresion(Grid &G_)
-    :G(G_){
-        U.resize(G.nx, std::vector<double>(G.ny, 0.0));
-        V.resize(G.nx, std::vector<double>(G.ny, 0.0));
-        P.resize(G.nx, std::vector<double>(G.ny, 0.0));  
+    :G(G_){}
+
+
+
+void CampoVelocidadesPresion::CondicionesIniciales(){
+    U.resize(G.nx, std::vector<double>(G.ny, 0.0));
+    V.resize(G.nx, std::vector<double>(G.ny, 0.0));
+    P.resize(G.nx, std::vector<double>(G.ny, 0.0));  
 }
+
+
+void CampoVelocidadesPresion::BoundaryCondition(){
+    //Frontera izquierda
+    for(int j=0;j<G.ny;j++){
+        U[0][j]=0;
+        V[0][j]=0;
+        P[0][j] = P[1][j];
+    }    
+    //Frontera derecha
+    for(int j=0;j<G.ny;j++){
+        U[G.nx-1][j]=0;
+        V[G.nx-1][j]=0;
+        P[G.nx-1][j] = P[G.nx-2][j];
+    }    
+    //Frontera inferior
+    for(int i=0;i<G.nx;i++){
+        U[i][0]=0;
+        V[i][0]=0;
+        P[i][0] = P[i][1];
+    }    
+    //Frontera superior
+    for(int i=0;i<G.nx;i++){
+        U[i][G.ny-1]=1;
+        V[i][G.ny-1]=0;
+        P[i][G.ny-1]=0;
+    }
+    
+}
+
 
 FileWriter::FileWriter(const std::string &filename)    
     {
@@ -36,30 +70,20 @@ FileWriter::FileWriter(const std::string &filename)
     }
 
 
-void FileWriter::writePosicion(const Grid &G)
+void FileWriter::writePosicion(const Grid &G, const CampoVelocidadesPresion &F)
 {
-   // int nx=G.nx;
-   // int ny=G.ny;
+    auto nx=G.nx;
+    auto ny=G.ny;
     
-    //file << "# i\t\tj\t\tx\t\ty\t\tu\t\tv\t\tp\n";    
-   // file << "# nx\t\tny\t\t\n";
-    //file << "# "<<nx<<"\t\t"<<ny<<"\n";
-    //file << "# =================================\n";
+    file<<"#"<<"i"<<"j"<<"x"<<"y"<<"\n";
+    file<<"#"<<nx<<"\t"<<ny;
     
-    
-}
-void CampoVelocidadesPresion::CondicionesIniciales(){
-
-
-}
-
-
-void CampoVelocidadesPresion::BoundaryCondition(){
+    for(int i=0;i<nx;i++){
+        for(int j=0;j<ny;j++){
+            file<<i<<"\t"<<j<<"\t"<<G.XY[i][j][0]<<"\t"<<G.XY[i][j][1]<<"\t"<<F.U<<"\t"<<F.V<<"\t"<<F.P<<"\n";
+        }
+    }
 
     
 }
-
-
-
-
 
