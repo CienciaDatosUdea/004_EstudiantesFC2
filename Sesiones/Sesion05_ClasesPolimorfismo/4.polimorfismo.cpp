@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <cmath>
+#define _USE_MATH_DEFINES
 
 
 class Shape {

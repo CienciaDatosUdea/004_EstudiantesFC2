@@ -1,0 +1,15 @@
+# THE FOLLOWING  NUMBERS CORRESPONDS TO THE ENERGIES OF THE  9 configs of  L^2 = 144 COMPONENTS EACH
+#
+# TEMPERATURE  T = 1.8
+#
+# Note that for J=1 and a par L, the theoretical maximum energy is 2*L^2 and the miminum energy is -2*L^2. For low temperatures, E->E_min is expected; for high temperatures, E->0 is expected
+
+-252
+-256
+-288
+-272
+-272
+-264
+-272
+-260
+-272
