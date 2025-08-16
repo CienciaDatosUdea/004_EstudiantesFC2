@@ -1,3 +1,7 @@
+Aquí tienes el contenido completo para el archivo `README.md` que resume la estructura de tu proyecto y explica cómo usar el `Makefile`.
+
+-----
+
 # Proyecto: Operaciones con Números Complejos
 
 Este proyecto implementa una jerarquía de clases en C++ para representar y realizar operaciones básicas con números complejos, como suma, resta, multiplicación, división y cálculo de la magnitud.
