@@ -1,7 +1,7 @@
 # Aproximación de π con la serie de Leibniz
 
 Este programa en C++ calcula aproximaciones al número π utilizando la **serie de Leibniz**.  
-Se implementan dos variantes de la fórmula y se comparan sus resultados con el valor de referencia de π, mostrando además el **error absoluto** de cada método.
+Se implementan dos variantes de la fórmula y se comparan sus resultados con el valor de referencia de π, mostrando además el **error absoluto** de cada método. Ccon esto se llega al resultado. 
 
 ---
 

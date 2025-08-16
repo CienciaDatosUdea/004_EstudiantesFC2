@@ -2,11 +2,14 @@
 #include <iomanip>   // formato de salida (setprecision, fixed)
 #include <cmath>     // acosl, fabsl
 
+
+// Modificado
 // --------------------------------------------------------------
 // Programa: Aproximación de π con dos variantes de la serie de Leibniz
 // Objetivo: Calcular dos aproximaciones de π y comparar su error absoluto
 // Estilo: código y nombres sutilmente diferentes, con comentarios explicativos
 // --------------------------------------------------------------
+
 
 // Devuelve el valor de π sin depender de macros (M_PI), usando identidad trig.
 long double valorPiExacto() {
