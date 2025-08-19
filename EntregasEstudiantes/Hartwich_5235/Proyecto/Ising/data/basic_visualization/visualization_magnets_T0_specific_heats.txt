@@ -1,0 +1,15 @@
+# THE FOLLOWING  NUMBERS CORRESPONDS TO THE SPECIFIC HEATS OF THE  9 configs of  L^2 = 144 COMPONENTS EACH
+#
+# TEMPERATURE  T = 1.8
+#
+# Note that it is expected that C is largest around the phase transition and lowest for T->0/inf.
+
+0.404266
+0.40916
+0.407956
+0.385911
+0.427728
+0.38429
+0.430243
+0.398968
+0.379918
