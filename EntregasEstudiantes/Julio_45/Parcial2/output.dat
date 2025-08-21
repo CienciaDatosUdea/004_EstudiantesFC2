@@ -1,0 +1,6 @@
+beta = 0.001
+z_max = 200
+t_max = 100
+nt = 99501
+nz = 200
+Condiciones de frontera de Dirichlet
