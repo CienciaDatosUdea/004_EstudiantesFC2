@@ -1,4 +1,3 @@
-// Skeleton for classes
 #pragma once
 #include <cstddef>
 #include <vector>
@@ -11,10 +10,10 @@ constexpr double c = 1;
 // two boundary conditions the user can choose from
 enum class Boundary {
     Periodic,
-    PEC // E = 0 at both ends
+    PerfectConductor // E = 0 at both ends
 };
 
-// A struct to hold configuration parameters for the FDTD simulation
+// A structure to hold configuration parameters for the FDTD simulation
 struct Config {
     double Zmax = 200.0; // spatial extent
     size_t K = 10000; // number of spatial divisions
@@ -28,22 +27,6 @@ struct Config {
 
 // Declaration of the FDTD1D class
 class FDTD1D {
-public:
-    explicit FDTD1D(const Config& cfg);
-    void reset();
-    void step();
-    void run();
-    void write_csv(const std::string& filename, size_t tindex, bool header=false) const;
-
-    // Accessors
-    const std::vector<double>& E() const { return E_; }
-    const std::vector<double>& H() const { return H_; }
-    double dz() const { return dz_; }
-    double dt() const { return dt_; }
-    double beta() const { return beta_; }
-    double courant() const { return beta_; }
-    size_t N() const { return N_; }
-
 private:
     double Zmax_;
     size_t K_;
@@ -57,10 +40,42 @@ private:
     Boundary bc_;
     bool renorm_;
 
-    std::vector<double> E_;
-    std::vector<double> H_;
+    // Vector with values of E and H at a time 2n for H, 2n + 1 for E. Indices
+    // of this vector are positional, odd ones are reserved for H and even ones
+    // are reserved for E
+    std::vector<double> EH_vector;
 
-    void apply_boundary_conditions();
+    void applyBoundaryConditions();
+
+public:
+    explicit FDTD1D(const Config& cfg);
+    void setFieldsAtInitialTime();
+    void step();
+    void run();
+    void write_csv(const std::string& filename, size_t tindex, bool header=false) const;
+
+    // Accessors
+    const std::vector<double> E() const {
+        std::vector<double> E;
+        for (size_t k = 0; k < K_; k++){
+            E[k] = EH_vector[2 * k];
+        }
+        return E;
+    }
+    // Accessors
+    const std::vector<double> H() const {
+        std::vector<double> H;
+        for (size_t k = 0; k < K_; k++){
+            H[k] = EH_vector[2 * k + 1];
+        }
+        return H;
+    }
+    double dz() const { return dz_; }
+    double dt() const { return dt_; }
+    double beta() const { return beta_; }
+    double courant() const { return beta_; }
+    size_t N() const { return N_; }
+
 };
 
 } //namespace fdtd

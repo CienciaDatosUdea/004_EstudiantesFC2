@@ -14,31 +14,33 @@ FDTD1D::FDTD1D(const Config &cfg)
       dt_(cfg.Tmax / (2 * static_cast<double>(cfg.N))),
       // Other parameters
       lambda_(cfg.wavelength), output_every_(cfg.output_every), bc_(cfg.bc),
-      renorm_(cfg.renormalize_E), E_(cfg.N, 0.0), H_(cfg.N, 0.0)
+      renorm_(cfg.renormalize_E), EH_vector(2 * cfg.K, 0.0)
       {
-          if (dt_ <= 0.0) {
-              // Courant: c*dt/dz ≤ 0.5
-              dt_ = 0.45 * dz_ / c;
+          // Evaluate stability condition
+          if (dz_ > lambda_ / 10) {
+              throw std::runtime_error("Unstable configuration: dz must be <= " + std::to_string(lambda_ / 10));
           }
-          beta_ = c * dt_ / dz_;
 
-          if (beta_ > 0.5 + 1e-12) {
-              throw std::runtime_error("Unstable configuration: Courant number = " + std::to_string(beta_));
+          // Evaluate Courant number
+          beta_ = c * dt_ / dz_;
+          if (beta_ > 0.5 ) {
+              throw std::runtime_error("Unstable configuration: Courant number = " + std::to_string(beta_) +
+                                       " must be <= 0.5");
           }
-          reset();
+          setFieldsAtInitialTime();
       }
 
-void FDTD1D::reset() {
-    for (size_t k = 0; k < K_; ++k) {
-        double z = k * dz_;
-        double val = 0.1 * sin(2.0 * M_PI * z / lambda_);
-        E_[k] = val;
-        H_[k] = val;
+void FDTD1D::setFieldsAtInitialTime() {
+    for (size_t k = 0; k < K_; k++) {
+        double E_value = 0.1 * sin(2.0 * M_PI * (2 * k * dz_) / lambda_); // Generalise this to have arbirtrary functions
+        double H_value = 0.1 * sin(2.0 * M_PI * ((2 * k + 1) * dz_) / lambda_);
+        EH_vector[2 * k] = E_value;
+        EH_vector[2 * k + 1] = H_value;
     }
 }
 
-void FDTD1D::apply_boundary_conditions() {
-    if (bc_ == Boundary::PEC) {
+void FDTD1D::applyBoundaryConditions() {
+    if (bc_ == Boundary::PerfectConductor) {
         E_.front() = 0.0;
         E_.back()  = 0.0;
         H_.front() = 0.0;
@@ -46,33 +48,28 @@ void FDTD1D::apply_boundary_conditions() {
     }
 }
 
+// Finite differences method using the recursive formulas
 void FDTD1D::step() {
-    std::vector<double> Ex_old = E_;
-    std::vector<double> Hy_old = H_;
-
-    // Update Ex
-    for (size_t k = 0; k < N_; ++k) {
-        size_t km1 = (k == 0) ? (N_ - 1) : (k - 1);
-        double diff = Hy_old[km1] - Hy_old[k];
-        E_[k] = Ex_old[k] + beta_ * diff;
+    std::vector<double> EH_vector_old = EH_vector;
+    // Update E over space coordinates
+    for (size_t k = 0; k < K_; k++) {
+        double diff = EH_vector[2 * k + 1] - EH_vector[2 * k - 1];
+        EH_vector[2 * k] = EH_vector_old[2 * k] + beta_ * diff;
+    }
+    // Update H over space coordinates
+    for (size_t k = 0; k < K_; k++) {
+        double diff = EH_vector[2 * k] - EH_vector[2 * (k - 1)];
+        EH_vector[2 * k + 1] = EH_vector_old[2 * k + 1] + beta_ * diff;
     }
 
-    apply_boundary_conditions();
-
-    // Update Hy
-    for (size_t k = 0; k < Nz_; ++k) {
-        size_t kp1 = (k + 1) % Nz_;
-        double diff = Ex_[k] - Ex_[kp1];
-        Hy_[k] = Hy_old[k] + beta_ * diff;
-    }
-
-    apply_boundary_conditions();
+    applyBoundaryConditions();
 }
 
+// Perform steps over the whole time domain, save the resulting EH_vectors each time
 void FDTD1D::run() {
     const std::string csv = "fdtd_output.csv";
     write_csv(csv, 0, true);
-    for (size_t n = 1; n <= N_; ++n) {
+    for (size_t n = 1; n <= N_; n++) {
         step();
         if (n % output_every_ == 0 || n == N_) {
             write_csv(csv, n, false);
@@ -86,8 +83,8 @@ void FDTD1D::write_csv(const std::string& filename, size_t tindex, bool header) 
 
     if (header) out << "t_index,z,Ex,Hy\n";
 
-    for (size_t k = 0; k < Nz_; ++k) {
+    for (size_t k = 0; k < K_; ++k) {
         double z = k * dz_;
-        out << tindex << "," << z << "," << Ex_[k] << "," << Hy_[k] << "\n";
+        out << tindex << "," << z << "," << E_[k] << "," << H_[k] << "\n";
     }
 }
