@@ -114,3 +114,5 @@ donde los parámetros son:
 Como resultado, obtendrá dos archivos en formato .txt: uno con los campos de la condición inicial, otro con la evolución temporal de estos.
 
 También podrá hacer uso de `graficas.ipynb`, que ejecuta automáticamente el programa en `C++` y grafica y anima la propagación de las ondas, además de discutir algunos resultados.
+
+**IMPORTANTE:** para usar el notebook `graficas.ipynb` necesita tener la librería `celluloid` instalada.
