@@ -1,15 +1,12 @@
 // Skeleton for classes
 #pragma once
+#include <cstddef>
 #include <vector>
 #include <string>
-#include <functional>
-#include <fstream>
-#include <stdexcept>
-#include <cmath>
 
 namespace fdtd {
 
-constexpr double c0 = 1;
+constexpr double c = 1;
 
 // two boundary conditions the user can choose from
 enum class Boundary {
@@ -19,13 +16,12 @@ enum class Boundary {
 
 // A struct to hold configuration parameters for the FDTD simulation
 struct Config {
-    size_t Nz = 200; // number of spatial nodes
-    double zmax = 200.0; // spatial extent (arbitrary units)
-    double wavelength = 100.0; // wavelength for initial sinusoid (same units as z)
-    double dz = 0.0; // space step (computed if 0 from zmax/Nz)
-    double dt = 0.0; // time step (must satisfy Courant)
-    size_t steps = 2000; // number of time steps to simulate
-    size_t output_every = 10; // write every N steps to csv
+    double Zmax = 200.0; // spatial extent
+    size_t K = 10000; // number of spatial divisions
+    double Tmax = 5000; // time extent
+    size_t N = 10000; // number of time divisions
+    double wavelength = 100.0; // wavelength for initial sine function
+    size_t output_every = 5; // write every x steps to csv file
     Boundary bc = Boundary::Periodic;
     bool renormalize_E = true; // use renormalized scheme so both updates share beta
 };
@@ -40,28 +36,29 @@ public:
     void write_csv(const std::string& filename, size_t tindex, bool header=false) const;
 
     // Accessors
-    const std::vector<double>& Ex() const { return Ex_; }
-    const std::vector<double>& Hy() const { return Hy_; }
+    const std::vector<double>& E() const { return E_; }
+    const std::vector<double>& H() const { return H_; }
     double dz() const { return dz_; }
     double dt() const { return dt_; }
     double beta() const { return beta_; }
     double courant() const { return beta_; }
-    size_t Nz() const { return Nz_; }
+    size_t N() const { return N_; }
 
 private:
-    size_t Nz_;
-    double zmax_;
+    double Zmax_;
+    size_t K_;
+    double Tmax_;
+    size_t N_;
     double dz_;
     double dt_;
     double beta_;
     double lambda_;
-    size_t steps_;
     size_t output_every_;
     Boundary bc_;
     bool renorm_;
 
-    std::vector<double> Ex_;
-    std::vector<double> Hy_;
+    std::vector<double> E_;
+    std::vector<double> H_;
 
     void apply_boundary_conditions();
 };
