@@ -16,7 +16,7 @@ public:
 };
 int main(){
     Ejemplo a;
-    a.saluda("hola mundo" );
-    a.saluda( );    
+    a.saluda("Eduardo");
+    a.saluda();    
     return 0;
 }
