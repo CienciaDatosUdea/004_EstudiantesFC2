@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -O2 -std=c++17 -Iinclude
 
 # Archivos fuente comunes
-COMMON = src/em1d.cpp
+COMMON = src/fdtd.cpp
 
 # Ejecutables
 TARGETS = fdtd1 fdtd2 fdtd3
@@ -58,7 +58,7 @@ run2: dirs fdtd2
 
 run3: dirs fdtd3
 	./fdtd3
-	python graph\generate_gifs.py
+	python python\sim_fdtd.py
 
 # Ejecutar las tres versiones en orden
 run: dirs $(TARGETS)
@@ -68,4 +68,4 @@ run: dirs $(TARGETS)
 	./fdtd2
 	@echo "=== Ejecutando fdtd3 ==="
 	./fdtd3
-	python graph\generate_gifs.py
+	python python\sim_fdtd.py
