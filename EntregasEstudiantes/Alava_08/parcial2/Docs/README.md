@@ -19,17 +19,16 @@ Este repositorio contiene la implementación del algoritmo FDTD para simular la 
       make
     
 
-3.  **Ejecutar la simulación:**
+2.  **Ejecutar la simulación:**
     Este comando generará los archivos `.txt`  con los datos de la simulación.
 
    ```bash 
    make run
    
 
-5.  **Visualizar los resultados:**
+3.  Visualizar los resultados:
     Inicia el entorno de análisis con jupyter notebook y ejecutar cada celda del programa AnalisisRespuestas.ipynb que se encuentra dentro     de la carpeta llamada python
 
 
 
-```bash
 
