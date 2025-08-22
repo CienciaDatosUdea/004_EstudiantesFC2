@@ -2,16 +2,17 @@ Tarea de Prueba: Aproximación del valor de π usando C++ y funciones
 
 1. Una forma clásica de aproximar el valor de π es mediante la **serie de Leibniz**, de convergencia lenta:
 
-\begin{equation}
+\[
 \pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots \right)
-\end{equation}
+\]
 
 Otra forma de representar el mismo cálculo, separando explícitamente los términos positivos y negativos, es:
 
+\[
 \begin{equation}
 \pi = 4 \left( \sum_{k=0}^{n-1} \frac{(-1)^k}{2k+1} \right)
 \end{equation}
-
+\]
 
 Escribe un programa en C++ que aproxime el valor de π utilizando la **serie de Leibniz**, para ello:
 

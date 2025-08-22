@@ -1,0 +1,15 @@
+# THE FOLLOWING  NUMBERS CORRESPONDS TO THE MAGNETIZATIONS OF THE  9 configs of  L^2 = 144 COMPONENTS EACH
+#
+# TEMPERATURE  T = 3.2
+#
+# Note that for J=1, the theoretical maximum magnetization is L^2 and the miminum magnetization is -L^2. For low temperatures, abs(M)->L^2 is expected, while for high temperatures, M->0 is expected.
+
+22
+-8
+14
+-4
+12
+-22
+16
+28
+10
