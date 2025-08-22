@@ -1,0 +1,103 @@
+\documentclass[
+    fontsize=9pt,
+    DIV = calc,
+    ]{scrarticle}
+
+\input{articlepreamble.sty}
+
+%% \usepackage[backend=biber,style=phys, biblabel = brackets]{biblatex}
+%% \addbibresource{refs.bib}
+%% %\usepackage[hypertexnames=false,hidelinks]{hyperref}
+
+\title{Numerical solution for the propagation of light along a spatial direction}
+\author{Juan David Salcedo Hernández}
+
+\begin{document}
+% \maketitle
+
+\begin{abstract}
+  In this short note, I introduce the equations pertaining to the numerical
+  solution of the equations governing an electromagnetic wave propagating along
+  one spatial direction.
+\end{abstract}
+
+\section{The equations and their discretisation}
+We consider the system of partial differential equations:
+\begin{align*}
+\frac{\partial E}{\partial t}(t, z) &= -\frac{1}{\varepsilon_0} \frac{\partial H}{\partial z}(t, z),\\
+\frac{\partial H}{\partial t}(t, z) &= -\frac{1}{\mu_0} \frac{\partial E}{\partial z}(t, z).
+\end{align*}
+Our task is to solve for the fields \(E\) and \(H\) in these equations over a
+closed square in \((t, z)\)-space defined by \([0,T]\times [0,
+z_{\text{max}}]\). Since the solution we seek is numerical, and for stability reasons,
+we will subdivide \([0,T]\) in \(2N\) equal parts, respectively \([0,
+  z_{\text{max}}]\) in \(2K\) equal parts, whose length we denote by \(\Delta
+t\), respectively \(\Delta z\). More specifically
+\[
+\Delta t = \frac{T}{2N},\quad \Delta z = \frac{z_{\text{max}}}{2K}
+\]
+
+
+We then want to define the fields over an ``intertwined grid'', i.e.,
+\begin{align*}
+E : \{\Delta t, 3 \Delta t, 5 \Delta t, \ldots, (2N - 1)\Delta t\} \times \{0,
+2\Delta z, 4\Delta z, \ldots, 2K \Delta z\} \longrightarrow \mathbb{R},\\
+H : \{0, 2\Delta t, 4 \Delta t, \ldots, 2N\Delta t\} \times \{\Delta z, 3 \Delta
+z, 5 \Delta z, \ldots, (2K - 1)\Delta z\} \longrightarrow \mathbb{R}.
+\end{align*}
+In more concrete notation, we will have values for these fields at the following
+points:
+\begin{align*}
+E\big( (2n + 1) \Delta t, 2k \Delta z \big), \quad n = 0, 1, \ldots N-1,\quad k = 0, 1, \ldots K,\\
+H\big( 2n \Delta t, (2k + 1) \Delta z \big), \quad n = 0, 1, \ldots N,\quad k = 0, 1, \ldots K-1.
+\end{align*}
+
+We're going to be interested in the finite differences:
+\begin{align*}
+\frac{\partial E}{\partial t} \big( (2n + 1) \Delta t, 2k \Delta z \big) &\approx
+\frac{ E\big( (2n + 1) \Delta t, 2k \Delta z \big) - E\big( (2n - 1) \Delta t, 2k
+  \Delta z \big) }{\Delta t},\quad n = 1, \ldots N-1,\quad k = 0, 1, \ldots K,\\
+\frac{\partial E}{\partial z} \big( (2n + 1) \Delta t, 2k \Delta z \big) &\approx
+\frac{ E\big( (2n + 1) \Delta t, 2k \Delta z \big) - E\big( (2n + 1) \Delta t,
+  2(k - 1)\Delta z \big) }{\Delta z},\quad n = 0, 1, \ldots N-1,\quad k = 1, \ldots K,\\
+\frac{\partial H}{\partial t} \big( 2n \Delta t, (2k + 1) \Delta z \big) &\approx
+\frac{ H\big( 2n \Delta t, (2k + 1) \Delta z \big) - H\big( 2(n - 1) \Delta t,
+  (2k + 1) \Delta z \big) }{\Delta t},\quad n = 1, \ldots N,\quad k = 0, 1, \ldots K-1,\\
+\frac{\partial H}{\partial z} \big( 2n \Delta t, (2k + 1) \Delta z \big) &\approx
+\frac{ H\big( 2n \Delta t, (2k + 1) \Delta z \big) - H\big( 2n \Delta t,
+  (2k - 1) \Delta z \big) }{\Delta z},\quad n = 0, 1, \ldots N,\quad k = 1, \ldots K-1.
+\end{align*}
+Inserting these approximations into the differential equation and simplifying,
+taking into account the domains of \(n\) and \(k\), we get:
+\begin{align*}
+E\big( (2n + 1) \Delta t, 2k \Delta z \big) &= E\big( (2n - 1) \Delta t, 2k \Delta z \big)
+- \frac{\Delta t}{\varepsilon_0 \Delta z} \Big( H\big( 2n \Delta t, (2k + 1) \Delta z \big) - H\big( 2n \Delta t,
+  (2k - 1) \Delta z \big) \Big),\\
+H\big( 2n \Delta t, (2k + 1) \Delta z \big) &= H\big( 2(n - 1) \Delta t, (2k + 1) \Delta z \big)
+- \frac{\Delta t}{\mu_0 \Delta z} \Big( E\big( (2n + 1) \Delta t, 2k \Delta z \big) - E\big( (2n + 1) \Delta t,
+  2(k - 1)\Delta z \big) \Big),
+\end{align*}
+both of which hold for \(n= 1,\ldots, N-1\) and \(k = 1, \ldots, K-1\).
+Renormalising \(\widetilde{E} := \sqrt{\frac{\varepsilon_0}{\mu_0}}E\), we get
+\begin{align*}
+\widetilde{E}\big( (2n + 1) \Delta t, 2k \Delta z \big) &= \widetilde{E}\big( (2n - 1) \Delta t, 2k \Delta z \big)
+- c\frac{\Delta t}{\Delta z} \Big( H\big( 2n \Delta t, (2k + 1) \Delta z \big) - H\big( 2n \Delta t,
+  (2k - 1) \Delta z \big) \Big),\\
+H\big( 2n \Delta t, (2k + 1) \Delta z \big) &= H\big( 2(n - 1) \Delta t, (2k + 1) \Delta z \big)
+- c\frac{\Delta t}{\Delta z} \Big( \widetilde{E}\big( (2n + 1) \Delta t, 2k \Delta z \big) - \widetilde{E}\big( (2n + 1) \Delta t,
+  2(k - 1)\Delta z \big) \Big),
+\end{align*}
+
+We take into account the stability conditions
+\[
+\Delta z \le \frac{\lambda}{10}, \quad, \text{e.g.,} \quad \Delta z =
+\frac{\lambda}{10} - \varepsilon,
+\]
+and then the \emph{Courant condition}
+\[
+c \frac{\Delta t}{\Delta z} \le \frac12 \implies \Delta t \le \frac{1}{2c}
+\Delta z, \quad \text{e.g.,} \quad \Delta t = \frac{1}{2c}\Delta z -\varepsilon'
+\]
+
+
+\end{document}
