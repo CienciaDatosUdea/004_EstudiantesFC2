@@ -1,7 +1,7 @@
 CXX := g++
 CXXFLAGS := -O3 -std=c++17 -Wall -Wextra -Iinclude
 
-SRC := src/fdtd.cpp main_stable.cpp
+SRC := src/fdtd.cpp main.cpp
 OBJ := $(SRC:.cpp=.o)
 BIN := fdtd
 

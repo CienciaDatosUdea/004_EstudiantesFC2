@@ -17,14 +17,13 @@ enum class Boundary {
 // A structure to hold configuration parameters for the FDTD simulation
 struct Config {
     double zmax = 200.0; // spatial extent
-    size_t Nz = 10000;   // number of spatial divisions
-    double Tmax = 5000;  // time extent
+    size_t Nz = 10000; // number of spatial divisions
+    double Tmax = 5000; // time extent
     size_t steps = 10000; // number of time divisions
-    double dz = zmax / static_cast<double>(Nz); // spatial step
+    double dz = zmax / static_cast<double>(2 * Nz); // spatial step
     double wavelength = 100.0; // wavelength for initial sine function
-    size_t output_every = 5; // write every x steps to csv file
+    size_t output_every = 30; // write every n steps to csv file
     Boundary bc = Boundary::Periodic;
-    bool renormalize_E = true; // use renormalized scheme so both updates share beta
 
     // Method to automatically compute stable spatial divisions
     void computeStableSpatial(double safety_factor = 0.9) {
@@ -97,7 +96,6 @@ public:
     double dz() const { return dz_; }
     double dt() const { return dt_; }
     double beta() const { return beta_; }
-    double courant() const { return beta_; }
     size_t steps() const { return steps_; }
     size_t Nz() const { return Nz_; }
 

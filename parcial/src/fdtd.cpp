@@ -12,33 +12,33 @@ FDTD1D::FDTD1D(const Config &cfg)
       dz_(cfg.dz),
       // Time parameters
       Tmax_(cfg.Tmax), steps_(cfg.steps),
-      dt_(cfg.Tmax / static_cast<double>(cfg.steps)),
+      dt_(cfg.Tmax / static_cast<double>(2 * cfg.steps)),
       // Other parameters
       lambda_(cfg.wavelength), output_every_(cfg.output_every), bc_(cfg.bc),
-      renorm_(cfg.renormalize_E), EH_vector(2 * cfg.Nz, 0.0)
+      EH_vector(2 * cfg.Nz, 0.0)
       {
-          // Evaluate stability condition
-          if (dz_ > lambda_ / 10) {
-              throw std::runtime_error("Unstable configuration: dz must be <= " + std::to_string(lambda_ / 10));
-          }
+          // // Evaluate stability condition
+          // if (dz_ > lambda_ / 10) {
+          //     throw std::runtime_error("Unstable configuration: dz must be <= " + std::to_string(lambda_ / 10));
+          // }
 
-          // Evaluate Courant number
+          // // Evaluate Courant number
           beta_ = c * dt_ / dz_;
-          if (beta_ > 0.5 ) {
-              throw std::runtime_error("Unstable configuration: Courant number = " + std::to_string(beta_) +
-                                       " must be <= 0.5");
-          }
+          // if (beta_ > 0.5 ) {
+          //     throw std::runtime_error("Unstable configuration: Courant number = " + std::to_string(beta_) +
+          //                              " must be <= 0.5");
+          // }
           setFieldsAtInitialTime();
       }
 
 void FDTD1D::setFieldsAtInitialTime() {
     for (size_t k = 0; k < Nz_; k++) {
-        double z_E = k * dz_;  // Position for E field
-        double z_H = (k + 0.5) * dz_;  // Position for H field (staggered grid)
-        
+        double z_E = 2 * k * dz_;  // Position for E field
+        double z_H = (2 * k + 1) * dz_;  // Position for H field (staggered grid)
+
         double E_value = 0.1 * sin(2.0 * M_PI * z_E / lambda_);
         double H_value = 0.1 * sin(2.0 * M_PI * z_H / lambda_);
-        
+
         EH_vector[2 * k] = E_value;
         EH_vector[2 * k + 1] = H_value;
     }
@@ -61,25 +61,14 @@ void FDTD1D::applyBoundaryConditions() {
 void FDTD1D::step() {
     std::vector<double> EH_vector_old = EH_vector;
 
-    // Update E field: E^{n+1}(k) = E^n(k) + (dt/eps0) * [H^{n+1/2}(k+1/2) - H^{n+1/2}(k-1/2)] / dz
     // In our indexing: E is at even indices, H is at odd indices
     for (size_t k = 0; k < Nz_; k++) {
         double H_right, H_left;
 
-        // H_right corresponds to H(k+1/2), H_left to H(k-1/2)
-        if (k == Nz_ - 1) {
-            // At rightmost boundary
-            if (bc_ == Boundary::Periodic) {
-                H_right = EH_vector_old[1]; // H at k=0
-            } else {
-                H_right = 0.0; // PEC boundary
-            }
-        } else {
-            H_right = EH_vector_old[2 * k + 1]; // H at current k
-        }
+        H_right = EH_vector_old[2 * k + 1]; // H at current k
 
         if (k == 0) {
-            // At leftmost boundary  
+            // At leftmost boundary
             if (bc_ == Boundary::Periodic) {
                 H_left = EH_vector_old[2 * (Nz_ - 1) + 1]; // H at k=Nz-1
             } else {
@@ -93,7 +82,7 @@ void FDTD1D::step() {
         EH_vector[2 * k] = EH_vector_old[2 * k] + dt_ * dH_dz; // Assuming c = 1, eps0 = mu0 = 1
     }
 
-    // Update H field: H^{n+3/2}(k+1/2) = H^{n+1/2}(k+1/2) + (dt/mu0) * [E^{n+1}(k+1) - E^{n+1}(k)] / dz
+    // This one is with the current (already updated) E field values
     for (size_t k = 0; k < Nz_; k++) {
         double E_right, E_left;
 
