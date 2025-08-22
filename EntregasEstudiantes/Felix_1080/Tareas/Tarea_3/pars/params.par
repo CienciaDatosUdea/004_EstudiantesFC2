@@ -1,0 +1,9 @@
+xmin=-1.0
+xmax=1.0
+N=101
+D=0.1
+dt=0.001
+tmax=1.0
+x0=0.0
+filename=data/solucion_final.txt
+sigma=0.1
