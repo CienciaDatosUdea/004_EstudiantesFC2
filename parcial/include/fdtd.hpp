@@ -20,7 +20,7 @@ struct Config {
     size_t Nz = 10000;   // number of spatial divisions
     double Tmax = 5000;  // time extent
     size_t steps = 10000; // number of time divisions
-    double dz = zmax / static_cast<double>(2 * Nz); // spatial step
+    double dz = zmax / static_cast<double>(Nz); // spatial step
     double wavelength = 100.0; // wavelength for initial sine function
     size_t output_every = 5; // write every x steps to csv file
     Boundary bc = Boundary::Periodic;

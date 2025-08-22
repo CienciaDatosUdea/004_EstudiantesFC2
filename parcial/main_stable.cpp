@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
     std::cout << "Computing stable discretization...\n";
     std::cout << "Original Nz: " << cfg.Nz << ", steps: " << cfg.steps << "\n";
 
-    cfg.computeStableDiscretization(0.5, 0.9);
+    cfg.computeStableDiscretization(0.1, 0.25);
 
     std::cout << "Stable Nz: " << cfg.Nz << ", steps: " << cfg.steps << "\n";
     std::cout << "dz: " << cfg.dz << ", expected dt: " << cfg.Tmax / cfg.steps << "\n";

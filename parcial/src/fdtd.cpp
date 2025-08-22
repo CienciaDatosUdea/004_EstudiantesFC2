@@ -12,7 +12,7 @@ FDTD1D::FDTD1D(const Config &cfg)
       dz_(cfg.dz),
       // Time parameters
       Tmax_(cfg.Tmax), steps_(cfg.steps),
-      dt_(cfg.Tmax / static_cast<double>(2 * cfg.steps)),
+      dt_(cfg.Tmax / static_cast<double>(cfg.steps)),
       // Other parameters
       lambda_(cfg.wavelength), output_every_(cfg.output_every), bc_(cfg.bc),
       renorm_(cfg.renormalize_E), EH_vector(2 * cfg.Nz, 0.0)
@@ -33,8 +33,12 @@ FDTD1D::FDTD1D(const Config &cfg)
 
 void FDTD1D::setFieldsAtInitialTime() {
     for (size_t k = 0; k < Nz_; k++) {
-        double E_value = 0.1 * sin(2.0 * M_PI * (2 * k * dz_) / lambda_); // Generalise this to have arbirtrary functions
-        double H_value = 0.1 * sin(2.0 * M_PI * ((2 * k + 1) * dz_) / lambda_);
+        double z_E = k * dz_;  // Position for E field
+        double z_H = (k + 0.5) * dz_;  // Position for H field (staggered grid)
+        
+        double E_value = 0.1 * sin(2.0 * M_PI * z_E / lambda_);
+        double H_value = 0.1 * sin(2.0 * M_PI * z_H / lambda_);
+        
         EH_vector[2 * k] = E_value;
         EH_vector[2 * k + 1] = H_value;
     }
@@ -57,42 +61,58 @@ void FDTD1D::applyBoundaryConditions() {
 void FDTD1D::step() {
     std::vector<double> EH_vector_old = EH_vector;
 
-    // Update E over space coordinates
+    // Update E field: E^{n+1}(k) = E^n(k) + (dt/eps0) * [H^{n+1/2}(k+1/2) - H^{n+1/2}(k-1/2)] / dz
+    // In our indexing: E is at even indices, H is at odd indices
     for (size_t k = 0; k < Nz_; k++) {
         double H_right, H_left;
 
-        // Handle boundary conditions for H field access
-        if (k == 0) {
-            H_left = (bc_ == Boundary::Periodic) ? EH_vector_old[2 * (Nz_ - 1) + 1] : 0.0;
-        } else {
-            H_left = EH_vector_old[2 * k - 1];
-        }
-
+        // H_right corresponds to H(k+1/2), H_left to H(k-1/2)
         if (k == Nz_ - 1) {
-            H_right = (bc_ == Boundary::Periodic) ? EH_vector_old[1] : 0.0;
+            // At rightmost boundary
+            if (bc_ == Boundary::Periodic) {
+                H_right = EH_vector_old[1]; // H at k=0
+            } else {
+                H_right = 0.0; // PEC boundary
+            }
         } else {
-            H_right = EH_vector_old[2 * k + 1];
+            H_right = EH_vector_old[2 * k + 1]; // H at current k
         }
 
-        double diff = H_right - H_left;
-        EH_vector[2 * k] = EH_vector_old[2 * k] + beta_ * diff;
+        if (k == 0) {
+            // At leftmost boundary  
+            if (bc_ == Boundary::Periodic) {
+                H_left = EH_vector_old[2 * (Nz_ - 1) + 1]; // H at k=Nz-1
+            } else {
+                H_left = 0.0; // PEC boundary
+            }
+        } else {
+            H_left = EH_vector_old[2 * k - 1]; // H at k-1
+        }
+
+        double dH_dz = (H_right - H_left) / dz_;
+        EH_vector[2 * k] = EH_vector_old[2 * k] + dt_ * dH_dz; // Assuming c = 1, eps0 = mu0 = 1
     }
 
-    // Update H over space coordinates
+    // Update H field: H^{n+3/2}(k+1/2) = H^{n+1/2}(k+1/2) + (dt/mu0) * [E^{n+1}(k+1) - E^{n+1}(k)] / dz
     for (size_t k = 0; k < Nz_; k++) {
-        double E_current, E_left;
+        double E_right, E_left;
 
-        // Handle boundary conditions for E field access
-        E_current = EH_vector_old[2 * k];
+        // E_right corresponds to E(k+1), E_left to E(k)
+        E_left = EH_vector[2 * k]; // E at current k (already updated)
 
-        if (k == 0) {
-            E_left = (bc_ == Boundary::Periodic) ? EH_vector_old[2 * (Nz_ - 1)] : 0.0;
+        if (k == Nz_ - 1) {
+            // At rightmost boundary
+            if (bc_ == Boundary::Periodic) {
+                E_right = EH_vector[0]; // E at k=0
+            } else {
+                E_right = 0.0; // PEC boundary
+            }
         } else {
-            E_left = EH_vector_old[2 * (k - 1)];
+            E_right = EH_vector[2 * (k + 1)]; // E at k+1
         }
 
-        double diff = E_current - E_left;
-        EH_vector[2 * k + 1] = EH_vector_old[2 * k + 1] + beta_ * diff;
+        double dE_dz = (E_right - E_left) / dz_;
+        EH_vector[2 * k + 1] = EH_vector_old[2 * k + 1] + dt_ * dE_dz;
     }
 
     applyBoundaryConditions();
@@ -102,9 +122,9 @@ void FDTD1D::step() {
 void FDTD1D::run() {
     const std::string csv = "fdtd_output.csv";
     write_csv(csv, 0, true);
-    for (size_t n = 1; n <= Nz_; n++) {
+    for (size_t n = 1; n <= steps_; n++) {
         step();
-        if (n % output_every_ == 0 || n == Nz_) {
+        if (n % output_every_ == 0 || n == steps_) {
             write_csv(csv, n, false);
         }
     }
