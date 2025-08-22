@@ -6,7 +6,7 @@ int main(int argc, char** argv) {
     using namespace fdtd;
 
     Config cfg;
-    
+
     // Parse command line arguments
     if (argc >= 2) cfg.Nz = std::stoul(argv[1]);
     if (argc >= 3) cfg.steps = std::stoul(argv[2]);
@@ -15,13 +15,13 @@ int main(int argc, char** argv) {
         if (bc == "periodic") cfg.bc = Boundary::Periodic;
         else if (bc == "pec") cfg.bc = Boundary::PEC;
     }
-    
+
     // Automatically compute stable discretization
     std::cout << "Computing stable discretization...\n";
     std::cout << "Original Nz: " << cfg.Nz << ", steps: " << cfg.steps << "\n";
-    
-    cfg.computeStableDiscretization();
-    
+
+    cfg.computeStableDiscretization(0.5, 0.9);
+
     std::cout << "Stable Nz: " << cfg.Nz << ", steps: " << cfg.steps << "\n";
     std::cout << "dz: " << cfg.dz << ", expected dt: " << cfg.Tmax / cfg.steps << "\n";
 
