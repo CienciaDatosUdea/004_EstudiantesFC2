@@ -1,5 +1,6 @@
 # Simulación FDTD - Examen Final
-
+David fernando Alava Maya 
+1006946708
 Este repositorio contiene la implementación del algoritmo FDTD para simular la propagación de una onda electromagnética en 1D.
 
 ## Requisitos
@@ -20,7 +21,7 @@ Este repositorio contiene la implementación del algoritmo FDTD para simular la 
     
 
 2.  **Ejecutar la simulación:**
-    Este comando generará los archivos `.txt`  con los datos de la simulación.
+    Para generar los archivos `.txt`  con los datos de la simulación ejecutamos el siguiente comando.
 
    ```bash 
    make run
