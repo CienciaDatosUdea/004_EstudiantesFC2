@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/mnt/c/Users/juanf/Documents/NotasObsidian/Fisica_Comp_2/Parcial2/include"
+            ],
+            "defines": [],
+            "compilerPath": "/home/castello/miniconda3/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}
