@@ -1,0 +1,35 @@
+\documentclass[
+    fontsize=9pt,
+    DIV = calc,
+    ]{scrarticle}
+
+\input{articlepreamble.sty}
+
+%% \usepackage[backend=biber,style=phys, biblabel = brackets]{biblatex}
+%% \addbibresource{refs.bib}
+%% %\usepackage[hypertexnames=false,hidelinks]{hyperref}
+
+\title{Numerical solution for the propagation of light along a spatial direction}
+\author{Juan David Salcedo}
+
+\begin{document}
+% \maketitle
+
+\begin{abstract}
+  In this short note, I introduce the equations pertaining to the numerical
+  solution of the equations governing an electromagnetic wave propagating along
+  one spatial direction.
+\end{abstract}
+
+\section{The equations and their discretisation}
+We consider the system of partial differential equations:
+\[
+\frac{\partial E}{\partial t}(t, z) = -\frac{1}{\varepsilon_0} \frac{\partial H}{\partial z}(t, z),
+\]
+\[
+\frac{\partial H}{\partial t}(t, z) = -\frac{1}{\mu_0} \frac{\partial E}{\partial z}(t, z),
+\]
+
+
+
+\end{document}
