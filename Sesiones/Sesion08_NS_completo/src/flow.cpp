@@ -149,7 +149,7 @@ FieldWriter::FieldWriter(const std::string &filename)
         if (!file.is_open()) 
             throw std::runtime_error("No se pudo abrir el archivo: " + filename);
         
-        file << std::fixed << std::setprecision(6);
+        //file << std::fixed << std::setprecision(6);
     }
 
 
