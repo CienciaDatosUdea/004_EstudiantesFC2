@@ -9,7 +9,11 @@
 
 #include <boost/math/special_functions/bessel.hpp>/*provides bessel-K function*/
 
-BEqSolver::BEqSolver(long double xi0,long double xif,int nxi_,long double Y0_,BoltzmannEquation BEQ_):x0(pow(10,xi0)),nxi(nxi_),Y0(Y0_),BEQ(BEQ_){
+BEqSolver::BEqSolver(long double xi0,
+                    long double xif,
+                    int nxi_,long double Y0_,
+                    BoltzmannEquation BEQ_):
+                    x0(pow(10,xi0)),nxi(nxi_),Y0(Y0_),BEQ(BEQ_){
     xs.resize(nxi);
     xis.resize(nxi);
     Ys.resize(nxi);
@@ -65,7 +69,9 @@ void BEqSolver::solve(){
 
         Yn = Ys[i-1];
         Ynm1 = Ys[i-2];
-        auto func = [a1,a0,am1,Yn,Ynm1,this](double Y){return a1*Y+a0*Yn+am1*Ynm1-this->BEQ.dYdx(Y);};
+        auto func = [a1,a0,am1,Yn,Ynm1,this](double Y){
+            return a1*Y+a0*Yn+am1*Ynm1-this->BEQ.dYdx(Y);
+        };
 
         Ys[i] = sec.encontrarRaiz(func,Yn,Ynm1);
     }}
