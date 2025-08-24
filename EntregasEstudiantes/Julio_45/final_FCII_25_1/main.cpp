@@ -6,6 +6,7 @@
 #include "../include/boltzmann.h"
 
 int main(int argc, char *argv []){
+    // parámetros
     long double MS = atof(argv[1]);
     long double sigmav = atof(argv[2]);
     long double TR = atof(argv[3]);
@@ -14,19 +15,36 @@ int main(int argc, char *argv []){
     int DMfin = atoi(argv[6]);
     int SMfin = atoi(argv[7]);
 
+    // Temperatura actual
     long double T0 = 2.3482233139345615e-13;
+    
+    // Número de pasos para el BDF
     int nxi = 1000;
 
-    std::string path = "/home/santiago/santiago_FCII_20251/final_FCII_25_1";
+    std::string path = "/home/santiago/santiago_FCII_20251/004_EstudiantesFC2/EntregasEstudiantes/Julio_45/final_FCII_25_1";
+
+    // Cantidades termodinámicas
     Cosmology C(T0);
     C.calculate(path);
-    std::cout<<C.geff<<"\t"<<C.heff<<"\t"<<C.energyDensity<<"\t"<<C.entropyDensity<<"\t"<<C.hubbleRate<<std::endl;
+    std::cout<<"-----------------------------"<<std::endl;
+    std::cout<<"Cantidades termodinámicas hoy"<<std::endl;
+    std::cout<<"-----------------------------"<<std::endl;
+    std::cout<<"geff = "<<C.geff<<"\n";
+    std::cout<<"heff = "<<C.heff<<"\n";
+    std::cout<<"rho = "<<C.energyDensity<<"\n";
+    std::cout<<"s = "<<C.entropyDensity<<"\n";
+    std::cout<<"H = "<<C.hubbleRate<<std::endl;
+    std::cout<<"-----------------------------"<<std::endl;
 
+    std::cout<<"Modelo de materia oscura"<<std::endl;
+    std::cout<<"-----------------------------"<<std::endl;
     DarkMatterModel model(name,DMini,DMfin,SMfin);
     model.printProcess();
-
+    std::cout<<"-----------------------------"<<std::endl;
+    // ecuación de Boltzmann
     BoltzmannEquation BEQ(MS/TR,MS,1,sigmav,model,path);
 
+    // límites y condición inicial
     long double xi0 = log10(MS/TR);
     long double xif = log10(MS/T0);
     long double Y0;
@@ -34,30 +52,16 @@ int main(int argc, char *argv []){
     if (model.name == "FIMP"){Y0 = 0;}
     else {Y0 = BEQ.Yeq();}
 
-    std::cout<<Y0<<std::endl;
-    std::cout<<BEQ.dYdx(Y0)<<std::endl;
+    std::cout<<"Condición inicial"<<std::endl;
+    std::cout<<"Y_0 = "<<Y0<<std::endl;
+    std::cout<<"-----------------------------"<<std::endl;
 
+    // Solución de la ED
     BEqSolver sol(xi0,xif,nxi,Y0,BEQ);
-    std::cout<<sol.xis[0]<<","<<sol.xis[nxi-1]<<","<<sol.delta<<std::endl;
-    std::cout<<sol.xs[0]<<","<<sol.xs[1]<<","<<sol.xs[1]-sol.xs[0]<<std::endl;
-    long double xp = pow(10,sol.xis[0]+sol.delta/2);
-    std::cout<<xp<<std::endl;
-
-    BEQ.setX(xp);
-    std::cout<<BEQ.x<<std::endl;
-    std::cout<<BEQ.C.geff<<std::endl;
-    std::cout<<BEQ.C.energyDensity<<std::endl;
-    std::cout<<BEQ.C.T<<std::endl;
-
-    std::cout<<BEQ.dYdx(Y0)<<std::endl;
-    std::cout<<"-------------------"<<std::endl;
     sol.solve();
-    //std::cout<<"Y_0 = "<<sol.Ys[sol.nxi-1]<<std::endl;
+
     std::cout<<"Omega*h2 = "<<sol.Omegah2<<"\n";
-    //for (int i=0;i<nxi;i++){std::cout<<sol.Ys[i]<<std::endl;}
-    Cosmology today(T0);
-    today.calculate(BEQ.path);
-    std::cout << "s_0 = " << today.entropyDensity<<std::endl;
+    std::cout<<"-----------------------------"<<std::endl;
     
     FieldWriter file;
     file.write(sol);

@@ -7,24 +7,28 @@
 #include <sstream>
 #include "../include/boltzmann.h"
 
-#include <boost/math/special_functions/bessel.hpp>/*provides bessel-K function*/
+#include <boost/math/special_functions/bessel.hpp> // provee la función K de Bessel
+
+/*
+Clase que calcula las cantidades físicas asociadas a la cosmología
+*/
 
 Cosmology::Cosmology(long double T_):T(T_){
-    geff = 0.0;
-    heff = 0.0;
-    dlngeffdlnT = 0.0;
-    dlnheffdlnT = 0.0;
-    energyDensity = 0.0;
-    entropyDensity = 0.0;
-    hubbleRate = 0.0;
+    geff = 0.0;     // Grados de libertad relativistas que contribuyen a la energía
+    heff = 0.0;     // Grados de libertad relativistas que contribuyen a la entropía
+    // Derivadas logarítmicas
+    energyDensity = 0.0;    // Densidad de energía
+    entropyDensity = 0.0;   // Densidad de entropía
+    hubbleRate = 0.0;       // Tasa de expansión de Hubble
 }
 
 void Cosmology::readDegreesOfFreedom(const std::string& path){
+    /*
+    Lee los datos de los grados de libertad
+    */
     geffvec.clear(),geffvec.shrink_to_fit();
     heffvec.clear(),heffvec.shrink_to_fit();
     Tvec.clear(),Tvec.shrink_to_fit();
-    dlngeffdlnTvec.clear(),dlngeffdlnTvec.shrink_to_fit();
-    dlnheffdlnTvec.clear(),dlnheffdlnTvec.shrink_to_fit();
 
     std::string filename = path + "/" + "data/std.tab";
 
@@ -52,8 +56,12 @@ void Cosmology::readDegreesOfFreedom(const std::string& path){
 }
 
 void Cosmology::calculate(const std::string& path){
+    /*
+    Calcula las cantidades mencionadas anteriormente
+    */
     long double MP = 2.4e18;
     readDegreesOfFreedom(path);
+    // interpolación lineal de los grados de libertad
     if(T<Tvec[0]){
         geff = geffvec[0];
         heff = heffvec[0];

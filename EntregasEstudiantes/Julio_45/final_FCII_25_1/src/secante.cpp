@@ -7,7 +7,7 @@
 #include <sstream>
 #include "../include/boltzmann.h"
 
-#include <boost/math/special_functions/bessel.hpp>/*provides bessel-K function*/
+#include <boost/math/special_functions/bessel.hpp> // provee la función K de Bessel
 
 // Constructor
 Secante::Secante(double tol, int maxIter) : tolerancia(tol), maxIteraciones(maxIter) {}

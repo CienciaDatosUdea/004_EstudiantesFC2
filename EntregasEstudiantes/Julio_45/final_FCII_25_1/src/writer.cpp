@@ -8,7 +8,12 @@
 #include <iomanip>
 #include "../include/boltzmann.h"
 
-#include <boost/math/special_functions/bessel.hpp>/*provides bessel-K function*/
+#include <boost/math/special_functions/bessel.hpp> // provee la función K de Bessel
+
+/*
+Clase que escribe los datos del modelo y la solución de la ecuación de Boltzmann
+en archivos .txt
+*/
 
 FieldWriter::FieldWriter(){
     solution.open("data/solution.txt");
@@ -20,9 +25,10 @@ FieldWriter::FieldWriter(){
 }
 
 void FieldWriter::write(BEqSolver BEQsol){
+    // Escribe los datos de la solución
     std::cout<<std::setprecision(6)<<std::fixed;
     int n = BEQsol.nxi;
-    solution << "# x\t\tT\t\tY\t\tYeq\t\tgeff\t\theff\t\tdlngeff/dlnT\tdlnheff/dlnT\trho\t\ts\t\tH\n";
+    solution << "# x\t\tT\t\tY\t\tYeq\t\tgeff\t\theff\t\trho\t\ts\t\tH\n";
     solution << "# ======================================================================================================\n";
     for(int i=0;i<n;i++){
         BEQsol.BEQ.setX(BEQsol.xs[i]);
@@ -32,14 +38,13 @@ void FieldWriter::write(BEqSolver BEQsol){
         <<"\t"<< BEQsol.BEQ.Yeq()
         <<"\t"<< BEQsol.BEQ.C.geff
         <<"\t"<< BEQsol.BEQ.C.heff
-        <<"\t"<< BEQsol.BEQ.C.dlngeffdlnT
-        <<"\t"<< BEQsol.BEQ.C.dlnheffdlnT
         <<"\t"<< BEQsol.BEQ.C.energyDensity
         <<"\t"<< BEQsol.BEQ.C.entropyDensity
         <<"\t"<< BEQsol.BEQ.C.hubbleRate<<std::endl;
 
     }
 
+    // Escribe los parámetros
     params << "# PARÁMETROS DEL MODELO #\n";
     params << "=========================\n";
     params << BEQsol.BEQ.modelname << " dark matter\n";

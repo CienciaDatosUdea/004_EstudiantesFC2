@@ -7,13 +7,18 @@
 #include <sstream>
 #include "../include/boltzmann.h"
 
-#include <boost/math/special_functions/bessel.hpp>/*provides bessel-K function*/
+#include <boost/math/special_functions/bessel.hpp> // provee la función K de Bessel
+
+/*
+Integrador de la ecuación de Boltzmann
+*/
 
 BEqSolver::BEqSolver(long double xi0,
                     long double xif,
                     int nxi_,long double Y0_,
                     BoltzmannEquation BEQ_):
                     x0(pow(10,xi0)),nxi(nxi_),Y0(Y0_),BEQ(BEQ_){
+    // definición de los vectores x y Y
     xs.resize(nxi);
     xis.resize(nxi);
     Ys.resize(nxi);
@@ -27,8 +32,11 @@ BEqSolver::BEqSolver(long double xi0,
 
 
 void BEqSolver::solve(){
+    // Resuelve la ecuación de Boltzmann con el método BDF-2
+
     long double k1,k2,delta,deltaPlus,deltaMinus,a1,a0,am1,Yn,Ynm1;
 
+    // Condiciones iniciales con RK2
     delta = (xs[1]-xs[0]);
     // k1
     BEQ.setX(xs[0]);
@@ -44,6 +52,8 @@ void BEqSolver::solve(){
     std::cout<<"Y_1 = "<<Ys[1]<<"\n";
     
     Secante sec(1e-10,200);
+
+    // Integración directa para FIMPs
     if(BEQ.modelname == "FIMP"){
         for (int i=2;i<nxi;i++){
             BEQ.setX(xs[i]);
@@ -57,6 +67,7 @@ void BEqSolver::solve(){
         }
     }
     
+    // Evolución con BDF
     else{
     for (int i=2;i<nxi;i++){
         BEQ.setX(xs[i]);
@@ -75,10 +86,12 @@ void BEqSolver::solve(){
 
         Ys[i] = sec.encontrarRaiz(func,Yn,Ynm1);
     }}
-
+    // Constantes
     long double MP = 2.4e18;
     long double T0 = 2.3482233139345615e-13;
     Cosmology today(T0);
     today.calculate(BEQ.path);
+
+    // Abundancia de reliquia
     Omegah2 = Ys[nxi-1]*BEQ.MS*today.entropyDensity/(3.0L*MP*MP*pow(2.13e-42,2));
 }

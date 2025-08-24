@@ -7,10 +7,15 @@
 #include <sstream>
 #include "../include/boltzmann.h"
 
-#include <boost/math/special_functions/bessel.hpp>/*provides bessel-K function*/
+#include <boost/math/special_functions/bessel.hpp> // provee la función K de Bessel
+
+/*
+Clase que crea el modelo de materia oscura
+*/
 
 DarkMatterModel::DarkMatterModel(std::string name_,int DMini_,int DMfin_,int SMfin_):name(name_),DMini(DMini_),DMfin(DMfin_),SMfin(SMfin_){}
 
+// imprime la reacción
 void DarkMatterModel::printProcess(){
     std::cout<<name<<" Dark Matter"<<std::endl;
     // X+X+...+X (DMini veces)

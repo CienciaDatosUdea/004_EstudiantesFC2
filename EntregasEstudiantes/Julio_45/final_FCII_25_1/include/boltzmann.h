@@ -14,7 +14,7 @@ class Cosmology{
         Cosmology(long double T);
         void readDegreesOfFreedom(const std::string& path);
         void calculate(const std::string& path);
-        long double geff,heff,dlngeffdlnT,dlnheffdlnT;
+        long double geff,heff;
         long double entropyDensity,energyDensity,hubbleRate;
 };
 

@@ -1,9 +1,9 @@
 # PARÁMETROS DEL MODELO #
 =========================
-SIMP dark matter
-Reacción: ~x1~x1~x1 -> ~x1~x1
-Ecuación de Boltzmann: dY/dx=-(<σv>*s2/x*Hbar)(Y^3-Y^2*Yeq^1)
+FIMP dark matter
+Reacción: Y+Y -> ~x1~x1
+Ecuación de Boltzmann: dY/dx=-(<σv>*s/x*Hbar)(-Yeq^2)
 M_S = 1
 <σv> = 1e-24
-T_R = 1e+06
-Ω_0h² = nan
+T_R = 10
+Ω_0h² = 0.555667
