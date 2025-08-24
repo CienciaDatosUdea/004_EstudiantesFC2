@@ -160,11 +160,39 @@ donde $\langle\sigma v^2\rangle$ es la sección eficaz promediada térmicamente 
 
 La ecuación de Boltzmann para la densidad de número en el universo temprano se conoce como una ecuación _rígida_ porque los términos de la ecuación pueden variar en escalas de tiempo muy diferentes:
 
-El término de interacción (( \langle \sigma v \rangle (n^2 - n_{eq}^2) )) puede ser muy grande cuando las partículas están en equilibrio, lo que provoca cambios rápidos en ( n ).
-El término de expansión (( 3Hn )) evoluciona más lentamente.
+* El término de interacción $\langle \sigma v \rangle (n^2 - n_{eq}^2)$ puede ser muy grande cuando las partículas están en equilibrio, lo que provoca cambios rápidos en $n$.
+* El término de expansión $3Hn$ evoluciona más lentamente.
 Esta diferencia de escalas genera que la solución cambie muy rápido en algunos intervalos y muy lento en otros. Los métodos explícitos, como Euler o Runge-Kutta, requieren pasos de integración muy pequeños para mantener la estabilidad numérica en regiones de cambio rápido, lo que los hace ineficientes o incluso inestables.
 
 Por eso, se prefieren métodos implícitos o semi-implícitos para resolver la ecuación de Boltzmann, ya que son más adecuados para ecuaciones rígidas y permiten usar pasos de integración más grandes sin perder estabilidad [2].
+
+El método BDF (Backward Differentiation Formula) es una familia de métodos numéricos implícitos para resolver ecuaciones diferenciales ordinarias, especialmente útiles para ecuaciones rígidas. Considérese una ecuación diferencial rígida de la forma:
+
+$$
+\dfrac{\mathrm{d}Y}{\mathrm{d}x}=F(x,Y)
+$$
+
+En el método BDF, el valor futuro de la solución se calcula usando una combinación lineal de valores anteriores y la derivada evaluada en el nuevo punto.
+
+$$
+\left(\dfrac{\mathrm{d}Y}{\mathrm{d}x}\right)\_{n+1}\simeq\alpha_1Y_{n+1}+\alpha_0Y_n+\alpha_{-1}Y_{n-1}
+$$
+
+Por ejemplo, el BDF-2 (segundo orden) usa los dos valores previos para estimar el siguiente:
+
+$$
+\alpha_1 Y_{n+1} + \alpha_0 Y_n + \alpha_{-1} Y_{n-1} = F(x_{n+1}, Y_{n+1})\quad (*)
+$$
+
+donde 
+
+$$\begin{align*}
+&\alpha_1=\dfrac{1}{\Delta x_n}\left(1+\dfrac{\Delta x_n}{\Delta x_{n-1}+\Delta x_n}\right)\\
+&\alpha_{-1}=\dfrac{1}{\Delta x_{n-1}}\left(\dfrac{\Delta x_n}{\Delta x_{n-1}+\Delta x_n}\right)\\
+&\alpha_0=-\alpha_1-\alpha_{-1}
+\end{align*}$$
+
+y $\Delta x_n = x_{n+1}-x_n,~\Delta x_{n-1} = x_n - x_{n-1}$, en general $\Delta x_n\neq\Delta x_{n-1}$. Así pues, la evolución de $Y$ se reduce a encontrar la raíz $Y_{n+1}$ de la ecuación $(*)$, que, sin pérdida de generalidad, habrá de resolverse numéricamente [3].
 
 ### Clases Principales
 
