@@ -40,6 +40,8 @@ int main(int argc, char *argv []){
     std::cout<<"-----------------------------"<<std::endl;
     DarkMatterModel model(name,DMini,DMfin,SMfin);
     model.printProcess();
+    std::cout<<"MS = "<<MS<<std::endl;
+    std::cout<<"sigmav = "<<sigmav<<std::endl;
     std::cout<<"-----------------------------"<<std::endl;
     // ecuación de Boltzmann
     BoltzmannEquation BEQ(MS/TR,MS,1,sigmav,model,path);
