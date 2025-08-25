@@ -21,10 +21,10 @@
 :END:
 Este proyecto aborda el problema de localizar partículas, como fermiones
 y bosones (con y sin espín), dentro de una barrera de potencial finita
-de ancho \(a\), contenida a su vez dentro de una barrera de potencial
-infinita de ancho \(b\), donde \(b >> a\). El sistema es influenciado
+de ancho $a$, contenida a su vez dentro de una barrera de potencial
+infinita de ancho $b$, donde $b >> a$. El sistema es influenciado
 por un reservorio térmico que lo calienta. Además, se estudió el caso
-límite cuando \(a = b\), obteniendo resultados que coinciden con los
+límite cuando $a = b$, obteniendo resultados que coinciden con los
 reportados en la literatura.
 
 --------------
@@ -45,9 +45,9 @@ contacto con un reservorio de calor; dado que se ha cuantizado el
 continuo, es entonces posible asignar de manera unívoca una función de
 onda a cada nivel energético del sistema. Por tanto, es lícito
 preguntarse por el valor esperado del ahora bien definido observable
-que, en cada estado \(n\) de energía, evalúa el valor de la densidad de
-probabilidad posicional (cuántica) \(|\phi_n(x)|^2\), para un \(x\) fijo
-dentro del pozo. La colección de estos valores esperados para todo \(x\)
+que, en cada estado $n$ de energía, evalúa el valor de la densidad de
+probabilidad posicional (cuántica) $|\phi_n(x)|^2$, para un $x$ fijo
+dentro del pozo. La colección de estos valores esperados para todo $x$
 da lugar a una función que interpretamos como la densidad de
 probabilidad termalizada del sistema.
 
@@ -188,64 +188,64 @@ sido reportados en la literatura para un pozo infinito usual [1].
 :CUSTOM_ID: 21-cuantización-de-la-energia
 :END:
 Sea el potencial dado por
-\[
+$$
  V(x) = \begin{cases} 0, \quad 0 < x < a,\\
                       V_0, \quad a < x < b,\\
                       \infty, \quad x > b,
  \end{cases}
- \]
-donde \(V_0\) es una constante y el potencial es par, es decir, \(V(-x)
-= V(x)\).
+ $$
+donde $V_0$ es una constante y el potencial es par, es decir, $V(-x)
+= V(x)$.
 
 Siguiendo la metodología de [3], dividimos el problema en tres regiones, la
-función de onda en cada una de ellas, para \(j = 0,1,2\), se escribe como
-\[ \psi_j = A_j e^{ik_j x} + B_j e^{-ik_j x},
-\]
+función de onda en cada una de ellas, para $j = 0,1,2$, se escribe como
+$$ \psi_j = A_j e^{ik_j x} + B_j e^{-ik_j x},
+$$
 donde
-\[ k_j = \sqrt{\frac{2m(E - V_j)}{\hbar^2}} \]
-y \(A_j\), \(B_j\) son constantes de integración.
+$$ k_j = \sqrt{\frac{2m(E - V_j)}{\hbar^2}} $$
+y $A_j$, $B_j$ son constantes de integración.
 
-Para relacionar las ondas entre las regiones \(0\) y \(1\), imponemos la
-continuidad de la función de onda y su derivada \((C^1)\) en \(x=a\).
+Para relacionar las ondas entre las regiones $0$ y $1$, imponemos la
+continuidad de la función de onda y su derivada $(C^1)$ en $x=a$.
 Esto nos permite definir la matriz de transferencia como
-\[
+$$
  M_{01}(-a) = \frac{1}{2k_0} \begin{pmatrix} s_{01} e^{id_{01}a} & d_{01} e^{is_{01}a} \\
                                              d_{01} e^{-is_{01}a} & s_{01}e^{-id_{01}a}
                              \end{pmatrix},
-\]
+$$
 junto con el vector de coeficientes
-\[
+$$
 C_j = \begin{pmatrix} A_j \\ B_j \end{pmatrix}, \quad j = 0,1,2.
- \]
+ $$
 Aquí,
-\[ s_{01} = k_0 + k_1, \quad d_{01} = k_0 - k_1.
-\]
+$$ s_{01} = k_0 + k_1, \quad d_{01} = k_0 - k_1.
+$$
 Así, las ondas a cada lado del salto de potencial están relacionadas por
-\[ C_0 = M_{01}(-a)C_1. \]
+$$ C_0 = M_{01}(-a)C_1. $$
 
-De manera análoga, para la interfaz entre las regiones \(1\) y \(2\), se
+De manera análoga, para la interfaz entre las regiones $1$ y $2$, se
 obtiene la relación
-\[ C_1 = M_{12}(a)C_2, \]
+$$ C_1 = M_{12}(a)C_2, $$
 donde
-\[
+$$
  M_{12}(a) = \frac{1}{2k_0} \begin{pmatrix} s_{12} e^{-id_{12}a} & d_{12} e^{-is_{12}a} \\
                                             d_{12} e^{is_{12}a} & s_{12}e^{id_{12}a}
                             \end{pmatrix}.
-\]
+$$
 
 Combinando estas relaciones, se obtiene
-\[ C_0 = M_{01}(-a)M_{12}(a)C_2. \]
+$$ C_0 = M_{01}(-a)M_{12}(a)C_2. $$
 
-Dado que la función de onda debe anularse en los extremos, \(\psi_0(-b) = 0\) y
-\(\psi_2(b) = 0\), se deduce que
-\[ A_0 = - B_0 e^{2ik_0b}, \quad A_2 = - B_2 e^{-2ik_0b}.
-\]
+Dado que la función de onda debe anularse en los extremos, $\psi_0(-b) = 0$ y
+$\psi_2(b) = 0$, se deduce que
+$$ A_0 = - B_0 e^{2ik_0b}, \quad A_2 = - B_2 e^{-2ik_0b}.
+$$
 
 Sustituyendo en la ecuación anterior, se obtiene
-\[
+$$
  \begin{pmatrix} B_0 e^{2ik_0b} \\ B_0 \end{pmatrix} =
  M_{01}(-a) M_{12}(a) \begin{pmatrix} B_2 e^{-2ik_0b} \\ B_2 \end{pmatrix}.
-\]
+$$
 
 De esta ecuación se obtienen dos relaciones, las cuales se dividen entre
 sí para obtener la ecuación trascendental. Debido a la extensión de los
@@ -301,51 +301,51 @@ manipulación simbólica para realizar las operaciones correspondientes.
 
 #+RESULTS:
 :RESULTS:
-\(\displaystyle 2 i k_{0}^{2} \left(- 2 \sin{\left(2 a k_{1} \right)} - \sin{\left(- 2 a k_{0} + 2 a k_{1} + 2 b k_{0} \right)} - \sin{\left(2 a k_{0} + 2 a k_{1} - 2 b k_{0} \right)}\right) + 2 i k_{0} k_{1} \left(- 2 \sin{\left(- 2 a k_{0} + 2 a k_{1} + 2 b k_{0} \right)} + 2 \sin{\left(2 a k_{0} + 2 a k_{1} - 2 b k_{0} \right)}\right) + 2 i k_{1}^{2} \left(2 \sin{\left(2 a k_{1} \right)} - \sin{\left(- 2 a k_{0} + 2 a k_{1} + 2 b k_{0} \right)} - \sin{\left(2 a k_{0} + 2 a k_{1} - 2 b k_{0} \right)}\right)\)
+$\displaystyle 2 i k_{0}^{2} \left(- 2 \sin{\left(2 a k_{1} \right)} - \sin{\left(- 2 a k_{0} + 2 a k_{1} + 2 b k_{0} \right)} - \sin{\left(2 a k_{0} + 2 a k_{1} - 2 b k_{0} \right)}\right) + 2 i k_{0} k_{1} \left(- 2 \sin{\left(- 2 a k_{0} + 2 a k_{1} + 2 b k_{0} \right)} + 2 \sin{\left(2 a k_{0} + 2 a k_{1} - 2 b k_{0} \right)}\right) + 2 i k_{1}^{2} \left(2 \sin{\left(2 a k_{1} \right)} - \sin{\left(- 2 a k_{0} + 2 a k_{1} + 2 b k_{0} \right)} - \sin{\left(2 a k_{0} + 2 a k_{1} - 2 b k_{0} \right)}\right)$
 :END:
 
 A continuación, simplificamos la expresión previa dividiéndola en tres
 partes:
 
 Para el primer término, se obtiene:
-\[ \begin{split} -k_0^2 \left(2 \sin(2 a k_1) + \sin\left(
+$$ \begin{split} -k_0^2 \left(2 \sin(2 a k_1) + \sin\left(
 2ak_1 - 2 k_0 (a - b) \right) + \sin\left( 2ak_1 + 2 k_0 (a - b) \right)
 \right) & = -k_0^2 \left(2 \sin(2 a k_1) + 2 \sin(2 a k_1) \cos(2 k_0
 (a - b)) \right) \ & = -2 k_0^2 \sin(2 a k_1) \left(1 + \cos(2 k_0 (a -
-b)) \right). \end{split} \]
+b)) \right). \end{split} $$
 
 Para el segundo término, tenemos:
-\[ \begin{split} 2k_0 k_1 \left(-\sin\left(2 a k_1 - 2k_0
+$$ \begin{split} 2k_0 k_1 \left(-\sin\left(2 a k_1 - 2k_0
 (a-b) \right) + \sin\left( 2ak_1 + 2 k_0 (a - b) \right) \right) & =
 2k_0 k_1 \left(2 \cos(2 a k_1) \sin(2 k_0 (a - b)) \right) \ & = 4 k_0
-k_1 \cos(2 a k_1) \sin(2 k_0 (a - b)). \end{split} \]
+k_1 \cos(2 a k_1) \sin(2 k_0 (a - b)). \end{split} $$
 
 Finalmente, para el tercer término:
-\[ \begin{split} -k_1^2 \left(-2 \sin(2 a k_1) +
+$$ \begin{split} -k_1^2 \left(-2 \sin(2 a k_1) +
 \sin\left( 2ak_1 - 2 k_1 (a - b) \right) + \sin\left( 2ak_1 + 2 k_1 (a -
 b) \right) \right) & = -k_1^2 \left(-2 \sin(2 a k_1) + 2 \sin(2 a k_1)
 \cos(2 k_1 (a - b)) \right) \ & = 2 k_1^2 \sin(2 a k_1) \left(1 - \cos(2
-k_1 (a - b)) \right). \end{split} \]
+k_1 (a - b)) \right). \end{split} $$
 
 Sumando los tres términos obtenemos la ecuación trascendental:
-\[ \boxed{0 = (k_1^2 - k_0^2)\sin(2 a k_1) + 2 k_0 k_1
+$$ \boxed{0 = (k_1^2 - k_0^2)\sin(2 a k_1) + 2 k_0 k_1
 \cos(2 a k_1) \sin(2 k_0 (a - b)) -(k_1^2 + k_0^2) \sin(2 a k_1) \cos(2
-k_0 (a - b)) } \]
+k_0 (a - b)) } $$
 
 Este resultado nos permite calcular los valores de energía superiores al
-potencial \(V_0\), es decir, aquellos para los cuales \(E > V_0\). Para
+potencial $V_0$, es decir, aquellos para los cuales $E > V_0$. Para
 obtener la ecuación trascendental correspondiente a los valores de
-energía inferiores a \(V_0\), realizamos el cambio de variable \(k_0 =
-ip\),
-donde \(p = \sqrt{2m(V_0 - E)/\hbar}\), y utilizamos las identidades hiperbólicas:
-\[
+energía inferiores a $V_0$, realizamos el cambio de variable $k_0 =
+ip$,
+donde $p = \sqrt{2m(V_0 - E)/\hbar}$, y utilizamos las identidades hiperbólicas:
+$$
 \cos(ix) = \cosh(x), \quad \sin(ix) = i \sinh(x).
-\]
+$$
 
 Sustituyendo estas expresiones en la ecuación trascendental, obtenemos:
-\[ \boxed{0 = (k_1^2 + p^2)\sin(2ak_1) - 2pk_1 \cos(2ak_1)
+$$ \boxed{0 = (k_1^2 + p^2)\sin(2ak_1) - 2pk_1 \cos(2ak_1)
 \sinh(2p(a - b)) -(k_1^2 - p^2) \sin(2 a k_1) \cosh(2p (a - b))}
-\]
+$$
 
 Ahora que hemos obtenido las ecuaciones trascendentales que cuantizan la
 energía en todas las regiones del pozo, procederemos a traducirlas a un
@@ -610,7 +610,7 @@ los niveles de cuantización de la energía en toda la región considerada.
 Como se observa en la gráfica anterior, hemos localizado los niveles de
 energía cuantizados. Esto nos permitirá avanzar con los cálculos
 expuestos más adelante. Por ahora, podemos comparar nuestros resultados
-con los obtenidos teóricamente para un pozo infinito de ancho \(2a\).
+con los obtenidos teóricamente para un pozo infinito de ancho $2a$.
 
 #+ATTR_LATEX: :options frame=lines
 #+BEGIN_SRC jupyter-python :session python :async yes :results raw drawer :eval yes :exports both
@@ -702,11 +702,11 @@ con los obtenidos teóricamente para un pozo infinito de ancho \(2a\).
 
 Como se observa en la gráfica anterior, nuestro cálculo numérico de la
 cuantización de la energía coincide con el resultado del pozo infinito
-cuando tomamos \(b = a\). Además, al considerar valores \(b > a\), notamos
+cuando tomamos $b = a$. Además, al considerar valores $b > a$, notamos
 un desplazamiento en los niveles de energía con respecto al pozo
-infinito de ancho \(2a\). En la misma gráfica, también se pueden
+infinito de ancho $2a$. En la misma gráfica, también se pueden
 identificar los niveles de energía dentro del pozo más pequeño de ancho
-\(2a\) y potencial \(V_0\), los cuales resultan ser finitos.
+$2a$ y potencial $V_0$, los cuales resultan ser finitos.
 
 *** *2.2 Construccion de la funcion de onda*
 :PROPERTIES:
@@ -720,8 +720,8 @@ Partimos de las funciones de onda:
  \end{align*}
 
 Dado que:
-\[ A_0 = - B_0 e^{2ik_0b}, \quad A_2 = - B_2 e^{-2ik_0b},
-\]
+$$ A_0 = - B_0 e^{2ik_0b}, \quad A_2 = - B_2 e^{-2ik_0b},
+$$
 
 las funciones de onda pueden reescribirse como:
  \begin{align*}
@@ -731,30 +731,30 @@ las funciones de onda pueden reescribirse como:
  \end{align*}
 
 Para expresar todas las constantes de integración en términos de
-\(B_0\), utilizamos la matriz de transferencia:
-\[
+$B_0$, utilizamos la matriz de transferencia:
+$$
 \begin{pmatrix} A_1 \\ B_1 \end{pmatrix} = B_2 M_{12}(a)
 \begin{pmatrix} e^{-2ik_0b} \\ 1 \end{pmatrix} = B_0 M_{10}(-a)
  \begin{pmatrix} e^{2ik_0b} \\ 1 \end{pmatrix}.
- \]
+ $$
 
 De esta ecuación se deduce:
-\[
+$$
  B_2 M_{12}(a) \begin{pmatrix} e^{-2ik_0b} \\ 1 \end{pmatrix} =
  B_0 M_{10}(-a) \begin{pmatrix} e^{2ik_0b} \\ 1 \end{pmatrix}.
- \]
+ $$
 
-Donde \(M_{10}(-a) = M_{01}(-a)^{-1}\). Lo anterior puede reescribirse como:
-\[
+Donde $M_{10}(-a) = M_{01}(-a)^{-1}$. Lo anterior puede reescribirse como:
+$$
 \begin{pmatrix} A_1 \\ B_1 \end{pmatrix} =
 B_2 \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix} =
 B_0 \begin{pmatrix} \alpha_0 \\ \beta_0 \end{pmatrix}.
- \]
+ $$
 
-Aquí, \(\alpha_0\), \(\) \(\beta_0\) y \(\beta_1\) son constantes. A partir
+Aquí, $\alpha_0$, $$ $\beta_0$ y $\beta_1$ son constantes. A partir
 de esta relación obtenemos:
-\[ B_2 = \frac{\beta_0}{\beta_1}B_0, \quad A_1 = \alpha_0
-B_0, \quad B_1 = \beta_0 B_0. \]
+$$ B_2 = \frac{\beta_0}{\beta_1}B_0, \quad A_1 = \alpha_0
+B_0, \quad B_1 = \beta_0 B_0. $$
 
 Finalmente, las funciones de onda quedan expresadas como:
  \begin{align*}
@@ -764,7 +764,7 @@ Finalmente, las funciones de onda quedan expresadas como:
  \end{align*}
 
 Procederemos ahora a traducir estas expresiones a un lenguaje simbólico
-en Python para encontrar \(\alpha_0\), \(\beta_0\) y \(\beta_1\).
+en Python para encontrar $\alpha_0$, $\beta_0$ y $\beta_1$.
 
 #+ATTR_LATEX: :options frame=lines
 #+BEGIN_SRC jupyter-python :session python :async yes :results raw drawer :eval yes :exports both
@@ -804,7 +804,7 @@ en Python para encontrar \(\alpha_0\), \(\beta_0\) y \(\beta_1\).
 
 #+RESULTS:
 :RESULTS:
-\(\displaystyle \frac{\left(- k_{0} e^{2 i a k_{0}} - k_{0} e^{2 i b k_{0}} + k_{1} e^{2 i a k_{0}} - k_{1} e^{2 i b k_{0}}\right) e^{i a \left(- k_{0} + k_{1}\right)}}{2 k_{1}}\)
+$\displaystyle \frac{\left(- k_{0} e^{2 i a k_{0}} - k_{0} e^{2 i b k_{0}} + k_{1} e^{2 i a k_{0}} - k_{1} e^{2 i b k_{0}}\right) e^{i a \left(- k_{0} + k_{1}\right)}}{2 k_{1}}$
 :END:
 
 #+ATTR_LATEX: :options frame=lines
@@ -814,7 +814,7 @@ en Python para encontrar \(\alpha_0\), \(\beta_0\) y \(\beta_1\).
 
 #+RESULTS:
 :RESULTS:
-\(\displaystyle \frac{\left(k_{0} e^{i a \left(3 k_{0} + k_{1}\right)} + k_{1} e^{i a \left(3 k_{0} + k_{1}\right)} + \left(k_{0} - k_{1}\right) e^{i \left(a \left(k_{0} + k_{1}\right) + 2 b k_{0}\right)}\right) e^{- 2 i a \left(k_{0} + k_{1}\right)}}{2 k_{1}}\)
+$\displaystyle \frac{\left(k_{0} e^{i a \left(3 k_{0} + k_{1}\right)} + k_{1} e^{i a \left(3 k_{0} + k_{1}\right)} + \left(k_{0} - k_{1}\right) e^{i \left(a \left(k_{0} + k_{1}\right) + 2 b k_{0}\right)}\right) e^{- 2 i a \left(k_{0} + k_{1}\right)}}{2 k_{1}}$
 :END:
 
 #+ATTR_LATEX: :options frame=lines
@@ -824,11 +824,11 @@ en Python para encontrar \(\alpha_0\), \(\beta_0\) y \(\beta_1\).
 
 #+RESULTS:
 :RESULTS:
-\(\displaystyle \frac{\left(\left(k_{0} - k_{1}\right) e^{2 i a k_{0}} + \left(k_{0} + k_{1}\right) e^{2 i b k_{0}}\right) e^{- i \left(a \left(k_{0} - k_{1}\right) + 2 b k_{0}\right)}}{2 k_{1}}\)
+$\displaystyle \frac{\left(\left(k_{0} - k_{1}\right) e^{2 i a k_{0}} + \left(k_{0} + k_{1}\right) e^{2 i b k_{0}}\right) e^{- i \left(a \left(k_{0} - k_{1}\right) + 2 b k_{0}\right)}}{2 k_{1}}$
 :END:
 
-Ahora que hemos obtenido las expresiones explícitas de \(\alpha_0\),
-\(\beta_0\) y \(\beta_1\), procederemos a calcular numéricamente la
+Ahora que hemos obtenido las expresiones explícitas de $\alpha_0$,
+$\beta_0$ y $\beta_1$, procederemos a calcular numéricamente la
 función de onda en cada región y a normalizarla.
 
 #+ATTR_LATEX: :options frame=lines
@@ -1047,25 +1047,25 @@ estadística, como exploraremos a continuación.
 En mecánica cuántica, cuando queremos conocer el comportamiento espacial
 de una partícula, utilizamos la densidad de probabilidad posicional,
 definida como [3]
-\[ P(x,t) = |\Psi(x,t)|^2, \]
-donde \(\Psi(x,t)\) es la función de onda correspondiente a la partícula en la
+$$ P(x,t) = |\Psi(x,t)|^2, $$
+donde $\Psi(x,t)$ es la función de onda correspondiente a la partícula en la
 representación de posiciones. Para nuestros propósitos,
 considerando energías cuantizadas y con autoespacios no degenerados,
 utilizaremos las funciones de onda que corresponden unívocamente a cada nivel de
 energía:
-\[ P_n(x) = |\Psi_n(x)|^2. \]
+$$ P_n(x) = |\Psi_n(x)|^2. $$
 
 Dado que nuestro sistema estará en contacto con un reservorio térmico a
-temperatura \(T\), es necesario asignar una densidad de probabilidad canónica al
+temperatura $T$, es necesario asignar una densidad de probabilidad canónica al
 espacio de medida definido por los niveles de energía del sistema cuántico [4]. El
 trabajo de [1] procede a calcular, dada esta densidad canónica, el valor
 esperado del observable definido sobre dicho espacio de niveles energéticos
-mediante la asignación \(n \mapsto P_n(x)\); la colección de los valores
-esperados de estos observables en cada \(x\) conduce a la expresión de
+mediante la asignación $n \mapsto P_n(x)$; la colección de los valores
+esperados de estos observables en cada $x$ conduce a la expresión de
 la función densidad de probabilidad termalizada del sistema:
-\[
+$$
  P_\text{th}(x,T) = \frac{\sum_{n=1}^{\infty}P_n(x)\exp\left[-\frac{E_n}{k_BT}\right]}{\sum_{n=1}^{\infty} \exp[-E_n/k_BT]}.
-\]
+$$
 
 A continuación, implementamos este procedimiento numéricamente con todos los valores
 de energía que obtuvimos de la discusión previa y las temperaturas 1, 10 y 100.
@@ -1496,9 +1496,9 @@ explicarán más adelante).
 : g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -fopenmp -o bin/wavefunction_1d wavefunction_1d.cpp build1d/regions.o build1d/normalisation.o build1d/wavefunctions.o build1d/input-output.o -lgsl -lgslcblas -lm
 :end:
 
-A continuación, graficaremos la función \(P_\text{th}\) para el caso de diferentes
+A continuación, graficaremos la función $P_\text{th}$ para el caso de diferentes
 pozos y a diferentes temperaturas, evaluando también la capa fronteriza de las
-functiones resultantes en \(0.1\), es decir, el valor de \(x\) en el que asumen
+functiones resultantes en $0.1$, es decir, el valor de $x$ en el que asumen
 dicho valor; esta capa fronteriza es una medida del nivel de homogeinización de
 la función, puesto que entre más pequeño sea, más se acerca la función de onda a
 la pared del pozo.
@@ -1664,64 +1664,64 @@ def wavefunction_1d(m_val, V_0_val, h_bar_val, a_val, b_val, grid_num=1000, n_en
 
 ** Bosones y fermiones con y sin espín
 
-Cuando consideramos sistemas de \(N\) partículas cuánticas, es necesario tener
+Cuando consideramos sistemas de $N$ partículas cuánticas, es necesario tener
 en cuenta dos principios físicos que pueden regir al sitema dado:
 Distinguibilidad y principio de exclusión en niveles energéticos; estas
 propiedades se ponen de manifiesto en ciertas construcciones algebraicas, las
 cuales se resumen a continuación.
 
 Para empezar, es necesario entender qué espacios vectoriales representan a un
-sistema de \(N\) partículas cuánticas desde el punto de vista de la mecánica
+sistema de $N$ partículas cuánticas desde el punto de vista de la mecánica
 estadística. El espacio de medida subyacente a tal sistema estará dado por el
-conjunto de tuplas de números naturales \((n_1, n_2, n_3, ...) \in
-\mathbb{N}[\![X]\!]\), tales que \(n_1 + n_2 + n_3 + ... = N\) [4];
+conjunto de tuplas de números naturales $(n_1, n_2, n_3, ...) \in
+\mathbb{N}[\![X]\!]$, tales que $n_1 + n_2 + n_3 + ... = N$ [4];
 notemos que todas las tuplas que satisfagan esta relación deben ser casi nulas (i.e., todas
 sus entradas, salvo un número finito de ellas, son 0), por lo cual las
-expresiones siguientes estarán bien definidas. Estos \(n_i\) representan el
-número de ocupación del nivel energético \(i\)-ésimo, que viene determinado por
-el autoespacio \(\mathcal{H}_i\) del autoestado \(E_i\) del Hamiltoniano.
+expresiones siguientes estarán bien definidas. Estos $n_i$ representan el
+número de ocupación del nivel energético $i$-ésimo, que viene determinado por
+el autoespacio $\mathcal{H}_i$ del autoestado $E_i$ del Hamiltoniano.
 
 La medida correspondiente a cada tupla de este espacio de medida estará dada por
 la dimensión del espacio vectorial siguiente:
-\[
+$$
 \text{dim } \big( \text{prod}^{n_1} \, \mathcal{H}_1 \otimes \text{prod}^{n_2} \,
 \mathcal{H}_2 \otimes \text{prod}^{n_3} \, \mathcal{H}_3 \otimes ... \big) =
 \prod_{i=1}^\infty \text{dim } \text{prod}^{n_i} \, \mathcal{H}_i
-\]
-donde \(\text{prod}\) denota alguna de las construcciones algebraicas derivadas
+$$
+donde $\text{prod}$ denota alguna de las construcciones algebraicas derivadas
 del producto tensorial y que dependen de la naturaleza física del problema en
 cuestión; a saber, estos productos deberán codificar la información sobre la
-distinguibilidad y la exclusión de las \(n_i\) partículas en el nivel \(E_i\).
+distinguibilidad y la exclusión de las $n_i$ partículas en el nivel $E_i$.
 
 Los productos posibles que se mencionan en el párrafo anterior son los
 siguientes [3]:
 - Partículas clásicas: Distinguibles, no tienen exclusión en niveles
   energéticos. En este caso, la construcción algebraica es el producto tensorial
-  usual; si \(n\) es un número de ocupación del autoespacio \(\mathcal{H}\),
-  entonces se considera \(\bigotimes^n \mathcal{H}\), cuya dimensión es
-  \((\text{dim } \mathcal{H})^n\). La razón es que la distinguibilidad es
-  capturada por la no conmutatividad del producto tensorial, \(v_1 \otimes v_2
-  \neq v_2 \otimes v_1\); mientras que el principio de exclusión no se satisface
-  en la medida en que \(v \otimes v \neq 0\) en general.
+  usual; si $n$ es un número de ocupación del autoespacio $\mathcal{H}$,
+  entonces se considera $\bigotimes^n \mathcal{H}$, cuya dimensión es
+  $(\text{dim } \mathcal{H})^n$. La razón es que la distinguibilidad es
+  capturada por la no conmutatividad del producto tensorial, $v_1 \otimes v_2
+  \neq v_2 \otimes v_1$; mientras que el principio de exclusión no se satisface
+  en la medida en que $v \otimes v \neq 0$ en general.
 
 - Fermiones (cuánticos): Indistinguibles, tienen exclusión en niveles
   energéticos. En este caso, la construcción algebraica es el producto cuña; si
-  \(n\) es un número de ocupación del autoespacio \(\mathcal{H}\), entonces se
-  considera \(\bigwedge^n \mathcal{H}\), cuya dimensión es \(\text{dim }
-  \mathcal{H} \choose n\). La razón es que la indistinguibilidad es capturada
-  por la antisimetría del producto tensorial, \(v_1 \wedge v_2 = -v_2 \wedge
-  v_1\), el signo es irrelevante a nivel cuántico porque se consideran estados
+  $n$ es un número de ocupación del autoespacio $\mathcal{H}$, entonces se
+  considera $\bigwedge^n \mathcal{H}$, cuya dimensión es $\text{dim }
+  \mathcal{H} \choose n$. La razón es que la indistinguibilidad es capturada
+  por la antisimetría del producto tensorial, $v_1 \wedge v_2 = -v_2 \wedge
+  v_1$, el signo es irrelevante a nivel cuántico porque se consideran estados
   normalizados (las proyecciones en el espacio proyectivo); mientras que el
-  principio de exclusión se satisface en la medida en que \(v \wedge v = 0\).
+  principio de exclusión se satisface en la medida en que $v \wedge v = 0$.
 
 - Bosones (cuánticos): Indistinguibles, no tienen exclusión en niveles
   energéticos. En este caso, la construcción algebraica es el producto simétrico; si
-  \(n\) es un número de ocupación del autoespacio \(\mathcal{H}\), entonces se
-  considera \(\bigodot^n \mathcal{H}\), cuya dimensión es \(\text{dim }
-  \mathcal{H} + n -1 \choose n\). La razón es que la indistinguibilidad es capturada
-  por la simetría del producto tensorial, \(v_1 \odot v_2 = v_2 \odot
-  v_1\); mientras que el
-  principio de exclusión no se satisface en la medida en que \(v \odot v = 0\)
+  $n$ es un número de ocupación del autoespacio $\mathcal{H}$, entonces se
+  considera $\bigodot^n \mathcal{H}$, cuya dimensión es $\text{dim }
+  \mathcal{H} + n -1 \choose n$. La razón es que la indistinguibilidad es capturada
+  por la simetría del producto tensorial, $v_1 \odot v_2 = v_2 \odot
+  v_1$; mientras que el
+  principio de exclusión no se satisface en la medida en que $v \odot v = 0$
   en general.
 
 Cuando se consideran estos sistemas, lo usual es proyectar el producto tensorial
@@ -1729,33 +1729,33 @@ de las funciones de onda a los productos simétrico o antisimétrico por medio d
 las operaciones conocidas como simetrizador y antisimetrizador,
 correspondientemente; estas son, en el caso de dos funciones de onda:
 - *Simetrizador (bosones)*:
-  \[
+  $$
   S(\psi_1 \otimes \psi_2) = \frac{1}{2} (\psi_1 \otimes \psi_2 + \psi_2 \otimes \psi_1)
-  \]
+  $$
   Esta proyección garantiza que el estado resultante sea simétrico bajo la
   permutación de partículas, lo que es característico de los bosones.
 
 - *Antisimetrizador (fermiones)*:
-  \[
+  $$
   A(\psi_1 \otimes \psi_2) = \frac{1}{2} (\psi_1 \otimes \psi_2 - \psi_2 \otimes \psi_1)
-  \]
+  $$
   Esta operación impone la antisimetría del estado.
 
 En general, se tiene que
 - El operador simetrizador para bosones:
-  \[
+  $$
   S = \frac{1}{N!} \sum_{\sigma \in S_N} P_\sigma
-  \]
+  $$
 - El operador antisimetrizador para fermiones:
-  \[
+  $$
   A = \frac{1}{N!} \sum_{\sigma \in S_N} \text{sgn}(\sigma) P_\sigma
-  \]
-donde \( P_\sigma \) es el operador de permutación asociado a \( \sigma \) y
-\( \text{sgn}(\sigma) \) es la paridad de la permutación (\(+1\) para
-permutaciones pares y \(-1\) para impares).
+  $$
+donde $ P_\sigma $ es el operador de permutación asociado a $ \sigma $ y
+$ \text{sgn}(\sigma) $ es la paridad de la permutación ($+1$ para
+permutaciones pares y $-1$ para impares).
 
 Con estas expresiones se construyen las nuevas funciones de onda en los casos
-correspondientes, y se calcula la densidad de probabilidad \(P\) de manera análoga al caso de una sola partícula.
+correspondientes, y se calcula la densidad de probabilidad $P$ de manera análoga al caso de una sola partícula.
 
 El espín en los fermiones se considera de manera más heurística, a saber, se
 impone que la función de onda puede ser antisimétrica en posiciones o en espines
@@ -1763,38 +1763,38 @@ con la combinación total de ambas antisimétrica bajo el intercambio de
 partículas. Esto se debe al principio de exclusión.
 
 - **Función de onda espacial simétrica**:
-   \[
+   $$
    \Psi_{\text{sf}, n_1 n_2} = \frac{1}{\sqrt{2}} \left[ \varphi_{n_1}(x_1) \varphi_{n_2}(x_2) + \varphi_{n_1}(x_2) \varphi_{n_2}(x_1) \right] \frac{1}{\sqrt{2}} \left[ \chi_+(1) \chi_-(2) - \chi_+(2) \chi_-(1) \right]
-   \]
+   $$
   En este caso, la parte espacial de la función de onda es simétrica bajo la
-  permutación de \(x_1\) y \(x_2\), lo que implica que la parte de espín debe
+  permutación de $x_1$ y $x_2$, lo que implica que la parte de espín debe
   ser antisimétrica para conservar la antisimetría total.
 
 2. **Función de onda espacial antisimétrica**:
-   \[
+   $$
    \Psi_{\text{af}, n_1 n_2} = \frac{1}{\sqrt{2}} \left[ \varphi_{n_1}(x_1)
    \varphi_{n_2}(x_2) - \varphi_{n_1}(x_2) \varphi_{n_2}(x_1) \right]
    \frac{1}{\sqrt{2}} \left[ \chi_+(1) \chi_-(2) - \chi_-(1) \chi_+(2) \right]
-   \]
-   \[
+   $$
+   $$
    \Psi_{\text{af}, n_1 n_2} = \frac{1}{\sqrt{2}} \left[ \varphi_{n_1}(x_1) \varphi_{n_2}(x_2) - \varphi_{n_1}(x_2) \varphi_{n_2}(x_1) \right] \frac{1}{\sqrt{2}} \left[ \chi_+(1) \chi_+(2) \right]
-   \]
-   \[
+   $$
+   $$
    \Psi_{\text{af}, n_1 n_2} = \frac{1}{\sqrt{2}} \left[ \varphi_{n_1}(x_1) \varphi_{n_2}(x_2) - \varphi_{n_1}(x_2) \varphi_{n_2}(x_1) \right] \frac{1}{\sqrt{2}} \left[ \chi_-(1) \chi_-(2) \right]
-   \]
-   En estos casos, la parte espacial es antisimétrica bajo el intercambio de \(
-   x_1 \) y \( x_2 \), por lo que la parte de espín debe ser simétrica.
+   $$
+   En estos casos, la parte espacial es antisimétrica bajo el intercambio de $
+   x_1 $ y $ x_2 $, por lo que la parte de espín debe ser simétrica.
 
 De este modo, la función de onda total siempre se mantiene antisimétrica,
 asegurando que el sistema obedezca las reglas impuestas por la estadística de
 Fermi-Dirac. Según estas expresiones, al calcular la densidad de probabilidad
-\(P\), hay 3 partes aportadas por la función de onda antisimétrica y 1 parte
+$P$, hay 3 partes aportadas por la función de onda antisimétrica y 1 parte
 aportada por la simétrica, por lo que se emplea la expresión:
-\[
+$$
 P_{n_1, n_2} (x_1, x_2) = \frac{1}{4} \left( \frac{1}{2} \left[
 \varphi_{n_1}(x_1) \varphi_{n_2}(x_2) + \varphi_{n_1}(x_2) \varphi_{n_2}(x_1)
 \right]^2 \right) + \frac{3}{4} \left( \frac{1}{2} \left[ \varphi_{n_1}(x_1) \varphi_{n_2}(x_2) - \varphi_{n_1}(x_2) \varphi_{n_2}(x_1) \right]^2 \right).
-\]
+$$
 
 Estas expresiones fueron consideradas en el código de C++ para sistemas de dos
 partículas, y se implementaron en el siguiente bloque de código:
@@ -1952,10 +1952,10 @@ tan solo dos niveles de energía.
 #+end_example
 :end:
 
-En la tabla que hemos construido, se presentan valores de \(x_1\) y \(x_2\)
-donde se evalúan los términos del numerador de la expresión \(P_{th}\) para los valores de
+En la tabla que hemos construido, se presentan valores de $x_1$ y $x_2$
+donde se evalúan los términos del numerador de la expresión $P_{th}$ para los valores de
 energía que se tomaron; estos términos luego se suman y dividen por la
-normalización para obtener \(P_{th}\), que es la última columna.
+normalización para obtener $P_{th}$, que es la última columna.
 
 #+ATTR_LATEX: :options frame=lines
 #+BEGIN_SRC jupyter-python :session python :async yes :results raw drawer :eval yes :exports both
@@ -2015,8 +2015,8 @@ normalización para obtener \(P_{th}\), que es la última columna.
 [[file:./.ob-jupyter/824191c0ae02b9079dbed818c85cfd04016171b3.svg]]
 :end:
 
-Esta es la superficie resultante de la función \(P_{th}\) asociada a los niveles
-\(E_0\) y \(E_4\) en los valores de \(x_1\) y \(x_2\).
+Esta es la superficie resultante de la función $P_{th}$ asociada a los niveles
+$E_0$ y $E_4$ en los valores de $x_1$ y $x_2$.
 
 --------------
 
@@ -2146,7 +2146,7 @@ casos posible.
 
 --------------
 Primero reproduciremos los resultados del paper [1], en el caso partícular en
-el que \(a = b\).
+el que $a = b$.
 #+ATTR_LATEX: :options frame=lines
 #+BEGIN_SRC jupyter-python :session python :async yes :results raw drawer :eval yes :exports both
   papers(
@@ -2358,8 +2358,8 @@ el que \(a = b\).
 --------------
 
 A continuación, puesto que se han conseguido resultados que coinciden con la
-literatura, consideraremos valores \(a \neq b\) para registrar lo que ocurre
-cuando \(b >> a\), simulando las condiciones de un pozo finito.
+literatura, consideraremos valores $a \neq b$ para registrar lo que ocurre
+cuando $b >> a$, simulando las condiciones de un pozo finito.
 #+ATTR_LATEX: :options frame=lines
 #+BEGIN_SRC jupyter-python :session python :async yes :results raw drawer :eval yes :exports both
   papers(
@@ -2527,10 +2527,10 @@ cuando \(b >> a\), simulando las condiciones de un pozo finito.
 :END:
 - Con nuestra metodología, fue posible reproducir satisfactoriamente los
   resultados del paper [1].
-- En las gráficas de la densidad de probabilidad termalizada \(P_{th}\) unidimensionales, se
+- En las gráficas de la densidad de probabilidad termalizada $P_{th}$ unidimensionales, se
   observa que a medida que se aumenta la temperatura del pozo finito, la
   probabilidad de hallarse por fuera del mismo se homogeiniza con aquella de
-  encontrarse dentro. Este comportamiento se observa incluso cuando \(b >> a\),
+  encontrarse dentro. Este comportamiento se observa incluso cuando $b >> a$,
   y se pone de manifiesto en la forma en que se anula la capa fronteriza
   (boundary layer) en estos casos.
 
