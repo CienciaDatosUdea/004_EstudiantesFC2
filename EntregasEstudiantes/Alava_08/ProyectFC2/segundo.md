@@ -41,11 +41,9 @@ El bloque de construcción fundamental de nuestro sistema es un imán cilíndric
   
   
 
+
 $$
-
 \vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi
-
-
 $$
 
 
@@ -122,4 +120,5 @@ $$T_z = 2\pi\sqrt{\frac{\rho}{k'_{z}}}$$
 
 
 Midiendo el período $$T_z$$, y conociendo la geometría del sistema y la densidad de la varilla, se puede despejar la susceptibilidad magnética $$\chi$$ de la varilla, lo que constituye la base del método de medición propuesto en el artículo.
+
 
