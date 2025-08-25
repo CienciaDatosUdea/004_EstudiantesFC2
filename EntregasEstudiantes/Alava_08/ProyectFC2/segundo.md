@@ -41,24 +41,14 @@ El bloque de construcción fundamental de nuestro sistema es un imán cilíndric
 
 $$
 \begin{align*}
-    H &= - J \sum\_{<i,j>} S\_{i} S\_{j} \\
-    &= - \frac{1}{2} \sum\_i \\, J \\, S\_i \sum\_{j\\,\in\\,\text{nn}(i)} S\_j \\
-    &= \frac{1}{2} \sum\_i \\, E^{\text{local}}\_i
+    \vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi \tag{1}
 \end{align*}
 $$
 
-where $nn(i)$ denotes the set of nearest neighbors of spin i,
+
 
 $$
 E^{\text{local}}\_i := -J \ S\_i \sum\_{j \in \text{nn}(i)} {S}\_j
-$$
-
-
-  
-$$
-\begin{align*}
-   \vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi
-\end{align*}
 $$
 
 donde:
@@ -125,12 +115,15 @@ La dinámica de la varilla de densidad $$\rho$$ está gobernada por esta constan
 
   
 
-$$T_z = 2\pi\sqrt{\frac{\rho}{k'_{z}}}$$
+$$ 
+T_z = 2\pi\sqrt{\frac{\rho}{k'_{z}}}
+$$
 
   
 
 
 Midiendo el período $$T_z$$, y conociendo la geometría del sistema y la densidad de la varilla, se puede despejar la susceptibilidad magnética $$\chi$$ de la varilla, lo que constituye la base del método de medición propuesto en el artículo.
+
 
 
 
