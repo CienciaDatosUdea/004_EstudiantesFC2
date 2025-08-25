@@ -1,8 +1,8 @@
-##**Trampa magnética con líneas de dipolos paralelas (PDL), aplicada en la dinámica de una varilla diamagnética**
 
 
 
-## **Introducción**
+# **Trampa magnética con líneas de dipolos paralelas (PDL), aplicada en la dinámica de una varilla diamagnética**
+## **Problema fisico:**
 
 El magnetismo es una de las fuerzas fundamentales de la naturaleza, manifestándose a través de los campos magnéticos que permean el espacio e interactúan con la materia. Una de sus aplicaciones, es la manipulación y el confinamiento de la materia sin contacto físico, lo que da lugar a las trampas magnéticas. El principio de estas trampas se basa en la interacción entre un campo magnético no uniforme y el momento magnético de un objeto, ya sea intrínseco o inducido.
 
@@ -45,8 +45,7 @@ El bloque de construcción fundamental de nuestro sistema es un imán cilíndric
   
   
 
-$$\vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi$$
-
+$$\vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi \tag{1}$$
   
   
 
