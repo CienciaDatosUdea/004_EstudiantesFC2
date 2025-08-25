@@ -1,3 +1,4 @@
+# **Dinámica de una varilla diamagnética dentro de una trampa PDL**
 
 ## **Introducción**
 
@@ -15,61 +16,11 @@ Este proyecto se centra en el análisis de una configuración magnética en part
 
 El estudio detallado de la dinámica de un objeto dentro de esta trampa permite establecer una conexión directa entre sus parámetros de movimiento observables (como el período de oscilación) y sus propiedades magnéticas intrínsecas. Además, las características del campo magnético generado lo convierten en un candidato ideal para ser adaptado a técnicas de medición avanzadas, como la caracterización de materiales semiconductores mediante el efecto Hall.
 
-  
-
-## **Objetivos del Proyecto**
-
-El propósito de este proyecto es desarrollar un modelo computacional para investigar a fondo este sistema magnético. Los objetivos específicos son:
-
-  
-
-Modelar el Sistema y Caracterizar el Potencial de Confinamiento: Desarrollar una implementación numérica para calcular el campo magnetostático del sistema. Se utilizará este modelo para analizar la estructura del potencial de energía resultante y caracterizar sus propiedades como trampa para objetos diamagnéticos.
-
-  
-
-Simular la Dinámica y Explorar Métodos de Medición: Simular el movimiento clásico de un objeto cilíndrico dentro de la trampa. El objetivo es investigar su comportamiento oscilatorio y establecer una relación cuantitativa entre los parámetros de su movimiento (como el período) y sus propiedades magnéticas intrínsecas (como la susceptibilidad).
-
-  
-
-Desarrollar una Herramienta de Procesamiento de Señales: Implementar un algoritmo de detección lock-in numérico. Se utilizarán datos sintéticos para demostrar la capacidad de esta técnica para extraer señales periódicas débiles que se encuentran ocultas por un ruido de fondo considerable.
-
 ## **Marco Teórico**
 
 ### **Campo Magnético de un Imán Diametral**
 
-El bloque de construcción fundamental de nuestro sistema es un imán cilíndrico con una magnetización uniforme $$\vec{M}$$ a lo largo de su diámetro (por ejemplo, en la dirección $$\hat{x}$$). El campo magnético $$\vec{B}$$ en un punto arbitrario del espacio $$(x, y, z)$$ generado por un solo imán de radio $$a$$ y longitud $$L$$, centrado en el origen, se puede calcular a partir del potencial escalar magnético. La expresión vectorial exacta es:
-
-$$
-\begin{align*}
-    \vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi \tag{1}
-\end{align*}
-$$
-
-
-
-$$
-E^{\text{local}}\_i := -J \ S\_i \sum\_{j \in \text{nn}(i)} {S}\_j
-$$
-
-donde:
-
-$$\mu_0$$ es la permeabilidad del vacío.
-
-$$M$$ es la magnitud de la magnetización del imán.
-
-$$s^2 = (x-a\cos\phi)^2 + (y-a\sin\phi)^2$$ es la distancia radial al cuadrado desde el punto de evaluación a un elemento en la superficie del imán.
-
-$$u_{1,2} = z \pm L/2$$ representa las distancias a los extremos del imán.
-
-La integral se realiza sobre la coordenada acimutal $$\phi$$ de la superficie del cilindro.
-
-  
-
-El campo total del sistema de par de imanes (DMP) se obtiene por el principio de superposición, sumando los campos de dos de estos imanes centrados en $$(\pm a, 0, 0)$$.
-
-  
-  
-  
+El bloque de construcción fundamental de nuestro sistema es un imán cilíndrico con una magnetización uniforme $$\vec{M}$$ a lo largo de su diámetro (por ejemplo, en la dirección $$\hat{x}$$). El campo magnético $$\vec{B}$$ en un punto arbitrario del espacio $$(x, y, z)$$ generado por un solo imán de radio $$a$$ y longitud $$L$$, centrado en el origen, que se puede calcular a partir del potencial escalar magnético.  El campo total del sistema de par de imanes (DMP) se obtiene por el principio de superposición, sumando los campos de dos de estos imanes centrados en $$(\pm a, 0, 0)$$.
 
 ### **Energía Potencial y Fuerza sobre un Objeto Diamagnético**
 
@@ -103,26 +54,27 @@ Una vez atrapada, si la varilla se desplaza ligeramente de su posición de equil
 
   
 
-La ``constante de resorte'' efectiva del potencial magnético, $$k'_z$$, es la segunda derivada de la energía potencial en el punto de equilibrio:
-
-  
-
-$$k'_{z} = \frac{\partial^2 U'_{M}(y_0, z)}{\partial z^2} \bigg|_{z=0}$$
-
-  
-
-La dinámica de la varilla de densidad $$\rho$$ está gobernada por esta constante de resorte. El período de oscilación $$T_z$$ se puede expresar como:
-
-  
+La ``constante de resorte'' efectiva del potencial magnético, $$k'_z$$, es la segunda derivada de la energía potencial en el punto de equilibrio ,la dinámica de la varilla de densidad $$\rho$$ está gobernada por esta constante de resorte. El período de oscilación $$T_z$$ se puede expresar como:
 
 $$ 
 T_z = 2\pi\sqrt{\frac{\rho}{k'_{z}}}
 $$
 
+ Midiendo el período $$T_z$$, y conociendo la geometría del sistema y la densidad de la varilla, se puede despejar la susceptibilidad magnética $$\chi$$ de la varilla, lo que constituye la base del método de medición propuesto en el artículo.
+
+
+## **Objetivos del Proyecto**
+
+El propósito de este proyecto es desarrollar un modelo computacional para investigar a fondo este sistema magnético. Los objetivos específicos son:
+
+Modelar el Sistema y Caracterizar el Potencial de Confinamiento: Desarrollar una implementación numérica para calcular el campo magnetostático del sistema. Se utilizará este modelo para analizar la estructura del potencial de energía resultante y caracterizar sus propiedades como trampa para objetos diamagnéticos.
+
+Simular la Dinámica y Explorar Métodos de Medición: Simular el movimiento clásico de un objeto cilíndrico dentro de la trampa. El objetivo es investigar su comportamiento oscilatorio y establecer una relación cuantitativa entre los parámetros de su movimiento (como el período) y sus propiedades magnéticas intrínsecas (como la susceptibilidad).
+
   
+Desarrollar una Herramienta de Procesamiento de Señales: Implementar un algoritmo de detección lock-in numérico. Se utilizarán datos sintéticos para demostrar la capacidad de esta técnica para extraer señales periódicas débiles que se encuentran ocultas por un ruido de fondo considerable.
 
 
-Midiendo el período $$T_z$$, y conociendo la geometría del sistema y la densidad de la varilla, se puede despejar la susceptibilidad magnética $$\chi$$ de la varilla, lo que constituye la base del método de medición propuesto en el artículo.
 
 
 
