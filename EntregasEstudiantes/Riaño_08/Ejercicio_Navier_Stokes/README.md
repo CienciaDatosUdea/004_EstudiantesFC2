@@ -34,6 +34,7 @@ El proyecto está organizado en las siguientes carpetas:
       * `graficacion.ipynb`: Un *notebook* de Jupyter para generar la animación.
       * `simulacion_con_fuerza.gif`: Animación de la simulación con una fuerza inicial de 10.
       * `simulacion_sin_fuerza.gif`: Animación de la simulación sin fuerza inicial.
+  * **`images/`**: Después de ejecutar `graficacion.ipynb`, se guardarán las imágenes generadas aquí.
   * **`Makefile`**: Archivo para automatizar la compilación y ejecución del código.
   * **`main.cpp`**: Contiene el bucle principal de la simulación.
 
