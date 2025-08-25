@@ -1,0 +1,4 @@
+[nbconvert.exporters]
+orgmode = nbcorg:OrgmodeExporter
+orgmode_babel = nbcorg:OrgmodeBabelExporter
+
