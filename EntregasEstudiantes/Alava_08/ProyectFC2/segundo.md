@@ -39,20 +39,15 @@ Desarrollar una Herramienta de Procesamiento de Señales: Implementar un algorit
 El bloque de construcción fundamental de nuestro sistema es un imán cilíndrico con una magnetización uniforme $$\vec{M}$$ a lo largo de su diámetro (por ejemplo, en la dirección $$\hat{x}$$). El campo magnético $$\vec{B}$$ en un punto arbitrario del espacio $$(x, y, z)$$ generado por un solo imán de radio $$a$$ y longitud $$L$$, centrado en el origen, se puede calcular a partir del potencial escalar magnético. La expresión vectorial exacta es:
 
   
-  
-
-
 $$
-\vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi
+\begin{align*}
+   \vec{B}_{DM}(x,y,z) = \frac{\mu_{0}Ma}{4\pi} \int_{0}^{2\pi} \sum_{n=1,2} \frac{(-1)^{n}\cos\phi}{u_{n}^{2}+s^{2}+u_{n}\sqrt{u_{n}^{2}+s^{2}}} \times \begin{bmatrix} x-a\cos\phi \\ y-a\sin\phi \\ u_{n}+\sqrt{u_{n}^{2}+s^{2}} \end{bmatrix} d\phi
+\end{align*}
 $$
-
-
-  
-  
 
 donde:
 
- $$\mu_0$$ es la permeabilidad del vacío.
+$$\mu_0$$ es la permeabilidad del vacío.
 
 $$M$$ es la magnitud de la magnetización del imán.
 
@@ -120,5 +115,6 @@ $$T_z = 2\pi\sqrt{\frac{\rho}{k'_{z}}}$$
 
 
 Midiendo el período $$T_z$$, y conociendo la geometría del sistema y la densidad de la varilla, se puede despejar la susceptibilidad magnética $$\chi$$ de la varilla, lo que constituye la base del método de medición propuesto en el artículo.
+
 
 
