@@ -74,6 +74,37 @@ Simular la Dinámica y Explorar Métodos de Medición: Simular el movimiento cl�
   
 Desarrollar una Herramienta de Procesamiento de Señales: Implementar un algoritmo de detección lock-in numérico. Se utilizarán datos sintéticos para demostrar la capacidad de esta técnica para extraer señales periódicas débiles que se encuentran ocultas por un ruido de fondo considerable.
 
+## Guia de compilacion 
+
+
+
+### Requisitos
+
+* **g++** y **make**
+* **Python 3** con las siguientes librerías:
+    ```bash
+    pip install numpy matplotlib jupyterlab
+    ```
+
+### Guía Rápida de Ejecución
+
+1.  **Compilar el proyecto:**
+    Abre una terminal en la carpeta raíz y ejecuta:
+    ```bash
+    make
+    ```
+
+2.  **Ejecutar la simulación:**
+    Los resultados obtenidos en la simulacion se generaran usando el comando.
+    ```bash
+    make run
+    ```
+
+3.  **Visualizar los resultados:**
+    Inicia el entorno de análisis con:
+    jupyter notebook
+
+
 
 
 
