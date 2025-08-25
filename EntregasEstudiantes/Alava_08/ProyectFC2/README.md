@@ -1,4 +1,4 @@
-#**Trampa magnética con líneas de dipolos paralelas (PDL), aplicada en la dinámica de una varilla diamagnética**
+##**Trampa magnética con líneas de dipolos paralelas (PDL), aplicada en la dinámica de una varilla diamagnética**
 
 
 
