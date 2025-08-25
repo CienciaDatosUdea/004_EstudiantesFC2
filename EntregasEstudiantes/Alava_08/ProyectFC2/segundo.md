@@ -1,4 +1,5 @@
-# **Introducción**
+
+## **Introducción**
 
 El magnetismo es una de las fuerzas fundamentales de la naturaleza, manifestándose a través de los campos magnéticos que permean el espacio e interactúan con la materia. Una de sus aplicaciones, es la manipulación y el confinamiento de la materia sin contacto físico, lo que da lugar a las trampas magnéticas. El principio de estas trampas se basa en la interacción entre un campo magnético no uniforme y el momento magnético de un objeto, ya sea intrínseco o inducido.
 
@@ -32,11 +33,26 @@ Simular la Dinámica y Explorar Métodos de Medición: Simular el movimiento cl�
 
 Desarrollar una Herramienta de Procesamiento de Señales: Implementar un algoritmo de detección lock-in numérico. Se utilizarán datos sintéticos para demostrar la capacidad de esta técnica para extraer señales periódicas débiles que se encuentran ocultas por un ruido de fondo considerable.
 
-# **Marco Teórico**
+## **Marco Teórico**
 
 ### **Campo Magnético de un Imán Diametral**
 
 El bloque de construcción fundamental de nuestro sistema es un imán cilíndrico con una magnetización uniforme $$\vec{M}$$ a lo largo de su diámetro (por ejemplo, en la dirección $$\hat{x}$$). El campo magnético $$\vec{B}$$ en un punto arbitrario del espacio $$(x, y, z)$$ generado por un solo imán de radio $$a$$ y longitud $$L$$, centrado en el origen, se puede calcular a partir del potencial escalar magnético. La expresión vectorial exacta es:
+
+$$
+\begin{align*}
+    H &= - J \sum\_{<i,j>} S\_{i} S\_{j} \\
+    &= - \frac{1}{2} \sum\_i \\, J \\, S\_i \sum\_{j\\,\in\\,\text{nn}(i)} S\_j \\
+    &= \frac{1}{2} \sum\_i \\, E^{\text{local}}\_i
+\end{align*}
+$$
+
+where $nn(i)$ denotes the set of nearest neighbors of spin i,
+
+$$
+E^{\text{local}}\_i := -J \ S\_i \sum\_{j \in \text{nn}(i)} {S}\_j
+$$
+
 
   
 $$
@@ -115,6 +131,7 @@ $$T_z = 2\pi\sqrt{\frac{\rho}{k'_{z}}}$$
 
 
 Midiendo el período $$T_z$$, y conociendo la geometría del sistema y la densidad de la varilla, se puede despejar la susceptibilidad magnética $$\chi$$ de la varilla, lo que constituye la base del método de medición propuesto en el artículo.
+
 
 
 
