@@ -2,7 +2,8 @@
 
 
 
-Yennifer Yuliana Guerrero Uchima, Dayana Andrea Henao Arbelaez
+### Yennifer Yuliana Guerrero Uchima
+### Dayana Andrea Henao Arbelaez
 
 
 
@@ -43,10 +44,10 @@ En una dimensión, la forma discretizada de la evolución de la función de onda
 $$ (I + \frac{i \Delta t}{2 \hbar} H) \Psi^{n+1} = (I - \frac{i \Delta t}{2 \hbar} H) \Psi^n $$
 
 donde:
-- $ \Psi^n $ representa la función de onda en el paso de tiempo $ n $
-- $ H $ es la matriz Hamiltoniana discretizada
-- $ \Delta t $ es el paso de tiempo
-- $ I $ es la matriz identidad
+- $\Psi^n$ representa la función de onda en el paso de tiempo $ n $
+- $H$ es la matriz Hamiltoniana discretizada
+- $\Delta t$ es el paso de tiempo
+- $I$ es la matriz identidad
 
 Este sistema de ecuaciones se resuelve en cada paso de tiempo usando técnicas de álgebra lineal numérica (por ejemplo, descomposición LU o solucionadores iterativos).
 
