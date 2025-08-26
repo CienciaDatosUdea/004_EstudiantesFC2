@@ -1,3 +1,4 @@
+
 #include "wavepacket.h"
 #include "TDSE.h"
 #include "TISE.h"
@@ -26,6 +27,7 @@ int main() {
         cout << "E["<<i+1<<"] = " << eigenvalues[i] << endl;
 
     normalize_and_save_wavefunctions(eigenvectors, eigenvalues, n, 5, L, R);
+    save_energies(eigenvalues, 5);
 
     delete[] H;
     delete[] eigenvectors;
@@ -56,6 +58,10 @@ int main() {
 
     run_cn_simulation(N, l, dt, nsteps, x0, k0, sigma);
 
+    cout << "=== Ejecutando simulación TDSE con evolución ===" << endl;
+    run_cn_simulation_evolution(200, 1.0, 0.0005, 50, 0.3, 50.0, 0.05);
+    
+
 
 
     return 0;
@@ -64,3 +70,16 @@ int main() {
 
 
 
+/*
+
+run_cn_simulation_evolution(
+    300,       // N: más puntos para mejor resolución
+    1.0,       // L
+    0.0002,    // dt: paso más pequeño
+    200,       // nsteps: más pasos para ver evolución
+    0.3,       // x0
+    50.0,      // k0
+    0.05       // sigma
+);
+
+*/

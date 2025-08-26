@@ -1,0 +1,262 @@
+TIME INDEPENDET SCHODINGER EQUATION
+
+
+
+//CONTRUCCION DEL HAMILTONIANO USANDO DIFERENICAS FINITAS ===============================================================
+
+-ℏ²/2m * d²ψ/dx² + V(x)ψ = Eψ
+
+Aproximación de la segunda derivada por diderencias finitas 
+
+d²ψ/dx² ≈ [ψ(x+Δx) - 2ψ(x) + ψ(x-Δx)] / Δx²
+
+
+Discretización del espacio
+
+Puntos: x₀, x₁, x₂, ..., xₙ, xₙ₊₁
+Donde: xᵢ = L + i*Δx, con Δx = (R - L)/(n+1)
+
+Condiciones de frontera
+
+ψ(x₀) = ψ(L) = 0  (pared izquierda)
+ψ(xₙ₊₁) = ψ(R) = 0 (pared derecha)
+
+
+
+Aplicando la ecuacion de Schodinger 
+
+
+-ℏ²/2m * d²ψ/dx² = Eψ  (para V(x) = 0)
+
+-ℏ²/2m * [ψᵢ₊₁ - 2ψᵢ + ψᵢ₋₁]/Δx² = Eψᵢ
+
+Ecuación en el punto i de la malla :
+
+-ℏ²/2mΔx² * ψᵢ₋₁ + (ℏ²/mΔx²) * ψᵢ - ℏ²/2mΔx² * ψᵢ₊₁ = Eψᵢ
+
+Coeficientes 
+
+Coeficiente de ψᵢ₋₁: -ℏ²/2mΔx²
+Coeficiente de ψᵢ:    +ℏ²/mΔx²  
+Coeficiente de ψᵢ₊₁: -ℏ²/2mΔx²
+
+
+
+(ℏ²/2mΔx²) * [-ψᵢ₋₁ + 2ψᵢ - ψᵢ₊₁] = Eψᵢ
+
+
+text
+H[i][i] = ℏ²/mΔx² + V(xᵢ)
+H[i][i±1] = -ℏ²/2mΔx²
+
+en unidades simplificadas 
+
+H[i][i] = 2/Δx² + V(xᵢ) × (2mΔx²/ℏ²)
+H[i][i±1] = -1/Δx²
+
+
+Cada fila aplica 
+[ψᵢ₋₁, ψᵢ, ψᵢ₊₁] · [-1, 2, -1] = -ψᵢ₋₁ + 2ψᵢ - ψᵢ₊₁
+
+Construcción del Hamiltoniano (Representación matricial)
+
+
+Para cada punto interior i = 1, 2, ..., n:
+
+H[i][i] = -ℏ²/2m * (-2/Δx²) + V(xᵢ)   // Elemento diagonal
+H[i][i-1] = -ℏ²/2m * (1/Δx²)          // Subdiagonal inferior  
+H[i][i+1] = -ℏ²/2m * (1/Δx²)          // Subdiagonal superior
+
+Forma matricial explícita 
+
+H = (ℏ²/2mΔx²) ×
+[ 2 + (2mΔx²/ℏ²)V₁   -1    0    0   ... ]
+[ -1    2 + (2mΔx²/ℏ²)V₂   -1    0   ... ]
+[ 0    -1    2 + (2mΔx²/ℏ²)V₃   -1  ... ]
+[ ...                         ...      ]
+
+
+
+
+Para el pozo infinito V(x)=0 
+
+H = (ℏ²/2mΔx²) ×
+[ 2   -1    0    0   ... ]
+[ -1    2   -1    0   ... ]
+[ 0    -1    2   -1  ... ]
+[ ...             ...    ]
+
+
+
+Tamaño de la matriz H = n × n
+Donde n = número de puntos INTERIORES de la malla
+
+
+
+Espacio total: [L, R]
+Número de puntos interiores: n
+Número total de puntos: n + 2 (incluye bordes)
+Espaciado: Δx = (R - L)/(n + 1)
+
+
+1. Consistencia Matemática
+Cada punto interior añade un grado de libertad adicional al sistema cuántico.
+
+2. Convergencia Garantizada
+Cuando n → ∞ (Δx → 0), la solución discreta converge a la solución continua.
+
+3. Condiciones de Frontera Incorporadas
+Los puntos de borde fijos (ψ=0) reducen el problema a solo los puntos interiores.
+
+
+//ENCONTRAR LOS AUTOVALORES POR MEDIO DEL MÉTODO DE JACOBI======================================================
+
+Diagonalizar matrices simétricas (como el Hamiltoniano) encontrando:
+
+Autovalores (λ): Energías del sistema
+
+Autovectores (v): Funciones de onda estacionarias
+
+Aplicar rotaciones sucesivas para eliminar los elementos de la diagonal 
+
+
+Se crea una matriz identidad para acumular las rotaciones
+
+Cada rotación se aplica tanto a la matriz como a los autovectores
+
+
+H = 
+[ 2  -1   0   0 ]
+[-1   2  -1   0 ] × coeff
+[ 0  -1   2  -1 ]
+[ 0   0  -1   2 ]
+
+
+Anular un elemento específico fuera de la diagonal (Bₚq) aplicando una transformación de similitud que 
+preserve los autovalores.
+
+Matriz de rotación de Jacobi
+
+R(p, q, φ) = 
+[ 1 ⋯ 0 ⋯ 0 ⋯ 0 ]
+[ ⋮ ⋱ ⋮   ⋮   ⋮ ]
+[ 0 ⋯ c ⋯ -s ⋯ 0 ]  ← Fila p
+[ ⋮   ⋮ ⋱ ⋮   ⋮ ]
+[ 0 ⋯ s ⋯ c ⋯ 0 ]  ← Fila q  
+[ ⋮   ⋮   ⋮ ⋱ ⋮ ]
+[ 0 ⋯ 0 ⋯ 0 ⋯ 1 ]
+
+
+c = cos(φ)
+
+s = sin(φ)
+
+Solo las filas/columnas p y q se modifican
+
+
+Se busca el elemneto mas garnde fuera de la diagonal
+Se busca el angulo obtimo que hace que el elemento sea cero
+y se aplica la matriz de rotacion de Jacobi
+
+
+B' = Rᵀ × B × R
+
+B' = Rᵀ × B × R
+
+B' = [0.7809  0.6247] × [4  2] × [0.7809  -0.6247]
+    [-0.6247 0.7809]   [2  3]   [0.6247   0.7809 ]
+
+B' ≈ [5.5616  0    ]  ← ¡Elemento fuera de diagonal anulado!
+     [0      1.4384]
+     
+     
+     
+B' = Rᵀ × B × R
+Propiedades Clave
+Mismos autovalores: det(B' - λI) = det(RᵀBR - λI) = det(B - λI)
+
+Ortogonal: RᵀR = I (preserva la norma)
+
+Simétrica: Si B es simétrica, B' también lo es
+
+
+
+
+Iteración 1: [ •   •   •   • ]    → Rotar para anular elemento (1,2)
+            [ •   •   •   • ]    → Se afectan filas/columnas 1 y 2
+            [ •   •   •   • ]
+            [ •   •   •   • ]
+
+Iteración 2: [ •   •   •   • ]    → Rotar para anular elemento (1,3)  
+            [ •   •   0   • ]    → Se afectan filas/columnas 1 y 3
+            [ •   0   •   • ]
+            [ •   •   •   • ]
+
+Iteración k: [ λ₁  0   0   0 ]    ← Matriz diagonal
+            [ 0   λ₂  0   0 ]    ← Autovalores en la diagonal
+            [ 0   0   λ₃  0 ]
+            [ 0   0   0   λ₄ ]
+            
+            
+            
+El Pozo Infinito tiene INFINITOS estados
+En la solución analítica: ψ₁(x), ψ₂(x), ψ₃(x), ..., ψ∞(x)
+
+Cada estado tiene su propia energía cuantizada Eₙ
+
+Pero discretizamos con n puntos
+Solo podemos resolver n estados independientes
+
+La matriz n×n tiene exactamente n autovectores (funciones de onda)
+
+
+
+Número de puntos interiores = n
+↓
+Tamaño de la matriz Hamiltoniana = n × n  
+↓
+Número de autovalores/autovectores = n
+↓ 
+Número de funciones de onda calculables = n
+
+
+para n=100
+ψ₁(x) → 0 nodos → E₁ ≈ (π²ℏ²)/(2mL²)
+ψ₂(x) → 1 nodo  → E₂ ≈ (4π²ℏ²)/(2mL²) 
+ψ₃(x) → 2 nodos → E₃ ≈ (9π²ℏ²)/(2mL²)
+...
+ψ₁₀₀(x) → 99 nodos → E₁₀₀ ≈ (10000π²ℏ²)/(2mL²)
+
+
+como se guardan las funciones de onda
+
+x₁   ψ₁(x₁)   ψ₂(x₁)   ψ₃(x₁)   ...   ψ_Nfunc(x₁)
+x₂   ψ₁(x₂)   ψ₂(x₂)   ψ₃(x₂)   ...   ψ_Nfunc(x₂)  
+x₃   ψ₁(x₃)   ψ₂(x₃)   ψ₃(x₃)   ...   ψ_Nfunc(x₃)
+...
+
+
+Validación del método
+
+ψₙ_teórico(x) = √(2/L) sin(nπx/L)
+Eₙ_teórico = (n²π²ℏ²)/(2mL²)
+
+
+
+// El algoritmo de Jacobi encuentra autovectores, pero...
+// ¡El signo global es arbitrario!
+
+ψ(x) y -ψ(x) son SOLUCIONES VÁLIDAS
+
+
+
+
+ψₙ(x) = √(2/L) sin(nπx/L)  ← Solución analítica
+
+Pero el método numérico puede dar:
+ψₙ_numérico(x) = -√(2/L) sin(nπx/L)  ← Igualmente válida
+
+
+
+
+
