@@ -1,3 +1,7 @@
+
+//Include de la ecuacion dependiente del tiempo 
+
+
 #include <vector>
 #include <complex>
 
@@ -13,5 +17,21 @@ vector<cdouble> matvec(const vector<vector<cdouble>>& M, const vector<cdouble>& 
 // Función que ejecuta toda la simulación Crank-Nicolson
 void run_cn_simulation(int N, double L, double dt, int nsteps,
                        double x0, double k0, double sigma);
+
+
+                    
+
+
+
+// Función que ejecuta toda la simulación Crank-Nicolson
+// Nueva función con evolución completa
+void run_cn_simulation_evolution(int N, double L, double dt, int nsteps,
+                                double x0, double k0, double sigma);
+
+
+// Guardar evolución temporal completa en un solo archivo
+void save_time_evolution(const vector<vector<cdouble>>& psi_history, 
+                         const vector<double>& time_points, 
+                         double dx, const string& filename);
 
 

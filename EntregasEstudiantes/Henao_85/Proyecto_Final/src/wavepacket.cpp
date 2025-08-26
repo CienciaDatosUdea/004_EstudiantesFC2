@@ -1,4 +1,5 @@
-#include "wavepacket.h"
+    
+ #include "wavepacket.h"
 #include <cmath>
 #include <stdexcept>
 #include <fstream>
@@ -138,4 +139,7 @@ void run_simulation(double x_0, double k, double sigma, double h, double m,
     outputFile3.close();
 
     cout << "Simulación finalizada. Archivos generados en la carpeta 'resultados'." << endl;
-}
+}          
+
+
+

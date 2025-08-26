@@ -1,6 +1,8 @@
+//Include de la ecuación idependiente del tiempo------------------------------------------
+
 #include <fstream>
 
-// Función de potencial
+// Función de potencial------------
 double InfiniteWell(double x, double *par);
 
 // Construcción de la matriz Hamiltoniana usando diferencias finitas
@@ -13,7 +15,4 @@ void jacobi_eigenvalues(double *A, int n, double tol, double *eigenvectors, doub
 void normalize_and_save_wavefunctions(double *eigenvectors, double *eigenvalues,
                                       int n, int Nfunc, double L, double R);
 
-
-
-
-
+void  save_energies(double *eigenvalues, int Nfunc);                                    

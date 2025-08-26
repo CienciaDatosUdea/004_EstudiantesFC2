@@ -24,5 +24,5 @@ void thomas_tridiag(const vector<cplx>& a,
 void run_simulation(double x_0, double k, double sigma, double h, double m,
                     double start_x, double end_x, double dx,
                     double start_t, double end_t, double dt);
-
-
+                    
+//Para dos dimensiones==============================================================
