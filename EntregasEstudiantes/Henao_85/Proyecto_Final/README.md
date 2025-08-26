@@ -579,3 +579,22 @@ Puedes ver todas las opciones disponibles con:
 ``` bash
 make help
 ```
+### Nota 
+
+En el desarrollo del proyecto hicimos uso de ChatGPT (OpenAI, 2025) como herramienta de apoyo para comprender conceptos teóricos y prácticos, así como para orientar la implementación de los métodos numéricos empleados.
+
+
+## Referencias 
+[1] Partícula en una caja. (s. f.). En Wikipedia. Recuperado el 23 de agosto de 2025, de https://es.wikipedia.org/wiki/Part%C3%ADcula_en_una_caja.
+
+[2] Victorakins02. (s.f.). Solving-BSE-Numerically [Repositorio de GitHub]. Recuperado de https://github.com/victorakins02/Solving-BSE-Numerically
+
+[3] Moebs, W., Ling, S. J., & Sanny, J. (2021). 7.4 La partícula cuántica en una caja. En Física universitaria volumen 3. OpenStax. https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/7-4-la-particula-cuantica-en-una-caja
+
+[4] Método de las diferencias finitas. (s.f.). En Wikipedia. Recuperado el 25 de agosto de 2025, de https://es.wikipedia.org/wiki/M%C3%A9todo_de_las_diferencias_finitas
+
+[5] Crank, J.; Nicolson, P. (1947). «A practical method for numerical evaluation of solutions of partial differential equations of the heat conduction type». Proc. Camb. Phil. Soc. 43 (1): 50-67. doi:10.1007/BF02127704.
+
+[6] ESPOL. (s. f.). Jacobi – Método. Blog de Análisis Numérico. Recuperado de https://blog.espol.edu.ec/analisisnumerico/jacobi-metodo/
+
+[7] OpenAI. (2025). ChatGPT (versión GPT-5) [Modelo de lenguaje]. https://chat.openai.com/
