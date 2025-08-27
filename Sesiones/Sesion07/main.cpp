@@ -1,6 +1,7 @@
 #include "flow.h"
 #include <iostream>
 
+
 int main(){   
     double xmin=0;
     double xmax=2;
