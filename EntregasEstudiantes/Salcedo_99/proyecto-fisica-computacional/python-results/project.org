@@ -1,19 +1,5 @@
-#+begin_html
-  <div align="right">
-  <b>
-  J.D. Salcedo, <a href="https://gitlab.com/jdavid.salcedo">  jdavid.salcedo@udea.edu.co  </a><br>
-  <b>
-  </div>
-#+end_html
-
---------------
-
-#+begin_html
-  <h1> <b> Proyecto Final Física Computacional 2.
-  ¿Dónde están las partículas cuando la caja está caliente? </b> </h1>
-#+end_html
-
---------------
+#+TITLE: Proyecto Final Física Computacional 2. ¿Dónde están las partículas cuando la caja está caliente?
+#+AUTHOR: Juan David Salcedo Hernández
 
 ** *Resumen*
 :PROPERTIES:
@@ -279,21 +265,16 @@ manipulación simbólica para realizar las operaciones correspondientes.
   # Vector multiplication
   vect = M @ sym.Matrix([-sym.exp(-2 * i * k_0 * b), 1])
 
-  #...
   x = sym.trigsimp(vect[0].expand().rewrite(sym.sin), method='fu').simplify()
   x = sym.collect(x, [k_1 ** 2, k_0 ** 2,k_0*k_1,2*k_1, 2*k_0])
 
-  #...
   y = sym.trigsimp(vect[1].rewrite(sym.cos), method='fu')
   y = y.simplify()
   y = sym.collect(y, [k_1 ** 2, k_0 ** 2,k_0*k_1])
 
-
-  #...
   function = -sym.exp(2 * i * k_0 * b) * y - x
   function = function.rewrite(sym.sin)
 
-  #...
   function1 = sym.trigsimp(sym.expand_trig(function).expand(), method='fu')
   function1 = sym.collect(function1, [2*i*k_1 ** 2, 2*i*k_0 ** 2,2*i*k_0*k_1])
   function1
@@ -308,29 +289,29 @@ A continuación, simplificamos la expresión previa dividiéndola en tres
 partes:
 
 Para el primer término, se obtiene:
-$$ \begin{split} -k_0^2 \left(2 \sin(2 a k_1) + \sin\left(
+\[ \begin{split} -k_0^2 \left(2 \sin(2 a k_1) + \sin\left(
 2ak_1 - 2 k_0 (a - b) \right) + \sin\left( 2ak_1 + 2 k_0 (a - b) \right)
 \right) & = -k_0^2 \left(2 \sin(2 a k_1) + 2 \sin(2 a k_1) \cos(2 k_0
 (a - b)) \right) \ & = -2 k_0^2 \sin(2 a k_1) \left(1 + \cos(2 k_0 (a -
-b)) \right). \end{split} $$
+b)) \right). \end{split} \]
 
 Para el segundo término, tenemos:
-$$ \begin{split} 2k_0 k_1 \left(-\sin\left(2 a k_1 - 2k_0
+\[ \begin{split} 2k_0 k_1 \left(-\sin\left(2 a k_1 - 2k_0
 (a-b) \right) + \sin\left( 2ak_1 + 2 k_0 (a - b) \right) \right) & =
 2k_0 k_1 \left(2 \cos(2 a k_1) \sin(2 k_0 (a - b)) \right) \ & = 4 k_0
-k_1 \cos(2 a k_1) \sin(2 k_0 (a - b)). \end{split} $$
+k_1 \cos(2 a k_1) \sin(2 k_0 (a - b)). \end{split} \]
 
 Finalmente, para el tercer término:
-$$ \begin{split} -k_1^2 \left(-2 \sin(2 a k_1) +
+\[ \begin{split} -k_1^2 \left(-2 \sin(2 a k_1) +
 \sin\left( 2ak_1 - 2 k_1 (a - b) \right) + \sin\left( 2ak_1 + 2 k_1 (a -
 b) \right) \right) & = -k_1^2 \left(-2 \sin(2 a k_1) + 2 \sin(2 a k_1)
 \cos(2 k_1 (a - b)) \right) \ & = 2 k_1^2 \sin(2 a k_1) \left(1 - \cos(2
-k_1 (a - b)) \right). \end{split} $$
+k_1 (a - b)) \right). \end{split} \]
 
 Sumando los tres términos obtenemos la ecuación trascendental:
-$$ \boxed{0 = (k_1^2 - k_0^2)\sin(2 a k_1) + 2 k_0 k_1
+\[ \boxed{0 = (k_1^2 - k_0^2)\sin(2 a k_1) + 2 k_0 k_1
 \cos(2 a k_1) \sin(2 k_0 (a - b)) -(k_1^2 + k_0^2) \sin(2 a k_1) \cos(2
-k_0 (a - b)) } $$
+k_0 (a - b)) } \]
 
 Este resultado nos permite calcular los valores de energía superiores al
 potencial $V_0$, es decir, aquellos para los cuales $E > V_0$. Para
@@ -751,7 +732,7 @@ B_2 \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix} =
 B_0 \begin{pmatrix} \alpha_0 \\ \beta_0 \end{pmatrix}.
  $$
 
-Aquí, $\alpha_0$, $$ $\beta_0$ y $\beta_1$ son constantes. A partir
+Aquí, $\alpha_0$, $\beta_0$ y $\beta_1$ son constantes. A partir
 de esta relación obtenemos:
 $$ B_2 = \frac{\beta_0}{\beta_1}B_0, \quad A_1 = \alpha_0
 B_0, \quad B_1 = \beta_0 B_0. $$
