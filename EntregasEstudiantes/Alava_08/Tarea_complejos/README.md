@@ -11,7 +11,7 @@ Incluye:
 ---
 
 ##  Estructura del proyecto
-Complejos/
+Tarea_complejos/
 ├── include/
 │ └── complejos.h # Definición de clases
 ├── src/
@@ -24,7 +24,7 @@ Complejos/
 
 
 
-Para compilar el código y generar el archivo ejecutable, simplemente abre una terminal en la carpeta principal del proyecto y ejecuta:
+Para compilar el código y generar el archivo ejecutable  abre una terminal en la carpeta principal del proyecto y ejecuta:
 
 ```bash
 make
@@ -41,4 +41,3 @@ Este comando  compila `complejos.cpp` y `main.cpp` y crea un ejecutable llamado 
 
 
 
-./complejos.out  # Ejecuta el programa
