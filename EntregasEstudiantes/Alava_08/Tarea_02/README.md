@@ -22,18 +22,6 @@ donde:
 - Salida en consola con los valores de la simulación.
 - Código modular (separado en `.h`, `.cpp` y `main.cpp`).
 
----
-
----
-
-### Compilar el proyecto
-
-Para compilar el código y generar el archivo ejecutable, ubicate en la carpeta raiz del  y ejecuta el comando:
-
-```bash
-make
-```
-
 Este comando compila `diffusion_solver` y `main.cpp` y crea un ejecutable llamado `difussion_solver.out`.
 ##  Estructura del proyecto
 
@@ -48,21 +36,17 @@ Tarea_02/
 
 ### Compilacion y ejecucion
 
-Para compilar el proyecto y ejecutar el programa en un solo paso, usa la regla `run`:
+Para compilar el código y generar el archivo ejecutable, ubicate en la carpeta raiz del  y ejecuta el comando:
 
 ```bash
-make run
+make
 ```
-
-Este comando se encarga de que el ejecutable esté actualizado y luego lo ejecuta, mostrando el resultado de las operaciones en la terminal.
-
-### Limpiar archivos generados
-
-Si deseas eliminar el ejecutable y los archivos objeto (`.o`) generados durante la compilación, usa la regla `clean`:
+Este comando compila `diffusion_solver` y `main.cpp` y crea un ejecutable llamado `difussion_solver.out`. para ejecutarlo usamos el comando:
 
 ```bash
-make clean
-```
+./diffusion_solver.out   # Ejecuta el programa
+
+
 
 
 
