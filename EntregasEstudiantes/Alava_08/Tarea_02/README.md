@@ -35,6 +35,16 @@ make
 ```
 
 Este comando compila `diffusion_solver` y `main.cpp` y crea un ejecutable llamado `difussion_solver.out`.
+##  Estructura del proyecto
+
+Tarea_02/
+├── include/
+│ └── diffusion_solver.h # Definición de clases y funciones
+├── src/
+│ └── diffusion_solver.cpp # Implementación del solver
+├── main.cpp # Ejemplo de uso
+├── Makefile # Compilación automática
+└── README.md # Documentación
 
 ### Compilacion y ejecucion
 
@@ -55,4 +65,4 @@ make clean
 ```
 
 
-## 📂 Estructura del proyecto
+
