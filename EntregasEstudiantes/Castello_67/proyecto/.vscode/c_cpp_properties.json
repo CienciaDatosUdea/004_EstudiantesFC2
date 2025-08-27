@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/lib/x86_64-linux-gnu/openmpi/include",
+                "/usr/lib/gcc/x86_64-linux-gnu/13/include",
+                "/mnt/c/Users/juanf/Documents/NotasObsidian/Fisica_Comp_2/proyecto/.vscode"
+            ],
+            "defines": [],
+            "compilerPath": "/home/castello/miniconda3/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}
