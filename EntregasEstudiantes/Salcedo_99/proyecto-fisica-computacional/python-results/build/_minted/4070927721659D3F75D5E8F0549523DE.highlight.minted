@@ -1,0 +1,46 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Finding the transcendental equation...}
+
+\PYG{c+c1}{\PYGZsh{} Define symbolic variables}
+\PYG{n}{k\PYGZus{}0}\PYG{p}{,} \PYG{n}{k\PYGZus{}1} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{symbols}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{k\PYGZus{}0 k\PYGZus{}1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{real}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{a}\PYG{p}{,} \PYG{n}{b} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{symbols}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{a b}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{real}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{i} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{I}  \PYG{c+c1}{\PYGZsh{} Imaginary unit}
+
+\PYG{c+c1}{\PYGZsh{} Define expressions}
+\PYG{n}{s01} \PYG{o}{=} \PYG{n}{k\PYGZus{}0} \PYG{o}{+} \PYG{n}{k\PYGZus{}1}
+\PYG{n}{d01} \PYG{o}{=} \PYG{n}{k\PYGZus{}0} \PYG{o}{\PYGZhy{}} \PYG{n}{k\PYGZus{}1}
+\PYG{n}{s12} \PYG{o}{=} \PYG{n}{k\PYGZus{}1} \PYG{o}{+} \PYG{n}{k\PYGZus{}0}
+\PYG{n}{d12} \PYG{o}{=} \PYG{n}{k\PYGZus{}1} \PYG{o}{\PYGZhy{}} \PYG{n}{k\PYGZus{}0}
+
+\PYG{c+c1}{\PYGZsh{} Define matrices}
+\PYG{n}{M\PYGZus{}01} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{Matrix}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{s01} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d01} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{,} \PYG{n}{d01} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{s01} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
+                   \PYG{p}{[}\PYG{n}{d01} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{i} \PYG{o}{*} \PYG{n}{s01} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{,} \PYG{n}{s01} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d01} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{M\PYGZus{}12} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{Matrix}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{s12} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d12} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{,} \PYG{n}{d12} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{i} \PYG{o}{*} \PYG{n}{s12} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
+                   \PYG{p}{[}\PYG{n}{d12} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{s12} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{,} \PYG{n}{s12} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d12} \PYG{o}{*} \PYG{n}{a}\PYG{p}{)}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Multiply the matrices}
+\PYG{n}{M} \PYG{o}{=} \PYG{p}{(}\PYG{n}{M\PYGZus{}01} \PYG{o}{@} \PYG{n}{M\PYGZus{}12}\PYG{p}{)}\PYG{o}{.}\PYG{n}{expand}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Vector multiplication}
+\PYG{n}{vect} \PYG{o}{=} \PYG{n}{M} \PYG{o}{@} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{Matrix}\PYG{p}{(}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}0} \PYG{o}{*} \PYG{n}{b}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}...}
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{trigsimp}\PYG{p}{(}\PYG{n}{vect}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{expand}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{rewrite}\PYG{p}{(}\PYG{n}{sym}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{)}\PYG{p}{,} \PYG{n}{method}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{fu}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{simplify}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{collect}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{p}{[}\PYG{n}{k\PYGZus{}1} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{k\PYGZus{}0} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{,}\PYG{n}{k\PYGZus{}0}\PYG{o}{*}\PYG{n}{k\PYGZus{}1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{k\PYGZus{}1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{k\PYGZus{}0}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}...}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{trigsimp}\PYG{p}{(}\PYG{n}{vect}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{rewrite}\PYG{p}{(}\PYG{n}{sym}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{)}\PYG{p}{,} \PYG{n}{method}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{fu}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{y}\PYG{o}{.}\PYG{n}{simplify}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{collect}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,} \PYG{p}{[}\PYG{n}{k\PYGZus{}1} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{k\PYGZus{}0} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{,}\PYG{n}{k\PYGZus{}0}\PYG{o}{*}\PYG{n}{k\PYGZus{}1}\PYG{p}{]}\PYG{p}{)}
+
+
+\PYG{c+c1}{\PYGZsh{}...}
+\PYG{n}{function} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}0} \PYG{o}{*} \PYG{n}{b}\PYG{p}{)} \PYG{o}{*} \PYG{n}{y} \PYG{o}{\PYGZhy{}} \PYG{n}{x}
+\PYG{n}{function} \PYG{o}{=} \PYG{n}{function}\PYG{o}{.}\PYG{n}{rewrite}\PYG{p}{(}\PYG{n}{sym}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}...}
+\PYG{n}{function1} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{trigsimp}\PYG{p}{(}\PYG{n}{sym}\PYG{o}{.}\PYG{n}{expand\PYGZus{}trig}\PYG{p}{(}\PYG{n}{function}\PYG{p}{)}\PYG{o}{.}\PYG{n}{expand}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{method}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{fu}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{function1} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{collect}\PYG{p}{(}\PYG{n}{function1}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{*}\PYG{n}{k\PYGZus{}1} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{*}\PYG{n}{k\PYGZus{}0} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{*}\PYG{n}{k\PYGZus{}0}\PYG{o}{*}\PYG{n}{k\PYGZus{}1}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{function1}
+\end{MintedVerbatim}

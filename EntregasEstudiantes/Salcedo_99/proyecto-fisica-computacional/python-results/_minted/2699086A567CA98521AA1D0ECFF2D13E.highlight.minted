@@ -1,0 +1,41 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{BIN\PYGZus{}DIR} \PYG{o}{=} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{../bin}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{WAVE\PYGZus{}EXE} \PYG{o}{=} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{BIN\PYGZus{}DIR}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{/wavefunction}\PYG{l+s+s2}{\PYGZdq{}}
+
+\PYG{c+c1}{\PYGZsh{} Define parameter sets}
+\PYG{n}{m\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mf}{1.0}  \PYG{c+c1}{\PYGZsh{} Particle mass}
+\PYG{n}{V\PYGZus{}0\PYGZus{}val}   \PYG{o}{=} \PYG{l+m+mf}{1.0}  \PYG{c+c1}{\PYGZsh{} Potential well depth}
+\PYG{n}{h\PYGZus{}bar\PYGZus{}val} \PYG{o}{=} \PYG{l+m+mi}{1}    \PYG{c+c1}{\PYGZsh{} Reduced Planck’s constant}
+\PYG{n}{a\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mf}{1.5}  \PYG{c+c1}{\PYGZsh{} Small well width}
+\PYG{n}{b\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mf}{1.5}  \PYG{c+c1}{\PYGZsh{} Large well width}
+\PYG{n}{sym}       \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}   \PYG{c+c1}{\PYGZsh{} Antisymmetric function, i.e., we consider fermions}
+\PYG{n}{spin}      \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{grid\PYGZus{}num}  \PYG{o}{=} \PYG{l+m+mi}{50}
+\PYG{n}{T}         \PYG{o}{=} \PYG{l+m+mi}{10}
+
+\PYG{n}{Energy} \PYG{o}{=} \PYG{n}{Energy\PYGZus{}values}\PYG{p}{(}\PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val} \PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} We only consider two of the energy levels to be occupied by the fermions!}
+\PYG{n}{l} \PYG{o}{=} \PYG{p}{[}\PYG{n}{Energy\PYGZus{}0}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{Energy\PYGZus{}0}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{} Combinations with replacement for energies are considered in the case of fermions}
+\PYG{n}{tuples} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{combinations\PYGZus{}with\PYGZus{}replacement}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{new\PYGZus{}tuples} \PYG{o}{=} \PYG{p}{[}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)} \PYG{k}{for} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b} \PYG{o+ow}{in} \PYG{n}{tuples}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{} Write to a text file}
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{tuples.txt}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{w}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+    \PYG{k}{for} \PYG{n}{t} \PYG{o+ow}{in} \PYG{n}{new\PYGZus{}tuples}\PYG{p}{:}
+        \PYG{n}{f}\PYG{o}{.}\PYG{n}{write}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Tuples saved to tuples.txt}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Ejecutando wavefunction...}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{run\PYGZus{}command} \PYG{o}{=} \PYG{p}{[}\PYG{n}{WAVE\PYGZus{}EXE}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{m\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{a\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{b\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{T}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{sym}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{spin}\PYG{p}{)}\PYG{p}{,}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{tuples.txt}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}
+    \PYG{n}{subprocess}\PYG{o}{.}\PYG{n}{run}\PYG{p}{(}\PYG{n}{run\PYGZus{}command}\PYG{p}{,} \PYG{n}{check}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Ejecución completada.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{except} \PYG{n}{subprocess}\PYG{o}{.}\PYG{n}{CalledProcessError}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Error en la ejecución.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{exit}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+\end{MintedVerbatim}

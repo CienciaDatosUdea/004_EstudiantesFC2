@@ -1,0 +1,46 @@
+#ifndef CLASSES_H
+#define CLASSES_H
+
+#include <iostream>
+#include <vector>
+#include <random>
+#include <cmath>
+
+// Constants
+const int N = 10;
+const double R = 1.0;
+const double DELTA = 0.1;
+
+// Random number generator (global engine)
+extern std::mt19937 gen;
+
+// Clase partícula
+class Particula {
+public:
+    double x, y;   // Posición
+    double Fx, Fy; // Fuerzas
+
+    Particula();
+
+    void initPosition(double R);
+    void pertPosition(double dx, double dy);
+};
+
+// Clase sistema
+class Sistema {
+private:
+    std::vector<Particula> p;
+
+public:
+    Sistema(int N);
+
+    void initAll(double R);
+    void pertAll(double delta);
+    void distMax() const;
+    void initForces();
+    void netForce() const;
+
+    Particula& operator[](int i);
+};
+
+#endif

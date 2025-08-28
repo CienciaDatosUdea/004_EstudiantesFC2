@@ -1,0 +1,70 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Symbolic/Numeric Construction of Wavefunctions}
+
+\PYG{c+c1}{\PYGZsh{} Define the variable for position}
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{real}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Symbolic expressions for the wavefunction in different regions}
+\PYG{c+c1}{\PYGZsh{} Region 0: Outside the well on the left (\PYGZhy{}b \PYGZlt{}= x \PYGZlt{} \PYGZhy{}a)}
+\PYG{n}{phi\PYGZus{}0} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}0} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{b} \PYG{o}{+} \PYG{n}{x}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}0} \PYG{o}{*} \PYG{n}{x}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Region 1: Inside the well (\PYGZhy{}a \PYGZlt{}= x \PYGZlt{}= a)}
+\PYG{n}{phi\PYGZus{}1} \PYG{o}{=} \PYG{n}{alpha\PYGZus{}0} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}1} \PYG{o}{*} \PYG{n}{x}\PYG{p}{)} \PYG{o}{+} \PYG{n}{beta\PYGZus{}0} \PYG{o}{*} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}1} \PYG{o}{*} \PYG{n}{x}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Region 2: Outside the well on the right (a \PYGZlt{} x \PYGZlt{}= b)}
+\PYG{n}{phi\PYGZus{}2} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{beta\PYGZus{}0} \PYG{o}{/} \PYG{n}{beta\PYGZus{}1}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}0} \PYG{o}{*} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{b} \PYG{o}{+} \PYG{n}{x}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{i} \PYG{o}{*} \PYG{n}{k\PYGZus{}0} \PYG{o}{*} \PYG{n}{x}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Substituting k\PYGZus{}i values: k\PYGZus{}i = sqrt(2 * m * (E \PYGZhy{} V\PYGZus{}i)) / h\PYGZus{}bar}
+\PYG{n}{phi\PYGZus{}0} \PYG{o}{=} \PYG{n}{phi\PYGZus{}0}\PYG{o}{.}\PYG{n}{subs}\PYG{p}{(}\PYG{p}{[}\PYG{p}{(}\PYG{n}{k\PYGZus{}0}\PYG{p}{,} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{p}{(}\PYG{n}{E} \PYG{o}{\PYGZhy{}} \PYG{n}{V\PYGZus{}0}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{h\PYGZus{}bar}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{n}{k\PYGZus{}1}\PYG{p}{,} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{n}{E}\PYG{p}{)} \PYG{o}{/} \PYG{n}{h\PYGZus{}bar}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{phi\PYGZus{}1} \PYG{o}{=} \PYG{n}{phi\PYGZus{}1}\PYG{o}{.}\PYG{n}{subs}\PYG{p}{(}\PYG{p}{[}\PYG{p}{(}\PYG{n}{k\PYGZus{}0}\PYG{p}{,} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{p}{(}\PYG{n}{E} \PYG{o}{\PYGZhy{}} \PYG{n}{V\PYGZus{}0}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{h\PYGZus{}bar}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{n}{k\PYGZus{}1}\PYG{p}{,} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{n}{E}\PYG{p}{)} \PYG{o}{/} \PYG{n}{h\PYGZus{}bar}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{phi\PYGZus{}2} \PYG{o}{=} \PYG{n}{phi\PYGZus{}2}\PYG{o}{.}\PYG{n}{subs}\PYG{p}{(}\PYG{p}{[}\PYG{p}{(}\PYG{n}{k\PYGZus{}0}\PYG{p}{,} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{p}{(}\PYG{n}{E} \PYG{o}{\PYGZhy{}} \PYG{n}{V\PYGZus{}0}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{h\PYGZus{}bar}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{n}{k\PYGZus{}1}\PYG{p}{,} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{n}{E}\PYG{p}{)} \PYG{o}{/} \PYG{n}{h\PYGZus{}bar}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Convert symbolic expressions into numerical functions for fast evaluation}
+\PYG{n}{numeric\PYGZus{}phi\PYGZus{}0} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{lambdify}\PYG{p}{(}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{,} \PYG{n}{phi\PYGZus{}0}\PYG{p}{,} \PYG{p}{[}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sqrt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{emath}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{numeric\PYGZus{}phi\PYGZus{}1} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{lambdify}\PYG{p}{(}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{,} \PYG{n}{phi\PYGZus{}1}\PYG{p}{,} \PYG{p}{[}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sqrt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{emath}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{numeric\PYGZus{}phi\PYGZus{}2} \PYG{o}{=} \PYG{n}{sym}\PYG{o}{.}\PYG{n}{lambdify}\PYG{p}{(}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{,} \PYG{n}{phi\PYGZus{}2}\PYG{p}{,} \PYG{p}{[}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sqrt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{emath}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{wavefunction}\PYG{p}{(}\PYG{n}{E}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{m}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{a}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{b}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Computes the normalized wavefunction for a given energy level in a quantum well.}
+
+\PYG{l+s+sd}{    Parameters:}
+\PYG{l+s+sd}{    E       : float \PYGZhy{} Energy level of the wavefunction}
+\PYG{l+s+sd}{    m       : float \PYGZhy{} Particle mass}
+\PYG{l+s+sd}{    V\PYGZus{}0     : float \PYGZhy{} Potential well depth}
+\PYG{l+s+sd}{    h\PYGZus{}bar   : float \PYGZhy{} Reduced Planck’s constant}
+\PYG{l+s+sd}{    a       : float \PYGZhy{} Small well width}
+\PYG{l+s+sd}{    b       : float \PYGZhy{} Large well width}
+
+\PYG{l+s+sd}{    Returns:}
+\PYG{l+s+sd}{    phi\PYGZus{}normalized : function \PYGZhy{} Normalized wavefunction function}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+    \PYG{c+c1}{\PYGZsh{} Define the squared norm of the wavefunction for numerical integration}
+    \PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{square\PYGZus{}norm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{n}{a}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{absolute}\PYG{p}{(}\PYG{n}{numeric\PYGZus{}phi\PYGZus{}0}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}
+        \PYG{k}{elif} \PYG{o}{\PYGZhy{}}\PYG{n}{a} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{a}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{absolute}\PYG{p}{(}\PYG{n}{numeric\PYGZus{}phi\PYGZus{}1}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}
+        \PYG{k}{elif} \PYG{n}{a} \PYG{o}{\PYGZlt{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{b}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{absolute}\PYG{p}{(}\PYG{n}{numeric\PYGZus{}phi\PYGZus{}2}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{k}{return} \PYG{l+m+mi}{0}  \PYG{c+c1}{\PYGZsh{} Zero outside the defined region}
+
+    \PYG{c+c1}{\PYGZsh{} Perform numerical integration to determine the normalization constant}
+    \PYG{n}{norm\PYGZus{}integral}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{quad}\PYG{p}{(}\PYG{n}{square\PYGZus{}norm}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}
+    \PYG{n}{normalization\PYGZus{}constant} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{norm\PYGZus{}integral}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Define the normalized wavefunction}
+    \PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{phi\PYGZus{}normalized}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{n}{a}\PYG{p}{:}
+            \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{numeric\PYGZus{}phi\PYGZus{}0}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)} \PYG{o}{*} \PYG{n}{normalization\PYGZus{}constant}
+        \PYG{k}{elif} \PYG{o}{\PYGZhy{}}\PYG{n}{a} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{a}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{numeric\PYGZus{}phi\PYGZus{}1}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)} \PYG{o}{*} \PYG{n}{normalization\PYGZus{}constant}
+        \PYG{k}{elif} \PYG{n}{a} \PYG{o}{\PYGZlt{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{b}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{numeric\PYGZus{}phi\PYGZus{}2}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)} \PYG{o}{*} \PYG{n}{normalization\PYGZus{}constant}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{k}{return} \PYG{l+m+mi}{0}  \PYG{c+c1}{\PYGZsh{} Zero outside the defined region}
+
+    \PYG{k}{return} \PYG{n}{phi\PYGZus{}normalized}
+\end{MintedVerbatim}

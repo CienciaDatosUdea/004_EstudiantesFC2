@@ -1,0 +1,44 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZpc{}}\PYG{o}{\PYGZpc{}}\PYG{n}{writefile} \PYG{o}{.}\PYG{o}{.}\PYG{o}{/}\PYG{n}{src}\PYG{o}{/}\PYG{n}{normalisation}\PYG{o}{.}\PYG{n}{cpp}
+\PYG{c+c1}{\PYGZsh{}include \PYGZdq{}../include/functions.h\PYGZdq{}}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Wavefunction} \PYG{n}{normalisation} \PYG{n}{regionwise}
+\PYG{n}{double} \PYG{n}{square\PYGZus{}norm}\PYG{p}{(}\PYG{n}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{void}\PYG{o}{*} \PYG{n}{params}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{auto}\PYG{o}{*} \PYG{n}{p} \PYG{o}{=} \PYG{n}{static\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{n}{WaveParams}\PYG{o}{*}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{params}\PYG{p}{)}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{b} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{a}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{phi\PYGZus{}0}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{o}{*}\PYG{n}{p}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{a} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{p}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{a}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{phi\PYGZus{}1}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{o}{*}\PYG{n}{p}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}} \PYG{n}{p}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{a} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{p}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{phi\PYGZus{}2}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{o}{*}\PYG{n}{p}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{l+m+mf}{0.0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Computes} \PYG{n}{the} \PYG{n}{normalization} \PYG{n}{constant} \PYG{k}{for} \PYG{n}{the} \PYG{n}{wavefunction}
+\PYG{n}{double} \PYG{n}{normalize\PYGZus{}wavefunction}\PYG{p}{(}\PYG{n}{const} \PYG{n}{WaveParams}\PYG{o}{\PYGZam{}} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{gsl\PYGZus{}integration\PYGZus{}workspace}\PYG{o}{*} \PYG{n}{w} \PYG{o}{=} \PYG{n}{gsl\PYGZus{}integration\PYGZus{}workspace\PYGZus{}alloc}\PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{gsl\PYGZus{}function} \PYG{n}{F}\PYG{p}{;}
+    \PYG{n}{F}\PYG{o}{.}\PYG{n}{function} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{square\PYGZus{}norm}\PYG{p}{;}
+    \PYG{n}{F}\PYG{o}{.}\PYG{n}{params} \PYG{o}{=} \PYG{n}{const\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{n}{WaveParams}\PYG{o}{*}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{n}{double} \PYG{n}{result}\PYG{p}{,} \PYG{n}{error}\PYG{p}{;}
+    \PYG{n}{gsl\PYGZus{}integration\PYGZus{}qag}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{F}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{.}\PYG{n}{b}\PYG{p}{,} \PYG{n}{p}\PYG{o}{.}\PYG{n}{b}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{,} \PYG{l+m+mi}{1000}\PYG{p}{,}
+                        \PYG{n}{GSL\PYGZus{}INTEG\PYGZus{}GAUSS61}\PYG{p}{,} \PYG{n}{w}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{result}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{error}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{gsl\PYGZus{}integration\PYGZus{}workspace\PYGZus{}free}\PYG{p}{(}\PYG{n}{w}\PYG{p}{)}\PYG{p}{;}
+    \PYG{k}{return} \PYG{l+m+mf}{1.0} \PYG{o}{/} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{result}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Returns} \PYG{n}{the} \PYG{n}{normalized} \PYG{n}{wavefunction} \PYG{n}{value} \PYG{n}{at} \PYG{n}{position} \PYG{n}{x}
+\PYG{n}{Complex} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{const} \PYG{n}{WaveParams}\PYG{o}{\PYGZam{}} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{double} \PYG{n}{norm\PYGZus{}const} \PYG{o}{=} \PYG{n}{normalize\PYGZus{}wavefunction}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{.}\PYG{n}{b} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{.}\PYG{n}{a}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{norm\PYGZus{}const} \PYG{o}{*} \PYG{n}{phi\PYGZus{}0}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{.}\PYG{n}{a} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{p}\PYG{o}{.}\PYG{n}{a}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{norm\PYGZus{}const} \PYG{o}{*} \PYG{n}{phi\PYGZus{}1}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}} \PYG{n}{p}\PYG{o}{.}\PYG{n}{a} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{p}\PYG{o}{.}\PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{norm\PYGZus{}const} \PYG{o}{*} \PYG{n}{phi\PYGZus{}2}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{Complex}\PYG{p}{(}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

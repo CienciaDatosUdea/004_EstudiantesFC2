@@ -1,0 +1,107 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{papers}\PYG{p}{(}\PYG{n}{E}\PYG{p}{,} \PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n}{sym}\PYG{p}{,} \PYG{n}{spin}\PYG{p}{,} \PYG{n}{grid\PYGZus{}num}\PYG{o}{=}\PYG{l+m+mi}{60}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Generates and visualizes the thermal wavefunction in 3D.}
+
+\PYG{l+s+sd}{    Parameters:}
+\PYG{l+s+sd}{        E (list): Indices of the energy levels to consider.}
+\PYG{l+s+sd}{        m\PYGZus{}val (float): Particle mass.}
+\PYG{l+s+sd}{        V\PYGZus{}0\PYGZus{}val (float): Potential barrier value.}
+\PYG{l+s+sd}{        h\PYGZus{}bar\PYGZus{}val (float): Reduced Planck\PYGZsq{}s constant.}
+\PYG{l+s+sd}{        a\PYGZus{}val (float): Barrier parameter (central region width).}
+\PYG{l+s+sd}{        b\PYGZus{}val (float): Barrier parameter (total extent).}
+\PYG{l+s+sd}{        T (float): System temperature.}
+\PYG{l+s+sd}{        sym (int): Specifies whether symmetric energy combinations (bosons/fermions) are considered.}
+\PYG{l+s+sd}{        spin (int): Specifies whether spin coupling is considered.}
+\PYG{l+s+sd}{        grid\PYGZus{}num (int, optional): Grid size for visualization (default = 60).}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+    \PYG{c+c1}{\PYGZsh{} Obtain the energy values for the given parameters}
+    \PYG{n}{Energy} \PYG{o}{=} \PYG{n}{Energy\PYGZus{}values}\PYG{p}{(}\PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Check if symmetry is applied to energy combinations}
+    \PYG{k}{if} \PYG{n}{sym} \PYG{o}{==} \PYG{l+m+mi}{1} \PYG{o+ow}{and} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{E}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{2}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} Select energy values using the indices in E}
+        \PYG{n}{l} \PYG{o}{=} \PYG{p}{[}\PYG{n}{Energy}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{E}\PYG{p}{]}
+        \PYG{c+c1}{\PYGZsh{} Generate combinations with replacement (considering symmetry)}
+        \PYG{n}{tuples} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{combinations\PYGZus{}with\PYGZus{}replacement}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{} Create new tuples formatted as (a, b, b, a)}
+        \PYG{n}{new\PYGZus{}tuples} \PYG{o}{=} \PYG{p}{[}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)} \PYG{k}{for} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b} \PYG{o+ow}{in} \PYG{n}{tuples}\PYG{p}{]}
+
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} Select energy values using the indices in E}
+        \PYG{n}{l} \PYG{o}{=} \PYG{p}{[}\PYG{n}{Energy}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{E}\PYG{p}{]}
+        \PYG{c+c1}{\PYGZsh{} Generate permutations without replacement (no symmetry)}
+        \PYG{n}{tuples} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{itertools}\PYG{o}{.}\PYG{n}{permutations}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{} Create new tuples formatted as (a, b, b, a)}
+        \PYG{n}{new\PYGZus{}tuples} \PYG{o}{=} \PYG{p}{[}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)} \PYG{k}{for} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b} \PYG{o+ow}{in} \PYG{n}{tuples}\PYG{p}{]}
+
+    \PYG{c+c1}{\PYGZsh{} Save the energy combinations to a text file}
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{tuples.txt}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{w}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+        \PYG{k}{for} \PYG{n}{t} \PYG{o+ow}{in} \PYG{n}{new\PYGZus{}tuples}\PYG{p}{:}
+            \PYG{n}{f}\PYG{o}{.}\PYG{n}{write}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Execute the C++ program that calculates the wavefunctions}
+    \PYG{k}{try}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Running wavefunction...}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{run\PYGZus{}command} \PYG{o}{=} \PYG{p}{[}
+            \PYG{n}{WAVE\PYGZus{}EXE}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{m\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{)}\PYG{p}{,}
+            \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{a\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{b\PYGZus{}val}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{T}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{sym}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{spin}\PYG{p}{)}\PYG{p}{,}
+            \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{tuples.txt}\PYG{l+s+s2}{\PYGZdq{}}
+        \PYG{p}{]}
+        \PYG{n}{subprocess}\PYG{o}{.}\PYG{n}{run}\PYG{p}{(}\PYG{n}{run\PYGZus{}command}\PYG{p}{,} \PYG{n}{check}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Execution completed.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{k}{except} \PYG{n}{subprocess}\PYG{o}{.}\PYG{n}{CalledProcessError}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Execution error.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{exit}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Load the data generated by the C++ program}
+    \PYG{n}{wave\PYGZus{}data} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{wavefunctions.csv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Compute the normalized thermal probability}
+    \PYG{n}{wave\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Pth\PYGZus{}f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{wave\PYGZus{}data}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{:}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{tuples}\PYG{p}{)}\PYG{p}{]}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{tuples}\PYG{p}{)}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{/} \PYG{n}{T}\PYG{p}{)}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Extract spatial coordinates and thermal distribution}
+    \PYG{n}{X1} \PYG{o}{=} \PYG{n}{wave\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{,} \PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{X2} \PYG{o}{=} \PYG{n}{wave\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{,} \PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{Z} \PYG{o}{=} \PYG{n}{wave\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pth\PYGZus{}f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{,} \PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Configure the 3D figure}
+    \PYG{n}{fig} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{111}\PYG{p}{,} \PYG{n}{projection}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{3d}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Plot the 3D surface with the \PYGZdq{}turbo\PYGZdq{} colormap}
+    \PYG{n}{surf} \PYG{o}{=} \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot\PYGZus{}surface}\PYG{p}{(}\PYG{n}{X1}\PYG{p}{,} \PYG{n}{X2}\PYG{p}{,} \PYG{n}{Z}\PYG{p}{,} \PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{turbo}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{edgecolor}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{k}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.1}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Axis labels}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x1}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x2}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}zlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{P}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Remove background from the axes}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{xaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{fill} \PYG{o}{=} \PYG{k+kc}{False}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{yaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{fill} \PYG{o}{=} \PYG{k+kc}{False}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{zaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{fill} \PYG{o}{=} \PYG{k+kc}{False}
+
+    \PYG{c+c1}{\PYGZsh{} Remove grid for better visualization}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Adjust axis borders}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{xaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{set\PYGZus{}edgecolor}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{yaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{set\PYGZus{}edgecolor}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{zaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{set\PYGZus{}edgecolor}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Set plot limits}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}zlim}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{Z}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Adjust the box aspect ratio for better visualization}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}box\PYGZus{}aspect}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Set the 3D view}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{view\PYGZus{}init}\PYG{p}{(}\PYG{n}{elev}\PYG{o}{=}\PYG{l+m+mi}{45}\PYG{p}{,} \PYG{n}{azim}\PYG{o}{=}\PYG{l+m+mi}{45}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Show the figure}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

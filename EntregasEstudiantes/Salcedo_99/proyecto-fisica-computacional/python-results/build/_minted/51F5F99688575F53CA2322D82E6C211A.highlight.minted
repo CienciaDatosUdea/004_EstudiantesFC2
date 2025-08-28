@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{m\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mf}{1.0}  \PYG{c+c1}{\PYGZsh{} Particle mass}
+\PYG{n}{V\PYGZus{}0\PYGZus{}val}   \PYG{o}{=} \PYG{l+m+mf}{10.0} \PYG{c+c1}{\PYGZsh{} Potential well depth}
+\PYG{n}{h\PYGZus{}bar\PYGZus{}val} \PYG{o}{=} \PYG{l+m+mi}{1}    \PYG{c+c1}{\PYGZsh{} Reduced Planck’s constant}
+\PYG{n}{a\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mf}{1.5}  \PYG{c+c1}{\PYGZsh{} Small well width}
+\PYG{n}{b\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mi}{6}    \PYG{c+c1}{\PYGZsh{} Large well width}
+\PYG{n}{grid\PYGZus{}num}  \PYG{o}{=} \PYG{l+m+mi}{1000}
+\PYG{n}{n\PYGZus{}energy}  \PYG{o}{=} \PYG{l+m+mi}{70}
+
+\PYG{n}{wavefunction\PYGZus{}1d}\PYG{p}{(}\PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{,}\PYG{n}{grid\PYGZus{}num}\PYG{p}{)}
+\end{MintedVerbatim}

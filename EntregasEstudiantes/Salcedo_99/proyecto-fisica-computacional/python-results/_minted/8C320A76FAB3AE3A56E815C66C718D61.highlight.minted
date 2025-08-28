@@ -1,0 +1,91 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZpc{}}\PYG{o}{\PYGZpc{}}\PYG{n}{writefile} \PYG{o}{.}\PYG{o}{.}\PYG{o}{/}\PYG{n}{src}\PYG{o}{/}\PYG{n}{wavefunctions}\PYG{o}{.}\PYG{n}{h}
+\PYG{c+c1}{\PYGZsh{}include \PYGZdq{}../include/functions.h\PYGZdq{}}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Thermalized} \PYG{n}{probability} \PYG{n}{density} \PYG{n}{function}\PYG{o}{.}
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Compute} \PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{dimensional} \PYG{n}{wavefunctions} \PYG{n}{over} \PYG{n}{a} \PYG{n+nb}{range} \PYG{n}{of} \PYG{n}{temperatures} \PYG{o+ow}{and} \PYG{n}{energies}
+\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{VectorXd}\PYG{o}{\PYGZgt{}} \PYG{n}{compute\PYGZus{}wavefunctions\PYGZus{}1d}\PYG{p}{(}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{T\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{energies}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{double} \PYG{n}{m}\PYG{p}{,} \PYG{n}{double} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{double} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{double} \PYG{n}{a}\PYG{p}{,} \PYG{n}{double} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+    \PYG{o}{/}\PYG{o}{/} \PYG{n}{Initialise} \PYG{n}{parameters} \PYG{n}{template} \PYG{k}{with} \PYG{n}{E} \PYG{o}{=} \PYG{l+m+mf}{0.} \PYG{n}{In} \PYG{n}{time}\PYG{p}{,} \PYG{n}{we} \PYG{n}{will} \PYG{n}{change} \PYG{n}{the}
+    \PYG{o}{/}\PYG{o}{/} \PYG{n}{energy} \PYG{n}{values}
+    \PYG{n}{WaveParams} \PYG{n}{base\PYGZus{}params} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+    \PYG{n+nb}{int} \PYG{n}{n\PYGZus{}temperatures} \PYG{o}{=} \PYG{n}{T\PYGZus{}values}\PYG{o}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n+nb}{int} \PYG{n}{n\PYGZus{}energies} \PYG{o}{=} \PYG{n}{energies}\PYG{o}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n+nb}{int} \PYG{n}{n\PYGZus{}x} \PYG{o}{=} \PYG{n}{x\PYGZus{}values}\PYG{o}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{o}{/}\PYG{o}{/} \PYG{n}{Declare} \PYG{n}{the} \PYG{n}{result} \PYG{k}{as} \PYG{n}{an} \PYG{p}{(}\PYG{n}{n\PYGZus{}temperatures}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{dimensional} \PYG{n}{vector} \PYG{n}{of} \PYG{n}{real}
+    \PYG{o}{/}\PYG{o}{/} \PYG{n}{n\PYGZus{}x}\PYG{o}{\PYGZhy{}}\PYG{n}{dimensional} \PYG{n}{vectors}\PYG{o}{.} \PYG{n}{n\PYGZus{}x} \PYG{o}{=} \PYG{n}{amount} \PYG{n}{of} \PYG{n}{x} \PYG{n}{values} \PYG{n}{to} \PYG{n}{compute}
+    \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{VectorXd}\PYG{o}{\PYGZgt{}} \PYG{n}{result}\PYG{p}{(}\PYG{n}{n\PYGZus{}temperatures}\PYG{p}{,} \PYG{n}{VectorXd}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Zero}\PYG{p}{(}\PYG{n}{n\PYGZus{}x}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{c+c1}{\PYGZsh{}pragma omp parallel for collapse(1)}
+    \PYG{k}{for}\PYG{p}{(}\PYG{n+nb}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{n\PYGZus{}temperatures}\PYG{p}{;} \PYG{o}{+}\PYG{o}{+}\PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{for} \PYG{p}{(}\PYG{n+nb}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n\PYGZus{}energies}\PYG{p}{;} \PYG{o}{+}\PYG{o}{+}\PYG{n}{i}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{o}{/}\PYG{o}{/} \PYG{n}{overwrite} \PYG{n}{the} \PYG{n}{base} \PYG{n}{params} \PYG{k}{with} \PYG{n}{the} \PYG{n}{correct} \PYG{n}{energy}
+            \PYG{n}{WaveParams} \PYG{n}{p} \PYG{o}{=} \PYG{n}{base\PYGZus{}params}\PYG{p}{;} \PYG{n}{p}\PYG{o}{.}\PYG{n}{E} \PYG{o}{=} \PYG{n}{energies}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{;}
+
+            \PYG{k}{for} \PYG{p}{(}\PYG{n+nb}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{n\PYGZus{}x}\PYG{p}{;} \PYG{o}{+}\PYG{o}{+}\PYG{n}{j}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{n}{Complex} \PYG{n}{psi} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{x\PYGZus{}values}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{,} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+                \PYG{n}{result}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{energies}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{/} \PYG{n}{T\PYGZus{}values}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{)} \PYG{o}{*} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{psi}\PYG{p}{)}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Returns} \PYG{n}{expected} \PYG{n}{values} \PYG{n}{of} \PYG{n}{the} \PYG{n}{positional} \PYG{n}{probability} \PYG{n}{density}
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{function} \PYG{k}{for} \PYG{n}{either} \PYG{n}{bosons} \PYG{p}{(}\PYG{n}{sym}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o+ow}{or} \PYG{n}{fermions} \PYG{p}{(}\PYG{n}{sym}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{with} \PYG{o+ow}{or} \PYG{n}{without}
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{spin}\PYG{o}{.}
+\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{MatrixXd}\PYG{o}{\PYGZgt{}} \PYG{n}{compute\PYGZus{}wavefunctions}\PYG{p}{(}
+    \PYG{n}{const} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n+nb}{tuple}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{o}{\PYGZam{}} \PYG{n}{energies}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x1\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x2\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{double} \PYG{n}{m}\PYG{p}{,} \PYG{n}{double} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{double} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{double} \PYG{n}{a}\PYG{p}{,} \PYG{n}{double} \PYG{n}{b}\PYG{p}{,}
+    \PYG{n}{double} \PYG{n}{T}\PYG{p}{,} \PYG{n}{double} \PYG{n}{sym}\PYG{p}{,} \PYG{n+nb}{bool} \PYG{n}{spin}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+    \PYG{o}{/}\PYG{o}{/} \PYG{n}{Initialise} \PYG{n}{parameters} \PYG{n}{template} \PYG{k}{with} \PYG{n}{E} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{o+ow}{in} \PYG{n}{time} \PYG{n}{we} \PYG{n}{will} \PYG{n}{change} \PYG{n}{the}
+    \PYG{o}{/}\PYG{o}{/} \PYG{n}{energy} \PYG{n}{values}
+    \PYG{n}{WaveParams} \PYG{n}{base\PYGZus{}params} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+    \PYG{n+nb}{int} \PYG{n}{n\PYGZus{}energies} \PYG{o}{=} \PYG{n}{energies}\PYG{o}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n+nb}{int} \PYG{n}{n1} \PYG{o}{=} \PYG{n}{x1\PYGZus{}values}\PYG{o}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n+nb}{int} \PYG{n}{n2} \PYG{o}{=} \PYG{n}{x2\PYGZus{}values}\PYG{o}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{o}{/}\PYG{o}{/} \PYG{n}{Declare} \PYG{n}{the} \PYG{n}{result} \PYG{k}{as} \PYG{n}{an} \PYG{n}{n\PYGZus{}energies}\PYG{o}{\PYGZhy{}}\PYG{n}{dimensional} \PYG{n}{vector} \PYG{n}{of} \PYG{n}{real}
+    \PYG{o}{/}\PYG{o}{/} \PYG{p}{(}\PYG{n}{n1xn2}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{dimensional} \PYG{n}{matrices}
+    \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{MatrixXd}\PYG{o}{\PYGZgt{}} \PYG{n}{result}\PYG{p}{(}\PYG{n}{n\PYGZus{}energies}\PYG{p}{,} \PYG{n}{MatrixXd}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Zero}\PYG{p}{(}\PYG{n}{n1}\PYG{p}{,} \PYG{n}{n2}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{c+c1}{\PYGZsh{}pragma omp parallel for collapse(1)}
+    \PYG{k}{for}\PYG{p}{(}\PYG{n+nb}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{n\PYGZus{}energies}\PYG{p}{;} \PYG{o}{+}\PYG{o}{+}\PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{o}{/}\PYG{o}{/} \PYG{n}{k} \PYG{o+ow}{is} \PYG{n}{the} \PYG{n}{index} \PYG{n}{corresponding} \PYG{n}{to} \PYG{n}{the} \PYG{n}{energy} \PYG{n+nb}{tuple}
+        \PYG{o}{/}\PYG{o}{/} \PYG{n}{overwrite} \PYG{n}{the} \PYG{n}{base} \PYG{n}{params} \PYG{k}{with} \PYG{n}{the} \PYG{n}{correct} \PYG{n}{energies}
+        \PYG{n}{auto} \PYG{p}{[}\PYG{n}{E1}\PYG{p}{,} \PYG{n}{E2}\PYG{p}{,} \PYG{n}{E3}\PYG{p}{,} \PYG{n}{E4}\PYG{p}{]} \PYG{o}{=} \PYG{n}{energies}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{;}
+
+        \PYG{n}{WaveParams} \PYG{n}{p1} \PYG{o}{=} \PYG{n}{base\PYGZus{}params}\PYG{p}{;} \PYG{n}{p1}\PYG{o}{.}\PYG{n}{E} \PYG{o}{=} \PYG{n}{E1}\PYG{p}{;}
+        \PYG{n}{WaveParams} \PYG{n}{p2} \PYG{o}{=} \PYG{n}{base\PYGZus{}params}\PYG{p}{;} \PYG{n}{p2}\PYG{o}{.}\PYG{n}{E} \PYG{o}{=} \PYG{n}{E2}\PYG{p}{;}
+        \PYG{n}{WaveParams} \PYG{n}{p3} \PYG{o}{=} \PYG{n}{base\PYGZus{}params}\PYG{p}{;} \PYG{n}{p3}\PYG{o}{.}\PYG{n}{E} \PYG{o}{=} \PYG{n}{E3}\PYG{p}{;}
+        \PYG{n}{WaveParams} \PYG{n}{p4} \PYG{o}{=} \PYG{n}{base\PYGZus{}params}\PYG{p}{;} \PYG{n}{p4}\PYG{o}{.}\PYG{n}{E} \PYG{o}{=} \PYG{n}{E4}\PYG{p}{;}
+
+        \PYG{o}{/}\PYG{o}{/} \PYG{n}{populate} \PYG{n}{the} \PYG{n}{k}\PYG{o}{\PYGZhy{}}\PYG{n}{th} \PYG{n}{array}
+        \PYG{k}{for}\PYG{p}{(}\PYG{n+nb}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n1}\PYG{p}{;} \PYG{o}{+}\PYG{o}{+}\PYG{n}{i}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{for}\PYG{p}{(}\PYG{n+nb}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{n2}\PYG{p}{;} \PYG{o}{+}\PYG{o}{+}\PYG{n}{j}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{n}{Complex} \PYG{n}{psi1} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{x1\PYGZus{}values}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,} \PYG{n}{p1}\PYG{p}{)}\PYG{p}{;}
+                \PYG{n}{Complex} \PYG{n}{psi2} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{x2\PYGZus{}values}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{)}\PYG{p}{;}
+                \PYG{n}{Complex} \PYG{n}{psi3} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{x1\PYGZus{}values}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,} \PYG{n}{p3}\PYG{p}{)}\PYG{p}{;}
+                \PYG{n}{Complex} \PYG{n}{psi4} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{x2\PYGZus{}values}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{,} \PYG{n}{p4}\PYG{p}{)}\PYG{p}{;}
+
+                \PYG{k}{if}\PYG{p}{(}\PYG{n}{spin}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                    \PYG{n}{result}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{)} \PYG{o}{=} \PYG{l+m+mf}{0.5} \PYG{o}{*} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{E1} \PYG{o}{+} \PYG{n}{E2}\PYG{p}{)}\PYG{o}{/}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*}
+                        \PYG{p}{(}\PYG{l+m+mf}{0.25} \PYG{o}{*} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{psi1} \PYG{o}{*} \PYG{n}{psi2} \PYG{o}{+} \PYG{n}{psi3} \PYG{o}{*} \PYG{n}{psi4}\PYG{p}{)} \PYG{o}{+}
+                         \PYG{l+m+mf}{0.75} \PYG{o}{*} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{psi1} \PYG{o}{*} \PYG{n}{psi2} \PYG{o}{\PYGZhy{}} \PYG{n}{psi3} \PYG{o}{*} \PYG{n}{psi4}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+                    \PYG{n}{result}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{)} \PYG{o}{=} \PYG{l+m+mf}{0.5} \PYG{o}{*} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{E1} \PYG{o}{+} \PYG{n}{E2}\PYG{p}{)}\PYG{o}{/}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*}
+                        \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{psi1} \PYG{o}{*} \PYG{n}{psi2} \PYG{o}{+} \PYG{n}{sym} \PYG{o}{*} \PYG{n}{psi3} \PYG{o}{*} \PYG{n}{psi4}\PYG{p}{)}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}
