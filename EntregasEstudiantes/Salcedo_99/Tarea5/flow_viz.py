@@ -1,0 +1,60 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+import glob
+
+def load_frame(filename):
+    """
+    Load one snapshot (x, y, u, v, p) from a file.
+    Returns (x, y, u, v, p) reshaped into a 2D grid if possible.
+    """
+    data = np.loadtxt(filename)
+    if data.ndim == 1:  # single line safeguard
+        data = data.reshape(1, -1)
+
+    x, y, u, v, p = data.T
+    npoints = len(x)
+
+    # try to guess grid dimensions
+    # (unique x, unique y)
+    xs = np.unique(x)
+    ys = np.unique(y)
+    nx, ny = len(xs), len(ys)
+
+    if nx * ny == npoints:
+        X = x.reshape((nx, ny))
+        Y = y.reshape((nx, ny))
+        U = u.reshape((nx, ny))
+        V = v.reshape((nx, ny))
+        P = p.reshape((nx, ny))
+        return X, Y, U, V, P
+    else:
+        print(f"⚠️ Warning: file {filename} has {npoints} points, cannot reshape to grid ({nx},{ny}). Returning 1D arrays.")
+        return x, y, u, v, p
+
+# --- Load all frames ---
+files = sorted(glob.glob("data/channel_flow_*.txt"))
+frames = [load_frame(f) for f in files]
+
+# --- Animation ---
+fig, ax = plt.subplots(figsize=(6,5))
+def init():
+    ax.clear()
+    return []
+
+def update(frame):
+    ax.clear()
+    x, y, u, v, p = frame
+    if x.ndim == 2:  # regular grid
+        cf = ax.contourf(x, y, p, 20, cmap="viridis")
+        ax.quiver(x, y, u, v, scale=5)
+    else:  # scattered points
+        sc = ax.scatter(x, y, c=p, cmap="viridis", s=10)
+        ax.quiver(x, y, u, v, scale=5)
+    ax.set_title("Flow simulation")
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    return []
+
+ani = animation.FuncAnimation(fig, update, frames=frames, init_func=init, interval=100, blit=False)
+plt.show()

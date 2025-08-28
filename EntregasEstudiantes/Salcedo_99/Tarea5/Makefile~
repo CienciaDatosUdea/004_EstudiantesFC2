@@ -1,0 +1,27 @@
+CXX = g++
+CXXFLAGS = -O2 -std=c++17 -Iinclude
+SRC = $(wildcard src/*.cpp)
+OBJ = $(SRC:.cpp=.o)
+
+BIN_DIR = bin
+DATA_DIR = data
+
+all: $(BIN_DIR)/diffusion $(BIN_DIR)/flujo
+
+$(BIN_DIR)/diffusion: $(OBJ) main_diffusion.o
+	@mkdir -p $(BIN_DIR) $(DATA_DIR)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(BIN_DIR)/flujo: $(OBJ) main.o
+	@mkdir -p $(BIN_DIR) $(DATA_DIR)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+main.o: main.cpp
+	$(CXX) $(CXXFLAGS) -c main.cpp
+
+main_diffusion.o: main_diffusion.cpp
+	$(CXX) $(CXXFLAGS) -c main_diffusion.cpp
+
+clean:
+	rm -f src/*.o *.o
+	rm -rf $(BIN_DIR) $(DATA_DIR)

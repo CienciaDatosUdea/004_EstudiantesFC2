@@ -1,0 +1,65 @@
+#pragma once
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <functional>
+#include <stdexcept>
+#include <string>
+
+class Grid {
+public:
+    Grid(double x_min, double x_max,
+         double y_min, double y_max,
+         int nx, int ny);
+
+    double dx, dy;
+    double x_min, x_max;
+    double y_min, y_max;
+    int nx, ny;
+    // XY[i][j][0] = x, XY[i][j][1] = y
+    std::vector<std::vector<std::vector<double>>> XY;
+};
+
+class CampoVelocidadesPresion {
+public:
+    explicit CampoVelocidadesPresion(Grid &G);
+
+    Grid &G;
+    std::vector<std::vector<double>> U;
+    std::vector<std::vector<double>> V;
+    std::vector<std::vector<double>> P;
+
+    // If a nullptr function is passed then that field is filled with defaults
+    void CondicionesIniciales(
+        std::function<double(double,double)> u0 = nullptr,
+        std::function<double(double,double)> v0 = nullptr,
+        std::function<double(double,double)> p0 = nullptr);
+
+    void BoundaryCondition();
+};
+
+class ComputePresion {
+public:
+    ComputePresion (CampoVelocidadesPresion &Campo, double rho, double dt, int nit);
+
+    CampoVelocidadesPresion &Campo;
+    double rho;
+    double dt;
+    int nit;
+    void presionUpdate();
+};
+
+class ComputeCampo {
+public:
+    ComputeCampo (ComputePresion &omega);
+    ComputePresion &omega;
+    std::vector<std::vector<double>> f;
+    void velocidadesUpdate();
+};
+
+class FieldWriter {
+public:
+    explicit FieldWriter(const std::string &filename);
+    std::ofstream file;
+    void writePosicionCampo(const Grid &G, const CampoVelocidadesPresion &Campo);
+};
