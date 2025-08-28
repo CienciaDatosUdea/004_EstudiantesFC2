@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{papers}\PYG{p}{(}
+    \PYG{n}{E}         \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{]}\PYG{p}{,}
+    \PYG{n}{m\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mf}{1.0}\PYG{p}{,}
+    \PYG{n}{V\PYGZus{}0\PYGZus{}val}   \PYG{o}{=} \PYG{l+m+mf}{0.0}\PYG{p}{,}
+    \PYG{n}{h\PYGZus{}bar\PYGZus{}val} \PYG{o}{=} \PYG{l+m+mf}{1.0}\PYG{p}{,}
+    \PYG{n}{a\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{,}
+    \PYG{n}{b\PYGZus{}val}     \PYG{o}{=} \PYG{l+m+mi}{6}\PYG{p}{,}
+    \PYG{n}{T}         \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,}
+    \PYG{n}{sym}       \PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}
+    \PYG{n}{spin}      \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{p}{)}
+\end{MintedVerbatim}

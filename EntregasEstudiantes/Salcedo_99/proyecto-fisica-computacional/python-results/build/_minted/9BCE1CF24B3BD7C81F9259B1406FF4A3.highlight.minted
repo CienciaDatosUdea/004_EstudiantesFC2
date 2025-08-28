@@ -1,0 +1,64 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZpc{}}\PYG{o}{\PYGZpc{}}\PYG{n}{writefile} \PYG{o}{.}\PYG{o}{.}\PYG{o}{/}\PYG{n}{include}\PYG{o}{/}\PYG{n}{functions}\PYG{o}{.}\PYG{n}{h}
+\PYG{c+c1}{\PYGZsh{}ifndef FUNCTIONS\PYGZus{}H}
+\PYG{c+c1}{\PYGZsh{}define FUNCTIONS\PYGZus{}H}
+
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}fstream\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}cmath\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}complex\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}vector\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}tuple\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}Eigen/Dense\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}gsl/gsl\PYGZus{}integration.h\PYGZgt{}}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Aliases}
+\PYG{n}{using} \PYG{n}{Complex}   \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n+nb}{complex}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{n}{using} \PYG{n}{MatrixXcd} \PYG{o}{=} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Matrix}\PYG{o}{\PYGZlt{}}\PYG{n}{Complex}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{n}{using} \PYG{n}{MatrixXd}  \PYG{o}{=} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Matrix}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{n}{using} \PYG{n}{VectorXd}  \PYG{o}{=} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{VectorXd}\PYG{p}{;}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Wave} \PYG{n}{parameters}
+\PYG{n}{struct} \PYG{n}{WaveParams} \PYG{p}{\PYGZob{}}
+    \PYG{n}{double} \PYG{n}{E}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Region} \PYG{n}{wavefunctions}
+\PYG{n}{Complex} \PYG{n}{phi\PYGZus{}0}\PYG{p}{(}\PYG{n}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{const} \PYG{n}{WaveParams}\PYG{o}{\PYGZam{}} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Complex} \PYG{n}{phi\PYGZus{}1}\PYG{p}{(}\PYG{n}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{const} \PYG{n}{WaveParams}\PYG{o}{\PYGZam{}} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Complex} \PYG{n}{phi\PYGZus{}2}\PYG{p}{(}\PYG{n}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{const} \PYG{n}{WaveParams}\PYG{o}{\PYGZam{}} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Normalization}
+\PYG{n}{double} \PYG{n}{square\PYGZus{}norm}\PYG{p}{(}\PYG{n}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{void}\PYG{o}{*} \PYG{n}{params}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{double} \PYG{n}{normalize\PYGZus{}wavefunction}\PYG{p}{(}\PYG{n}{const} \PYG{n}{WaveParams}\PYG{o}{\PYGZam{}} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Complex} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{const} \PYG{n}{WaveParams}\PYG{o}{\PYGZam{}} \PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Wavefunction} \PYG{n}{computations}
+\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{VectorXd}\PYG{o}{\PYGZgt{}} \PYG{n}{compute\PYGZus{}wavefunctions\PYGZus{}1d}\PYG{p}{(}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{T\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{energies}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{double} \PYG{n}{m}\PYG{p}{,} \PYG{n}{double} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{double} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{double} \PYG{n}{a}\PYG{p}{,} \PYG{n}{double} \PYG{n}{b}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{MatrixXd}\PYG{o}{\PYGZgt{}} \PYG{n}{compute\PYGZus{}wavefunctions}\PYG{p}{(}
+    \PYG{n}{const} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n+nb}{tuple}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{o}{\PYGZam{}} \PYG{n}{energies}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x1\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x2\PYGZus{}values}\PYG{p}{,}
+    \PYG{n}{double} \PYG{n}{m}\PYG{p}{,} \PYG{n}{double} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{double} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{double} \PYG{n}{a}\PYG{p}{,} \PYG{n}{double} \PYG{n}{b}\PYG{p}{,}
+    \PYG{n}{double} \PYG{n}{T}\PYG{p}{,} \PYG{n}{double} \PYG{n}{sym}\PYG{p}{,} \PYG{n+nb}{bool} \PYG{n}{spin}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Inpput}\PYG{o}{\PYGZhy{}}\PYG{n}{output}
+\PYG{n}{void} \PYG{n}{save\PYGZus{}to\PYGZus{}csv\PYGZus{}1d}\PYG{p}{(}\PYG{n}{const} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{string}\PYG{o}{\PYGZam{}} \PYG{n}{filename}\PYG{p}{,}
+                    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x\PYGZus{}values}\PYG{p}{,}
+                    \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{T\PYGZus{}values}\PYG{p}{,}
+                    \PYG{n}{const} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{VectorXd}\PYG{o}{\PYGZgt{}}\PYG{o}{\PYGZam{}} \PYG{n}{wavefunctions}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{n}{void} \PYG{n}{save\PYGZus{}to\PYGZus{}csv}\PYG{p}{(}\PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x1\PYGZus{}values}\PYG{p}{,}
+                 \PYG{n}{const} \PYG{n}{VectorXd}\PYG{o}{\PYGZam{}} \PYG{n}{x2\PYGZus{}values}\PYG{p}{,}
+                 \PYG{n}{const} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n+nb}{tuple}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{o}{\PYGZam{}} \PYG{n}{energies}\PYG{p}{,}
+                 \PYG{n+nb}{bool} \PYG{n}{spin}\PYG{p}{,}
+                 \PYG{n}{const} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{MatrixXd}\PYG{o}{\PYGZgt{}}\PYG{o}{\PYGZam{}} \PYG{n}{wavefunctions}\PYG{p}{,}
+                 \PYG{n}{const} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{string}\PYG{o}{\PYGZam{}} \PYG{n}{filename}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZsh{}endif}
+\end{MintedVerbatim}

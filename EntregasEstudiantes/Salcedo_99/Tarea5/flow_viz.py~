@@ -1,0 +1,44 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+import glob
+
+def read_field(filename):
+    data = np.loadtxt(filename)
+    x = np.unique(data[:,0])
+    y = np.unique(data[:,1])
+    nx, ny = len(x), len(y)
+
+    U = data[:,2].reshape((nx, ny))
+    V = data[:,3].reshape((nx, ny))
+    P = data[:,4].reshape((nx, ny))
+    return x, y, U, V, P
+
+files = sorted(glob.glob("data/campos_*.txt"))
+
+x, y, U, V, P = read_field(files[0])
+X, Y = np.meshgrid(x, y, indexing="ij")
+
+fig, ax = plt.subplots(figsize=(6,6))
+
+# Plot pressure as colormap
+cmap = ax.pcolormesh(X, Y, P, shading="auto", cmap="viridis")
+fig.colorbar(cmap, ax=ax, label="Pressure")
+
+# Plot velocity as quivers
+quiver = ax.quiver(X, Y, U, V, scale=10, color="white")
+
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_title("Flow Simulation")
+
+def update(frame):
+    x, y, U, V, P = read_field(files[frame])
+    cmap.set_array(P.ravel())
+    quiver.set_UVC(U, V)
+    ax.set_title(f"Step {frame*10 + 500}")
+    return cmap, quiver
+
+ani = animation.FuncAnimation(fig, update, frames=len(files), interval=100, blit=False)
+
+plt.show()

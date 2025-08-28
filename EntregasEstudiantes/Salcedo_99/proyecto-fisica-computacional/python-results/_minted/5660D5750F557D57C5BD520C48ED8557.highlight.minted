@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{err}{!}\PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{libgsl}\PYG{o}{\PYGZhy{}}\PYG{n}{dev}
+\PYG{err}{!}\PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{libeigen3}\PYG{o}{\PYGZhy{}}\PYG{n}{dev}
+\end{MintedVerbatim}

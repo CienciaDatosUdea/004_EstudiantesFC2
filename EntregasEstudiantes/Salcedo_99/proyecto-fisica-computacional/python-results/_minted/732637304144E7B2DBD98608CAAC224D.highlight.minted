@@ -1,0 +1,45 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Grafiacar la función Pth\PYGZus{}f}
+\PYG{n}{X1} \PYG{o}{=} \PYG{n}{wave\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{,}\PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{X2} \PYG{o}{=} \PYG{n}{wave\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{,}\PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{Z}  \PYG{o}{=} \PYG{n}{wave\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pth\PYGZus{}f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{p}{(}\PYG{n}{grid\PYGZus{}num}\PYG{p}{,}\PYG{n}{grid\PYGZus{}num}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Configurar la figura 3D}
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{111}\PYG{p}{,} \PYG{n}{projection}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{3d}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Dibujar la superficie}
+\PYG{n}{surf} \PYG{o}{=} \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot\PYGZus{}surface}\PYG{p}{(}\PYG{n}{X1}\PYG{p}{,} \PYG{n}{X2}\PYG{p}{,} \PYG{n}{Z}\PYG{p}{,} \PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{turbo}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{edgecolor}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{k}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.1}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Etiquetas de ejes}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x1}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x2}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}zlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{P}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}Eliminar fondo}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{xaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{fill} \PYG{o}{=} \PYG{k+kc}{False}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{yaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{fill} \PYG{o}{=} \PYG{k+kc}{False}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{zaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{fill} \PYG{o}{=} \PYG{k+kc}{False}
+
+\PYG{c+c1}{\PYGZsh{} quitar cuadrícula}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}Demarcar bien los ejes}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{xaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{set\PYGZus{}edgecolor}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{yaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{set\PYGZus{}edgecolor}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{zaxis}\PYG{o}{.}\PYG{n}{pane}\PYG{o}{.}\PYG{n}{set\PYGZus{}edgecolor}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Configurar los límites de la caja}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}zlim}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{Z}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Ajustar la relación de aspecto para ensanchar}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}box\PYGZus{}aspect}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Configurar la vista}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{view\PYGZus{}init}\PYG{p}{(}\PYG{n}{elev}\PYG{o}{=}\PYG{l+m+mi}{45}\PYG{p}{,} \PYG{n}{azim}\PYG{o}{=}\PYG{l+m+mi}{45}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Mostrar gráfico}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

@@ -1,0 +1,3145 @@
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.3.23)  25 AUG 2025 17:46
+ system commands enabled.
+**project.tex
+(./project.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended 
+collection.
+luaotfload | conf : Root cache directory is "/home/cohomology/.texlive/texmf-var
+/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2023-12-28.lu
+a".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.134
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/cohomology/.texlive/texmf-var
+/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'. (/usr/share/texmf-dist/
+tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from /home/cohomology/.texlive/texm
+f-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count194
+\c@section=\count195
+\c@subsection=\count196
+\c@subsubsection=\count197
+\c@paragraph=\count198
+\c@subparagraph=\count199
+\c@figure=\count266
+\c@table=\count267
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen140
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen141
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen142
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count268
+LaTeX Info: Redefining \frac on input line 235.
+\uproot@=\count269
+\leftroot@=\count270
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count271
+\DOTSCASE@=\count272
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen143
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count273
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count274
+\dotsspace@=\muskip17
+\c@parentequation=\count275
+\dspbrk@lvl=\count276
+\tag@help=\toks18
+\row@=\count277
+\column@=\count278
+\maxfields@=\count279
+\andhelp@=\toks19
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
+\@envbody=\toks20
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-01-18 L3 programming layer (loader) 
+
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count280
+Inserting `l3color' in `luaotfload.parse_color'.
+\l__pdf_internal_box=\box54
+))
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count281
+\l__fontspec_language_int=\count282
+\l__fontspec_strnum_int=\count283
+\l__fontspec_tmp_int=\count284
+\l__fontspec_tmpa_int=\count285
+\l__fontspec_tmpb_int=\count286
+\l__fontspec_tmpc_int=\count287
+\l__fontspec_em_int=\count288
+\l__fontspec_emdef_int=\count289
+\l__fontspec_strong_int=\count290
+\l__fontspec_strongdef_int=\count291
+\l__fontspec_tmpa_dim=\dimen150
+\l__fontspec_tmpb_dim=\dimen151
+\l__fontspec_tmpc_dim=\dimen152
+
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: luatex.def on input line 106.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2024/04/13 v1.2e Graphics/color driver for luatex
+))
+\Gin@req@height=\dimen153
+\Gin@req@width=\dimen154
+)
+(/usr/share/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count292
+\LTcapwidth=\dimen155
+\LT@head=\box55
+\LT@firsthead=\box56
+\LT@foot=\box57
+\LT@lastfoot=\box58
+\LT@gbox=\box59
+\LT@cols=\count293
+\LT@rows=\count294
+\c@LT@tables=\count295
+\c@LT@chunks=\count296
+\LT@p@ftn=\toks23
+)
+(/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen156
+\WF@size=\dimen157
+\c@WF@wrappedlines=\count297
+\WF@box=\box60
+\WF@everypar=\toks24
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/share/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count298
+\rotFPtop=\skip58
+\rotFPbot=\skip59
+\rot@float@box=\box61
+\rot@mess@toks=\toks25
+)
+(/usr/share/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box62
+\UL@hyphenbox=\box63
+\UL@skip=\skip60
+\UL@hook=\toks26
+\UL@height=\dimen158
+\UL@pe=\count299
+\UL@pixel=\dimen159
+\ULC@box=\box64
+Package: ulem 2019/11/18
+\ULdepth=\dimen160
+)
+(/usr/share/texmf-dist/tex/latex/capt-of/capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
+
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+(/usr/share/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks27
+))
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count300
+)
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count301
+)
+(/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen161
+\Hy@linkcounter=\count302
+\Hy@pagecounter=\count303
+
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count304
+
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count305
+
+(/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen162
+
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count306
+\Field@Width=\dimen163
+\Fld@charsize=\dimen164
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+
+(/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count307
+\c@Item=\count308
+\c@Hfootnote=\count309
+)
+Package hyperref Info: Driver (autodetected): hluatex.
+
+(/usr/share/texmf-dist/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2024-11-05 v7.01l Hyperref driver for luaTeX
+
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count310
+\c@bookmark@seq@number=\count311
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip61
+)
+(/usr/share/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2025/03/06 v3.6.0 Yet another Pygments shim for LaTeX
+
+(/usr/share/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+))
+(/usr/share/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2025/03/04 v1.12.0 fvextra - extensions and patches for fancyv
+rb
+
+(/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count312
+\FV@InFile=\read2
+\FV@TabBox=\box65
+\c@FancyVerbLine=\count313
+\FV@StepNumber=\count314
+\FV@OutFile=\write3
+)
+(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+
+(/usr/share/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+))
+(/usr/share/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2025/01/29 line numbers on paragraphs v5.4
+\linenopenalty=\count315
+\output=\toks28
+\linenoprevgraf=\count316
+\linenumbersep=\dimen165
+\linenumberwidth=\dimen166
+\c@linenumber=\count317
+\c@pagewiselinenumber=\count318
+\c@LN@truepage=\count319
+\c@internallinenumber=\count320
+\c@internallinenumbers=\count321
+\quotelinenumbersep=\dimen167
+\bframerule=\dimen168
+\bframesep=\dimen169
+\bframebox=\box66
+\@LN@amsmath@ams@eqpen=\count322
+LaTeX Info: Redefining \\ on input line 3187.
+)
+\c@FancyVerbWriteLine=\count323
+\c@FancyVerbBufferLine=\count324
+\c@FV@TrueTabGroupLevel=\count325
+\c@FV@TrueTabCounter=\count326
+\FV@TabBox@Group=\box67
+\FV@bgcolorstructbox=\box68
+\FV@TmpLength=\skip62
+\c@FV@HighlightLinesStart=\count327
+\c@FV@HighlightLinesStop=\count328
+\FV@LoopCount=\count329
+\FV@NCharsBox=\box69
+\FV@BreakIndent=\dimen170
+\FV@BreakIndentNChars=\count330
+\FV@BreakSymbolSepLeft=\dimen171
+\FV@BreakSymbolSepLeftNChars=\count331
+\FV@BreakSymbolSepRight=\dimen172
+\FV@BreakSymbolSepRightNChars=\count332
+\FV@BreakSymbolIndentLeft=\dimen173
+\FV@BreakSymbolIndentLeftNChars=\count333
+\FV@BreakSymbolIndentRight=\dimen174
+\FV@BreakSymbolIndentRightNChars=\count334
+\c@FancyVerbLineBreakLast=\count335
+\FV@LineBox=\box70
+\FV@LineIndentBox=\box71
+\c@FV@BreakBufferDepth=\count336
+\FV@LineWidth=\dimen175
+)
+(/usr/share/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+Package: latex2pydata 2025/03/03 v0.5.0 latex2pydata - write data to file in Py
+thon literal format
+)
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
+
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.te
+x
+\pgfkeys@tmptoks=\toks31
+))) (/usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks32
+\pgfopts@list@add@b@toks=\toks33
+)
+(/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+
+! Package minted Error: Package option "outputdir" is no longer needed with min
+ted v3+; the output directory is automatically detected for TeX Live 2024+, and
+ the environment variable TEXMF_OUTPUT_DIRECTORY can be set manually in other c
+ases.
+
+See the minted package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.282 \ProcessPgfOptions{/minted/pkg}
+                                     
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count337
+\float@exts=\toks34
+\float@box=\box72
+\@float@everytoks=\toks35
+\@floatcapt=\box73
+)
+\c@minted@FancyVerbLineTemp=\count338
+\@float@every@listing=\toks36
+\c@listing=\count339
+)
+(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 274.
+
+(/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (./build/project.aux)
+\openout1 = project.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+
+Package fontspec Info: 
+(fontspec)             Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 23.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 23.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 23.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 23.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 23.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 23.
+LaTeX Font Info:    Redeclaring math accent \check on input line 23.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 23.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 23.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 23.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 23.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 23.
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count340
+\scratchdimen=\dimen176
+\scratchbox=\box74
+\nofMPsegments=\count341
+\nofMParguments=\count342
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count343
+\MPscratchDim=\dimen177
+\MPnumerator=\count344
+\makeMPintoPDFobject=\count345
+\everyMPtoPDFconversion=\toks38
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring OFF on input line 23.
+
+(./build/project.out) (./build/project.out)
+\@outlinefile=\write4
+
+\openout4 = project.out
+ (./build/project.toc)
+\tf@toc=\write5
+
+\openout5 = project.toc
+
+
+! LaTeX Error: Environment html undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 \begin{html}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{html}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 \end{html}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (14.03009pt too wide) in paragraph at lines 28--34
+\TU/lmtt/m/n/10.95 com/jdavid.salcedo$[]\TU/lmr/m/n/10.95 ”> jdavid.sal-cedo@u
+dea.edu.co </a><br> <b> </div>
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--34
+
+ []
+
+
+! LaTeX Error: Environment html undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 \begin{html}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{html}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 \end{html}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+[1
+
+{/home/cohomology/texmf/fonts/map/pdftex/pdftex.map}]
+\pydata@fh@_46F86FAA6BBF9AC94A7E459509A20ED0.data.minted=\write6
+
+\openout6 = _46F86FAA6BBF9AC94A7E459509A20ED0.data.minted
+runsystem(latexminted config  --timestamp 20250825174617 46F86FAA6BBF9AC94A7E459
+509A20ED0)...executed.
+
+(./build/_46F86FAA6BBF9AC94A7E459509A20ED0.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20250825174617 46F86FAA6BBF9AC94A
+7E459509A20ED0)...executed.
+
+(./build/_minted/default.style.minted)
+(./build/_minted/5660D5750F557D57C5BD520C48ED8557.highlight.minted)
+(./build/_minted/A42B694521ED4F9A8909195B18824371.highlight.minted)
+(./build/_minted/F8DC70FD7235D5CCB14AA4A41D56BC9C.highlight.minted)
+(./build/_minted/53C91FE47147B580B4BD5429A1C82B0C.highlight.minted)
+(./build/_minted/CEA630B451B1374ACAD457597F8BDE41.highlight.minted
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5.
+
+
+[2])
+
+[3] (./build/_minted/4070927721659D3F75D5E8F0549523DE.highlight.minted
+
+[4]
+
+[5])
+Overfull \hbox (21.71764pt too wide) in paragraph at lines 275--276
+[]$\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ik[] [] \OT1/cmr/m/n/10.95 +
+ []
+
+
+Overfull \hbox (310.92256pt too wide) in paragraph at lines 275--276
+\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ik[]k[] [] \OT1/cmr/m/n/10.95 + 2\OML/c
+mm/m/it/10.95 ik[] []$ 
+ []
+
+! Extra alignment tab has been changed to \cr.
+<template> }$\hfill \endtemplate 
+                                 
+l.285 b)) \right). \end{split}
+                               $$
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+! Extra alignment tab has been changed to \cr.
+<template> }$\hfill \endtemplate 
+                                 
+l.285 b)) \right). \end{split}
+                               $$
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.285 b)) \right). \end{split} $
+                                $
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.286 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.286 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.286 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.286 
+      
+I'm guessing that you meant to end an alignment here.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.286 
+      
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.286 
+      
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+! Extra }, or forgotten $.
+<recently read> }
+                 
+l.286 
+      
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.286 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.286 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (198.33698pt too wide) in alignment at lines 285--286
+[] []
+ []
+
+! Extra alignment tab has been changed to \cr.
+<template> }$\hfill \endtemplate 
+                                 
+l.290 ...(2 a k_1) \sin(2 k_0 (a - b)) \right) \ &
+                                                   = 4 k_0
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+
+Overfull \hbox (94.08665pt too wide) detected at line 291
+[]
+ []
+
+! Extra alignment tab has been changed to \cr.
+<template> }$\hfill \endtemplate 
+                                 
+l.297 \cos(2 k_1 (a - b)) \right) \ &
+                                      = 2 k_1^2 \sin(2 a k_1) \left(1 - \cos(2
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+
+Overfull \hbox (215.37036pt too wide) detected at line 298
+[]
+ []
+
+
+Overfull \hbox (90.11685pt too wide) detected at line 303
+[]
+ []
+
+
+Overfull \hbox (86.39668pt too wide) detected at line 318
+[]
+ []
+
+(./build/_minted/1EDC84C8DA5016AEB80A65A8DBAC9773.highlight.minted)
+! Undefined control sequence.
+l.444 \includesvg
+                 [width=.9\linewidth]{./.ob-jupyter/f19cdbdbebc1febd8115997b...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.444 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/f19cdbdbebc1febd8115997b...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.444 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/f19cdbdbebc1febd8115997b...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/4A2D87CB75C9D80564E675AAB3483EBF.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org9799f51' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.577 \label
+            {orge78ec3e}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.605 \includesvg
+                 [width=.9\linewidth]{./.ob-jupyter/62e6a8e70ba6942dd58410d5...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.605 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/62e6a8e70ba6942dd58410d5...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.605 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/62e6a8e70ba6942dd58410d5...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/BE650322B9C9FE2071A1348304F2D72D.highlight.minted
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 32.
+)
+
+! Package amsmath Error: Multiple \label's: label 'orge78ec3e' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.684 \label
+            {org66d845c}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.715 \includesvg
+                 [width=.9\linewidth]{./.ob-jupyter/af8c22d4c7f463a0793394d3...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.715 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/af8c22d4c7f463a0793394d3...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.715 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/af8c22d4c7f463a0793394d3...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! Package amsmath Error: Multiple \label's: label 'org66d845c' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.726 \label
+            {sec:org0106a10}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.732 \end{align*}
+                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.732 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (44.2553pt too wide) in paragraph at lines 727--733
+\TU/lmr/m/n/10.95 Par-ti-mos de las fun-ciones de onda: $[]$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.743 \end{align*}
+                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.743 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (134.33281pt too wide) in paragraph at lines 738--744
+[]\TU/lmr/m/n/10.95 las fun-ciones de onda pueden ree-scribirse como: $[]$ 
+ []
+
+! Display math should end with $$.
+<to be read again> 
+                   \beta 
+l.766 Aquí, \(\alpha_0\), $$ $\beta
+                                    _0$ y $\beta_1$ son constantes. A partir
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.766 Aquí, \(\alpha_0\), $$ $\beta_
+                                     0$ y $\beta_1$ son constantes. A partir
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.768 ...bscript{0}, \quad A\textsubscript{1} = \(
+                                                  \alpha\)\textsubscript{0}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.768 ...0}, \quad A\textsubscript{1} = \(\alpha\)
+                                                  \textsubscript{0}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.769 ...bscript{0}, \quad B\textsubscript{1} = \(
+                                                  \beta\)\textsubscript{0} B...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.769 ...{0}, \quad B\textsubscript{1} = \(\beta\)
+                                                  \textsubscript{0} B\textsu...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.770 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Display math should end with $$.
+<to be read again> 
+                   \tex_par:D 
+l.770 
+      
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.776 \end{align*}
+                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.776 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (213.28415pt too wide) in paragraph at lines 771--777
+[]\TU/lmr/m/n/10.95 Fi-nal-mente, las fun-ciones de onda quedan ex-pre-sadas com
+o: $[]$ 
+ []
+
+(./build/_minted/213BC8DE7E2D9C431BEFB6C037D4E92B.highlight.minted)
+(./build/_minted/29FAE4538821467B085EB8F8DAEB45A3.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'sec:org0106a10' will be lost
+.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.812 \label
+            {org44e61dd}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/C0225DD2052AD4536347D6324CCF92F6.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org44e61dd' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.820 \label
+            {org6794009}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/DAD82A5BB59CF6DD0A7F570B928F5578.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org6794009' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.828 \label
+            {org177b504}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/349DE9CE495FEF45F43D40042323BA0B.highlight.minted)
+Overfull \hbox (15.5819pt too wide) in paragraph at lines 906--909
+[]\TU/lmr/m/n/10.95 Para ilus-trar los re-sul-ta-dos, se-lec-cionare-mos dis-tin
+-tos val-ores de los parámet-
+ []
+
+(./build/_minted/F234ABD24F9359E0B58FBF4BF927506A.highlight.minted)
+(./build/_minted/F34208F95BC76B5203DD02C331B42133.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org177b504' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.979 \label
+            {org8d5694f}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.981 \includesvg
+                 [width=.9\linewidth]{./.ob-jupyter/cd25d8589f9b677163aad995...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.981 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/cd25d8589f9b677163aad995...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.981 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/cd25d8589f9b677163aad995...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.984 \includesvg
+                 [width=.9\linewidth]{./.ob-jupyter/52e61c3c73fca709c74247c8...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.984 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/52e61c3c73fca709c74247c8...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.984 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/52e61c3c73fca709c74247c8...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.987 \includesvg
+                 [width=.9\linewidth]{./.ob-jupyter/9dcb30d82670c3a4163da1ac...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.987 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/9dcb30d82670c3a4163da1ac...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.987 \includesvg[width=.9\linewidth]
+                                     {./.ob-jupyter/9dcb30d82670c3a4163da1ac...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/A11A22910797ED48C1ADAE3F5572E132.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org8d5694f' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1004 \label
+             {orgef2f894}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.1006 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/05ab58d1eb9507608415ec6...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1006 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/05ab58d1eb9507608415ec6...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1006 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/05ab58d1eb9507608415ec6...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1009 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/4bb71f042a7e47ec840a9fd...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1009 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/4bb71f042a7e47ec840a9fd...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1009 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/4bb71f042a7e47ec840a9fd...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1012 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/0d91b6d39c06e6e0f5b2482...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1012 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/0d91b6d39c06e6e0f5b2482...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1012 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/0d91b6d39c06e6e0f5b2482...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/FEC62795C84DD3F84D93B48FCAF7CF79.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgef2f894' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1029 \label
+             {orga089052}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.1031 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/15bccb7b7c2afdb42447bbd...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1031 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/15bccb7b7c2afdb42447bbd...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1031 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/15bccb7b7c2afdb42447bbd...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1034 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/8ddcdc966beb4ddcd184667...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1034 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/8ddcdc966beb4ddcd184667...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1034 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/8ddcdc966beb4ddcd184667...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1037 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/53a668fbb030df8933bf532...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1037 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/53a668fbb030df8933bf532...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1037 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/53a668fbb030df8933bf532...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! Package amsmath Error: Multiple \label's: label 'orga089052' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1045 \label
+             {sec:orgdfb3ee8}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/9BCE1CF24B3BD7C81F9259B1406FF4A3.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'sec:orgdfb3ee8' will be lost
+.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1141 \label
+             {orgab06287}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/B7355D0BBD3B750A3FE97FED273E07EA.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgab06287' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1201 \label
+             {org8504907}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/C9396E58C1F6F0EC99B364A9D2820560.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org8504907' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1252 \label
+             {org713379d}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/8C320A76FAB3AE3A56E815C66C718D61.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org713379d' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1350 \label
+             {org13606c2}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/F0274A7CF632F74896E2FEA465A10C16.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org13606c2' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1413 \label
+             {org7ade67c}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/DA0677B88CFDD5E7C9B0E6292FE12113.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org7ade67c' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1482 \label
+             {org84e936b}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/435E86469D75029D6085D3D9A98FE563.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org84e936b' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1492 \label
+             {orgffbf6ac}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1498--1498
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1498--1498
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1498--1498
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1498--1498
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (341.34735pt too wide) in paragraph at lines 1498--1498
+\TU/lmtt/m/n/10.95 o bin/wavefunction_1d wavefunction_1d.cpp build1d/regions.o 
+build1d/normalisation.o build1d/wavefunctions.o build1d/input-
+ []
+
+(./build/_minted/2B1DA042B9580852882F4CBCE69056DF.highlight.minted)
+(./build/_minted/A3C9FF057B7091FABF5124CB428F79BF.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgffbf6ac' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1588 \label
+             {org9fa4c20}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.1595 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/d17e53ebf6a8c89de8a4b76...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1595 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/d17e53ebf6a8c89de8a4b76...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1595 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/d17e53ebf6a8c89de8a4b76...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1598 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/acbc1c6c9bbe0127eb96a10...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1598 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/acbc1c6c9bbe0127eb96a10...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1598 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/acbc1c6c9bbe0127eb96a10...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/51F5F99688575F53CA2322D82E6C211A.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org9fa4c20' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1614 \label
+             {org979e308}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.1621 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/44609e750fda618e6948c3b...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1621 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/44609e750fda618e6948c3b...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1621 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/44609e750fda618e6948c3b...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1624 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/e002b4d9824ff899e89404c...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1624 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/e002b4d9824ff899e89404c...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1624 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/e002b4d9824ff899e89404c...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/A9D91C584F114D195D147BE64F190DC1.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org979e308' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1640 \label
+             {orgbdcb23c}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.1647 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/084ba81b2ceedc49c68bdde...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1647 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/084ba81b2ceedc49c68bdde...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1647 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/084ba81b2ceedc49c68bdde...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1650 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/3591cdf782a1090dc9cdc87...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1650 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/3591cdf782a1090dc9cdc87...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1650 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/3591cdf782a1090dc9cdc87...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/5A7771B5FAD153BDA7714E4992FAF8C5.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgbdcb23c' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1666 \label
+             {org7ef58a2}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.1673 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/ba7ceb9bdd429167a7bbbcb...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1673 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/ba7ceb9bdd429167a7bbbcb...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1673 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/ba7ceb9bdd429167a7bbbcb...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.1676 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/1db30433ee54cbe4d6a6e29...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.1676 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/1db30433ee54cbe4d6a6e29...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.1676 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/1db30433ee54cbe4d6a6e29...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! Package amsmath Error: Multiple \label's: label 'org7ef58a2' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1681 \label
+             {sec:orgb01af17}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.1693 \mathbb
+              {N}[\![X]\!]\), tales que \(n_1 + n_2 + n_3 + ... = N\) {[}4];
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 1728.
+
+
+Overfull \hbox (2.12747pt too wide) in paragraph at lines 1745--1749
+\TU/lmr/m/n/10.95 por medio de las op-era-ciones cono-ci-das como simetrizador 
+y an-ti-simetrizador,
+ []
+
+
+Overfull \hbox (54.22667pt too wide) detected at line 1791
+\OT1/cmr/m/n/10.95 	[] = [] [] [] []
+ []
+
+
+Overfull \hbox (55.12267pt too wide) detected at line 1801
+\OT1/cmr/m/n/10.95 	[] = [] [] [] []
+ []
+
+
+Overfull \hbox (143.49489pt too wide) detected at line 1821
+\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; x[]\OT1/cmr
+/m/n/10.95 ) = [] [] + [] [] \OML/cmm/m/it/10.95 :
+ []
+
+(./build/_minted/8FB6417E1D8FBC7B75BC3C084D790BF2.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'sec:orgb01af17' will be lost
+.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1883 \label
+             {org5d00081}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/370EE7BBDB4D21A21387C4FEAD686E2A.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org5d00081' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1893 \label
+             {orga623997}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1899--1899
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1899--1899
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1899--1899
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1899--1899
+[]\TU/lmtt/m/n/10.95 g++ -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -f
+openmp -
+ []
+
+
+Overfull \hbox (260.86487pt too wide) in paragraph at lines 1899--1899
+\TU/lmtt/m/n/10.95 o bin/wavefunction wavefunction.cpp build/regions.o build/nor
+malisation.o build/wavefunctions.o build/input-
+ []
+
+(./build/_minted/2699086A567CA98521AA1D0ECFF2D13E.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orga623997' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1947 \label
+             {org9975608}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (140.14114pt too wide) in paragraph at lines 1952--1952
+[]\TU/lmtt/m/n/10.95 CompletedProcess(args=['../bin/wavefunction', '1.0', '1.0',
+ '1', '1.5', '1.5', '10', '-
+ []
+
+
+Overfull \hbox (7.91992pt too wide) in paragraph at lines 1952--1952
+\TU/lmtt/m/n/10.95 1', '0', '50', 'tuples.txt'], returncode=0)Ejecución complet
+ada.[] 
+ []
+
+(./build/_minted/84D528A1C814F3E692A17F117B29EFC7.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org9975608' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1961 \label
+             {orga9bc4df}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (25.16617pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |    |   x1 |       x2 |   (E1=0.548311 E2=13.7078) |     
+  Pth_f |[] 
+ []
+
+
+Overfull \hbox (19.41742pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |----+------+----------+----------------------------+------
+-------
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  0 | -1.5 | -1.499   |                9.65042e-38 | 8.035
+53e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  1 | -1.5 | -1.43778 |                3.66729e-34 | 3.053
+61e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  2 | -1.5 | -1.37655 |                1.36782e-33 | 1.138
+93e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  3 | -1.5 | -1.31533 |                2.81059e-33 | 2.340
+27e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  4 | -1.5 | -1.2541  |                4.46309e-33 | 3.716
+24e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  5 | -1.5 | -1.19288 |                6.14715e-33 | 5.118
+49e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  6 | -1.5 | -1.13165 |                7.80864e-33 | 6.501
+95e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  7 | -1.5 | -1.07043 |                9.53594e-33 | 7.940
+21e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  8 | -1.5 | -1.0092  |                1.15179e-32 | 9.590
+51e-
+ []
+
+
+Overfull \hbox (2.17117pt too wide) in paragraph at lines 1975--1975
+[]\TU/lmtt/m/n/10.95 |  9 | -1.5 | -0.94798 |                1.39572e-32 | 1.162
+16e-
+ []
+
+(./build/_minted/732637304144E7B2DBD98608CAAC224D.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orga9bc4df' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2029 \label
+             {org85fee94}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2044 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/0b7a554b6bf48b8c03bc2cc...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2044 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/0b7a554b6bf48b8c03bc2cc...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2044 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/0b7a554b6bf48b8c03bc2cc...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! Package amsmath Error: Multiple \label's: label 'org85fee94' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2052 \label
+             {sec:orgf274049}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package amsmath Error: Multiple \label's: label 'sec:orgf274049' will be lost
+.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2054 \label
+             {sec:org318b16f}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/_minted/383D4C8FD2B954C80B916B571447CE89.highlight.minted)
+(./build/_minted/3802067D1568D57CB55DB7D3B6B66755.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'sec:org318b16f' will be lost
+.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2184 \label
+             {org7c90040}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2191 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/e41b31f2428a68b1d8c2a8b...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2191 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/e41b31f2428a68b1d8c2a8b...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2191 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/e41b31f2428a68b1d8c2a8b...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/45D909038B538B810F3EBA8AF7DF6191.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org7c90040' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2210 \label
+             {org8b46671}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2217 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/ef8630dca962eee0eeffb84...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2217 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/ef8630dca962eee0eeffb84...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2217 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/ef8630dca962eee0eeffb84...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/DCDA35E4315CCC207E77740975D2E936.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org8b46671' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2236 \label
+             {org56aa845}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2243 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/a6ae65f5108b4e9bd9f38b4...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2243 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/a6ae65f5108b4e9bd9f38b4...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2243 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/a6ae65f5108b4e9bd9f38b4...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/9546DAB0645911BC7CB30C12574388CF.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org56aa845' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2262 \label
+             {orgee97f2c}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2269 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/52888101a7a0d09287d7d57...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2269 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/52888101a7a0d09287d7d57...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2269 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/52888101a7a0d09287d7d57...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/2A72F28708EA1787363D997268F80025.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgee97f2c' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2288 \label
+             {org4b1bbc5}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2295 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/4281df8825887f81fb3d093...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2295 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/4281df8825887f81fb3d093...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2295 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/4281df8825887f81fb3d093...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/2BE561E1B6C62AC8F3B12291F8C145FF.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org4b1bbc5' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2314 \label
+             {org9a7e9ef}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2321 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/3cd678437884c2586eeca27...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2321 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/3cd678437884c2586eeca27...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2321 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/3cd678437884c2586eeca27...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/D53321C62756C90EB5F96B076E38E489.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org9a7e9ef' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2340 \label
+             {orgb256c18}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2347 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/72aad36672f4cf41145f22e...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2347 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/72aad36672f4cf41145f22e...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2347 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/72aad36672f4cf41145f22e...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/27FB5845C9B4503AADAFCCAB9DF44793.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgb256c18' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2367 \label
+             {org9e641f2}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2374 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/b897205b67cbf7954bf311c...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2374 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/b897205b67cbf7954bf311c...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2374 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/b897205b67cbf7954bf311c...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/752DB4B740B6AD870C42F493777CE3A3.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org9e641f2' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2393 \label
+             {orgb8ce585}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2400 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/491d047a15f0fc00828f7c6...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2400 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/491d047a15f0fc00828f7c6...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2400 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/491d047a15f0fc00828f7c6...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/D75953A8EACE067877F2A5887987D77D.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgb8ce585' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2424 \label
+             {orgec0779b}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2431 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/1462b572a8c1cad8a63b8df...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2431 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/1462b572a8c1cad8a63b8df...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2431 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/1462b572a8c1cad8a63b8df...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/B9FE33A3D84EBA12885A879D640A8447.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgec0779b' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2449 \label
+             {orgf0eae15}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2456 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/a8870e994180a13bcd7d79f...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2456 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/a8870e994180a13bcd7d79f...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2456 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/a8870e994180a13bcd7d79f...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/89DFA3288776EF350B61C3DF78EDA883.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgf0eae15' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2475 \label
+             {org703d6b2}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2482 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/3ebbc9ee7f7c08cf2db885a...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2482 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/3ebbc9ee7f7c08cf2db885a...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2482 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/3ebbc9ee7f7c08cf2db885a...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/E86466F0E9F0BFCCEA9DD17C3B583B3E.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'org703d6b2' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2501 \label
+             {orgd1bf213}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2508 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/c907d15375a960cfa4bab0c...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2508 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/c907d15375a960cfa4bab0c...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2508 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/c907d15375a960cfa4bab0c...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/2E940E429472A48CAA72E9FCC4A0B055.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgd1bf213' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2526 \label
+             {orgdde20d9}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2533 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/18c88c21d6faf1be4066285...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2533 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/18c88c21d6faf1be4066285...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2533 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/18c88c21d6faf1be4066285...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/B2EAB4BC45E4B4B4307BF196F9E624CD.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgdde20d9' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2552 \label
+             {orgf259aef}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2559 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/abacda005c9247071697f35...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2559 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/abacda005c9247071697f35...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2559 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/abacda005c9247071697f35...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+(./build/_minted/F16ABB852D5021C87A2D759A1E730E53.highlight.minted)
+
+! Package amsmath Error: Multiple \label's: label 'orgf259aef' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2578 \label
+             {org565c9f7}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.2585 \includesvg
+                  [width=.9\linewidth]{./.ob-jupyter/c92d4e46362e50218e1963a...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.2585 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/c92d4e46362e50218e1963a...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.2585 \includesvg[width=.9\linewidth]
+                                      {./.ob-jupyter/c92d4e46362e50218e1963a...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! Package amsmath Error: Multiple \label's: label 'org565c9f7' will be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2590 \label
+             {sec:org9c0ba91}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (8.52441pt too wide) in paragraph at lines 2601--2605
+[]\TU/lmr/m/n/10.95 En el caso de bosones y fermiones, tam-bién se ob-serva la ho-mogeinizaci
+ón
+ []
+
+
+! Package amsmath Error: Multiple \label's: label 'sec:org9c0ba91' will be lost
+.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2616 \label
+             {sec:org0efe1bd}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./build/project.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+Package rerunfilecheck Info: File `project.out' has not changed.
+(rerunfilecheck)             Checksum: 14DD56F583FA28D84097AE9E3A727715;556.
+
+! You can't use `\end' in internal vertical mode.
+\enddocument ...cument/end}\deadcycles \z@ \@@end 
+                                                  
+l.2627 \end{document}
+                     
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.2627 \end{document}
+                     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2627 \end{document}
+                     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.2627 \end{document}
+                     
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+
+[6
+\newlabel{org79beec0}{{3.1}{6}{\textbf {2.1 Cuantización de la energia}}{secti
+on*.6}{}}
+]
+Overfull \vbox (31003.45425pt too high) detected at line 2627
+ []
+
+
+Overfull \vbox (31003.45425pt too high) has occurred while \output is active []
+
+
+
+[7
+\BOOKMARK [2][-]{subsection.3.2}{\376\377\0002\000.\0002\000\040\000C\000o\000n
+\000s\000t\000r\000u\000c\000c\000i\000o\000n\000\040\000d\000e\000\040\000l\00
+0a\000\040\000f\000u\000n\000c\000i\000o\000n\000\040\000d\000e\000\040\000o\00
+0n\000d\000a}{section.3}% 5
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}\textbf  {2.2 Cons
+truccion de la funcion de onda}}{7}{subsection.3.2}\protected@file@percent }
+\BOOKMARK [2][-]{subsection.3.3}{\376\377\0002\000.\0003\000\040\000T\000e\000r
+\000m\000a\000l\000i\000z\000a\000c\000i\000\363\000n}{section.3}% 6
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}\textbf  {2.3 Term
+alización}}{7}{subsection.3.3}\protected@file@percent }
+\BOOKMARK [1][-]{section.4}{\376\377\000B\000o\000s\000o\000n\000e\000s\000\040
+\000y\000\040\000f\000e\000r\000m\000i\000o\000n\000e\000s\000\040\000c\000o\00
+0n\000\040\000y\000\040\000s\000i\000n\000\040\000e\000s\000p\000\355\000n}{}% 
+7
+\@writefile{toc}{\contentsline {section}{\numberline {4}Bosones y fermiones con
+ y sin espín}{7}{section.4}\protected@file@percent }
+\BOOKMARK [1][-]{section.5}{\376\377\0003\000.\000\040\000R\000e\000s\000u\000l
+\000t\000a\000d\000o\000s\000\040\000y\000\040\000d\000i\000s\000c\000u\000s\00
+0i\000\363\000n}{}% 8
+\@writefile{toc}{\contentsline {section}{\numberline {5}\textbf  {3. Resultados
+ y discusión}}{7}{section.5}\protected@file@percent }
+\BOOKMARK [2][-]{subsection.5.1}{\376\377\000C\000\363\000d\000i\000g\000o\000:
+}{section.5}% 9
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Código:}{7}{subse
+ction.5.1}\protected@file@percent }
+\BOOKMARK [1][-]{section.6}{\376\377\0004\000.\000\040\000C\000o\000n\000c\000l
+\000u\000s\000i\000o\000n\000e\000s}{}% 10
+\@writefile{toc}{\contentsline {section}{\numberline {6}\textbf  {4. Conclusion
+es}}{7}{section.6}\protected@file@percent }
+\BOOKMARK [1][-]{section.7}{\376\377\0005\000.\000\040\000R\000e\000f\000e\000r
+\000e\000n\000c\000i\000a\000s}{}% 11
+\@writefile{toc}{\contentsline {section}{\numberline {7}\textbf  {5. Referencia
+s}}{7}{section.7}\protected@file@percent }
+
+]
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.2627 \end{document}
+                     
+Things are pretty mixed up, but I think the worst is over.
+
+)
+! Emergency stop.
+<*> project.tex
+               
+*** (job aborted, no legal \end found)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 17885 strings out of 475506
+ 4442087,1144653 words of node,token memory allocated 692 words of node memory still in use:
+   6 hlist, 1 vlist, 2 rule, 1 local_par, 1 dir, 1 glue, 4 kern, 1 glyph, 48 att
+ribute, 60 glue_spec, 48 attribute_list, 1 temp, 1 pdf_action nodes
+   avail lists: 1:2,2:151624,3:10957,4:16324,5:40825,6:3156,7:263970,8:172,9:125
+964,10:87,11:34802
+ 40219 multiletter control sequences out of 65536+600000
+ 54 fonts using 4342319 bytes
+ 79i,16n,89p,884b,1074s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

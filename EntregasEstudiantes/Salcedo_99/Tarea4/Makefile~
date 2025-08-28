@@ -1,0 +1,33 @@
+
+# Simple Makefile for 1D diffusion project + GIF visualization
+CXX := g++
+CXXFLAGS := -std=c++17 -O2 -Wall -Wextra -Iinclude
+
+SRC := $(wildcard src/*.cpp) main.cpp
+OBJ := $(SRC:.cpp=.o)
+BIN := diffusion
+
+.PHONY: all run gif clean tidy
+
+all: $(BIN)
+
+$(BIN): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+run: $(BIN)
+	./$(BIN)
+
+gif: run viz
+	python3 viz.py output.dat diffusion.gif
+
+viz:
+	@echo "Python viz depends on matplotlib and imageio."
+
+clean:
+	rm -f $(OBJ) $(BIN) output.dat diffusion.gif
+
+tidy:
+	rm -f $(OBJ)

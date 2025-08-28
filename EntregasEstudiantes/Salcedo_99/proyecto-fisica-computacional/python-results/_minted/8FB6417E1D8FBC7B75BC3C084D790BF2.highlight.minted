@@ -1,0 +1,56 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZpc{}}\PYG{o}{\PYGZpc{}}\PYG{n}{writefile} \PYG{o}{.}\PYG{o}{.}\PYG{o}{/}\PYG{n}{wavefunction}\PYG{o}{.}\PYG{n}{cpp}
+
+\PYG{c+c1}{\PYGZsh{}include \PYGZdq{}include/functions.h\PYGZdq{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}fstream\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}cmath\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}complex\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}Eigen/Dense\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}gsl/gsl\PYGZus{}integration.h\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}tuple\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}vector\PYGZgt{}}
+
+\PYG{n}{using} \PYG{n}{Complex} \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n+nb}{complex}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{n}{using} \PYG{n}{MatrixXcd} \PYG{o}{=} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Matrix}\PYG{o}{\PYGZlt{}}\PYG{n}{Complex}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{n}{using} \PYG{n}{MatrixXd} \PYG{o}{=} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Matrix}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{p}{,} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{Dynamic}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{n}{using} \PYG{n}{VectorXd} \PYG{o}{=} \PYG{n}{Eigen}\PYG{p}{:}\PYG{p}{:}\PYG{n}{VectorXd}\PYG{p}{;}
+
+\PYG{o}{/}\PYG{o}{/} \PYG{n}{Main} \PYG{n}{implementation} \PYG{k}{for} \PYG{n}{surface} \PYG{n}{plots}
+\PYG{n+nb}{int} \PYG{n}{main}\PYG{p}{(}\PYG{n+nb}{int} \PYG{n}{argc}\PYG{p}{,} \PYG{n}{char}\PYG{o}{*} \PYG{n}{argv}\PYG{p}{[}\PYG{p}{]}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{argc} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{11}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{cerr} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Usage: }\PYG{l+s+s2}{\PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ m V\PYGZus{}0 h\PYGZus{}bar a b T sym spin energy\PYGZus{}file}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{double} \PYG{n}{m}     \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{V\PYGZus{}0}   \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{h\PYGZus{}bar} \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{a}     \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{b}     \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{T}     \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{6}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{sym}   \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n+nb}{bool} \PYG{n}{spin}    \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{grid\PYGZus{}num} \PYG{o}{=} \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{stod}\PYG{p}{(}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{9}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{string} \PYG{n}{energy\PYGZus{}file}  \PYG{o}{=}  \PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{10}\PYG{p}{]}\PYG{p}{;}
+
+    \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{ifstream} \PYG{n}{file}\PYG{p}{(}\PYG{n}{energy\PYGZus{}file}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{std}\PYG{p}{:}\PYG{p}{:}\PYG{n+nb}{tuple}\PYG{o}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{p}{,} \PYG{n}{double}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{energies}\PYG{p}{;}
+    \PYG{n}{double} \PYG{n}{E1}\PYG{p}{,} \PYG{n}{E2}\PYG{p}{,} \PYG{n}{E3}\PYG{p}{,} \PYG{n}{E4}\PYG{p}{;}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{file} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{E1} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{E2} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{E3} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{E4}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{energies}\PYG{o}{.}\PYG{n}{emplace\PYGZus{}back}\PYG{p}{(}\PYG{n}{E1}\PYG{p}{,} \PYG{n}{E2}\PYG{p}{,} \PYG{n}{E3}\PYG{p}{,} \PYG{n}{E4}\PYG{p}{)}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{file}\PYG{o}{.}\PYG{n}{close}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{n}{const} \PYG{n+nb}{int} \PYG{n}{N} \PYG{o}{=} \PYG{n}{grid\PYGZus{}num}\PYG{p}{;}
+    \PYG{n}{VectorXd} \PYG{n}{x1\PYGZus{}values} \PYG{o}{=} \PYG{n}{VectorXd}\PYG{p}{:}\PYG{p}{:}\PYG{n}{LinSpaced}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{VectorXd} \PYG{n}{x2\PYGZus{}values} \PYG{o}{=} \PYG{n}{x1\PYGZus{}values}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mf}{0.001}\PYG{p}{;}
+
+    \PYG{n}{auto} \PYG{n}{wavefunctions} \PYG{o}{=} \PYG{n}{compute\PYGZus{}wavefunctions}\PYG{p}{(}\PYG{n}{energies}\PYG{p}{,} \PYG{n}{x1\PYGZus{}values}\PYG{p}{,} \PYG{n}{x2\PYGZus{}values}\PYG{p}{,}
+                                            \PYG{n}{m}\PYG{p}{,} \PYG{n}{V\PYGZus{}0}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n}{sym}\PYG{p}{,} \PYG{n}{spin}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{n}{save\PYGZus{}to\PYGZus{}csv}\PYG{p}{(}\PYG{n}{x1\PYGZus{}values}\PYG{p}{,} \PYG{n}{x2\PYGZus{}values}\PYG{p}{,} \PYG{n}{energies}\PYG{p}{,} \PYG{n}{spin}\PYG{p}{,} \PYG{n}{wavefunctions}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{wavefunctions.csv}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

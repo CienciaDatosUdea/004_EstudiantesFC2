@@ -1,0 +1,31 @@
+CXX      = g++
+CXXFLAGS = -O2 -Wall -std=c++17 -Iinclude -I/usr/include/eigen3 -fopenmp
+LDFLAGS  = -lgsl -lgslcblas -lm
+
+SRC_DIR  = src
+OBJ_DIR  = build
+BIN_DIR  = bin
+
+SRCS     = $(SRC_DIR)/regions.cpp \
+           $(SRC_DIR)/normalisation.cpp \
+           $(SRC_DIR)/wavefunctions.cpp \
+           $(SRC_DIR)/input-output.cpp
+
+OBJS     = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+
+TARGET   = $(BIN_DIR)/wavefunction
+MAIN     = wavefunction.cpp
+
+all: $(TARGET)
+
+$(TARGET): $(MAIN) $(OBJS) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJ_DIR) $(BIN_DIR):
+	mkdir -p $@
+
+clean:
+	rm -rf $(OBJ_DIR) $(BIN_DIR)/wavefunction

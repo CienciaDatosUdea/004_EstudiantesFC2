@@ -1,0 +1,29 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Usual packages}
+\PYG{o}{\PYGZpc{}}\PYG{n}{config} \PYG{n}{InlineBackend}\PYG{o}{.}\PYG{n}{figure\PYGZus{}format} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{svg}\PYG{l+s+s1}{\PYGZsq{}}
+
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{IPython}\PYG{n+nn}{.}\PYG{n+nn}{core}\PYG{n+nn}{.}\PYG{n+nn}{interactiveshell}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{InteractiveShell}
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{itertools}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{combinations\PYGZus{}with\PYGZus{}replacement}
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{interpolate}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{interp1d}
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{optimize}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{ridder}
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{integrate}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{quad}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{plt}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{pandas}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{pd}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{sympy}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{sym}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{numpy}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{np}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{subprocess}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{itertools}
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{tabulate}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{tabulate}
+
+\PYG{n}{InteractiveShell}\PYG{o}{.}\PYG{n}{ast\PYGZus{}node\PYGZus{}interactivity} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{all}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{rcParams}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mathtext.fontset}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{stix}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{font.family}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{STIXGeneral}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} A function to easily display datasets in orgmode}
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{print\PYGZus{}table}\PYG{p}{(}\PYG{n}{dataframe}\PYG{p}{)}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} Display a given dataset in a table format}
+    \PYG{n}{table} \PYG{o}{=} \PYG{n}{tabulate}\PYG{p}{(}\PYG{n}{dataframe}\PYG{p}{,} \PYG{n}{headers}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{keys}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{tablefmt}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{orgtbl}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{table}\PYG{p}{)}
+\end{MintedVerbatim}

@@ -1,0 +1,82 @@
+#include "../include/classes.h"
+#include <iomanip>
+
+// Define global random number generator!
+std::mt19937 gen(std::random_device{}());
+
+Particula::Particula() : x(0), y(0), Fx(0), Fy(0) {}
+
+// Set initial positions on a circle of radius R
+void Particula::initPosition(double R) {
+    std::uniform_real_distribution<double> uniform_dist(0.0, 2.0 * M_PI);
+    double theta = uniform_dist(gen);
+    x = R * cos(theta);
+    y = R * sin(theta);
+}
+
+void Particula::pertPosition(double dx, double dy) {
+    x += dx;
+    y += dy;
+}
+
+Sistema::Sistema(int N) : p(N) {}
+
+void Sistema::initAll(double R) {
+    for (auto &v : p) {
+        v.initPosition(R);
+    }
+}
+
+void Sistema::pertAll(double delta) {
+    std::uniform_real_distribution<double> uniform_dist(-delta, delta);
+    for (auto &v : p) {
+        double dx = uniform_dist(gen);
+        double dy = uniform_dist(gen);
+        v.pertPosition(dx, dy);
+    }
+}
+
+void Sistema::distMax() const {
+    double dmax = 0.0;
+    int I = -1, J = -1;
+    // Loop over all pairs of particles to find the distances between them.
+    // Overwrite dmax, I and J whenever a larger distance is found!
+    for (int i = 0; i < (int)p.size(); i++) {
+        for (int j = i + 1; j < (int)p.size(); j++) {
+            double dx = p[i].x - p[j].x;
+            double dy = p[i].y - p[j].y;
+            double dist = std::sqrt(dx * dx + dy * dy);
+            if (dist > dmax) {
+                dmax = dist;
+                I = i;
+                J = j;
+            }
+        }
+    }
+    std::cout << "La distancia máxima es " << dmax
+              << ", entre las partículas " << I << " y " << J
+              << std::endl;
+}
+
+void Sistema::initForces() {
+    std::uniform_real_distribution<double> uniform_dist(0.0, 1.0);
+    for (auto &v : p) {
+        v.Fx = uniform_dist(gen);
+        v.Fy = uniform_dist(gen);
+    }
+}
+
+void Sistema::netForce() const {
+    double Fxnet = 0.0;
+    double Fynet = 0.0;
+    for (auto &v : p) {
+        Fxnet += v.Fx;
+        Fynet += v.Fy;
+    }
+    double Fnet = std::sqrt(Fxnet * Fxnet + Fynet * Fynet);
+    std::cout << "La magnitud de la fuerza resultante es " << Fnet << std::endl;
+}
+
+Particula& Sistema::operator[](int i) {
+    return p[i];
+}

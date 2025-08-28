@@ -1,0 +1,124 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Computing the roots for this transcendental equation}
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{f}\PYG{p}{,} \PYG{n}{tol}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Finds multiple zeros of a function defined by discrete (x, f) data using Ridder\PYGZsq{}s method.}
+
+\PYG{l+s+sd}{    Parameters:}
+\PYG{l+s+sd}{    \PYGZhy{} x: array\PYGZhy{}like, x\PYGZhy{}values of the function.}
+\PYG{l+s+sd}{    \PYGZhy{} f: array\PYGZhy{}like, corresponding function values f(x).}
+\PYG{l+s+sd}{    \PYGZhy{} tol: float, optional, tolerance for stopping criteria.}
+
+\PYG{l+s+sd}{    Returns:}
+\PYG{l+s+sd}{    \PYGZhy{} list of floats, estimated roots.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{try}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} Interpolating function}
+        \PYG{n}{f\PYGZus{}interp} \PYG{o}{=} \PYG{n}{interp1d}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{f}\PYG{p}{,} \PYG{n}{kind}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{cubic}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{fill\PYGZus{}value}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{extrapolate}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{n}{roots} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+        \PYG{c+c1}{\PYGZsh{} Scan for sign changes (potential root intervals)}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{if} \PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{f}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{:}  \PYG{c+c1}{\PYGZsh{} Sign change detected}
+                \PYG{n}{root} \PYG{o}{=} \PYG{n}{ridder}\PYG{p}{(}\PYG{n}{f\PYGZus{}interp}\PYG{p}{,} \PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,} \PYG{n}{x}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{xtol}\PYG{o}{=}\PYG{n}{tol}\PYG{p}{)}
+                \PYG{n}{roots}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}
+
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{roots}\PYG{p}{:}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{No roots found in the given range.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{k}{return} \PYG{n}{roots}
+    \PYG{k}{except} \PYG{n+ne}{Exception} \PYG{k}{as} \PYG{n}{e}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Error finding zeros: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{e}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{k}{return} \PYG{p}{[}\PYG{p}{]}
+
+
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{Energy\PYGZus{}values}\PYG{p}{(}\PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Computes the energy values for a quantum well system using numerical methods.}
+
+\PYG{l+s+sd}{    Parameters:}
+\PYG{l+s+sd}{    m\PYGZus{}val      : float \PYGZhy{} Particle mass}
+\PYG{l+s+sd}{    V\PYGZus{}0\PYGZus{}val    : float \PYGZhy{} Potential well depth}
+\PYG{l+s+sd}{    h\PYGZus{}bar\PYGZus{}val  : float \PYGZhy{} Reduced Planck’s constant}
+\PYG{l+s+sd}{    a\PYGZus{}val      : float \PYGZhy{} Width of the inner well}
+\PYG{l+s+sd}{    b\PYGZus{}val      : float \PYGZhy{} Width of the outer well}
+
+\PYG{l+s+sd}{    Returns:}
+\PYG{l+s+sd}{    root(s)    : np.array \PYGZhy{} Sorted array of energy values that satisfy the quantization condition.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+    \PYG{k}{if} \PYG{n}{V\PYGZus{}0\PYGZus{}val} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} Define energy range for an infinite potential well case}
+        \PYG{n}{E\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{V\PYGZus{}0\PYGZus{}val} \PYG{o}{+} \PYG{l+m+mf}{0.01}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val} \PYG{o}{+} \PYG{l+m+mi}{1000}\PYG{p}{,} \PYG{l+m+mi}{100000}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Avoid division by zero at E = V\PYGZus{}0}
+
+        \PYG{c+c1}{\PYGZsh{} Compute function values for energy equation}
+        \PYG{n}{function\PYGZus{}values} \PYG{o}{=} \PYG{n}{numeric\PYGZus{}function}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} Find energy values that satisfy the equation (roots of the function)}
+        \PYG{n}{root} \PYG{o}{=} \PYG{n}{find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{function\PYGZus{}values}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{root}
+
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} Define energy range for bound states (E \PYGZgt{} V\PYGZus{}0)}
+        \PYG{n}{E\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{V\PYGZus{}0\PYGZus{}val} \PYG{o}{+} \PYG{l+m+mf}{0.01}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val} \PYG{o}{+} \PYG{l+m+mi}{1000}\PYG{p}{,} \PYG{l+m+mi}{100000}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Avoid division by zero at E = V\PYGZus{}0}
+
+        \PYG{c+c1}{\PYGZsh{} Define energy range for bound states (E \PYGZlt{} V\PYGZus{}0)}
+        \PYG{n}{E\PYGZus{}values2} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{1e\PYGZhy{}3}\PYG{p}{,} \PYG{l+m+mi}{100000}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Avoid division by zero at E = V\PYGZus{}0}
+
+        \PYG{c+c1}{\PYGZsh{} Compute function values for E \PYGZgt{} V\PYGZus{}0}
+        \PYG{n}{function\PYGZus{}values} \PYG{o}{=} \PYG{n}{numeric\PYGZus{}function}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} Compute function values for E \PYGZlt{} V\PYGZus{}0}
+        \PYG{n}{function\PYGZus{}values2} \PYG{o}{=} \PYG{n}{numeric\PYGZus{}function2}\PYG{p}{(}\PYG{n}{E\PYGZus{}values2}\PYG{p}{,} \PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} Find energy values that satisfy the equation (roots of the function)}
+        \PYG{n}{root} \PYG{o}{=} \PYG{n}{find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{function\PYGZus{}values}\PYG{p}{)}
+        \PYG{n}{root2} \PYG{o}{=} \PYG{n}{find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array}\PYG{p}{(}\PYG{n}{E\PYGZus{}values2}\PYG{p}{,} \PYG{n}{function\PYGZus{}values2}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} Combine and return all valid energy values in sorted order}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sort}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{hstack}\PYG{p}{(}\PYG{p}{[}\PYG{n}{root}\PYG{p}{,} \PYG{n}{root2}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+
+
+\PYG{k}{if} \PYG{n}{V\PYGZus{}0\PYGZus{}val} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+    \PYG{n}{root} \PYG{o}{=} \PYG{n}{find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{function\PYGZus{}values}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{}root2 = find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array(E\PYGZus{}values, function\PYGZus{}values\PYGZus{}varied)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{function\PYGZus{}values}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(E)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{black}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{root}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros\PYGZus{}like}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Root}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{}plt.plot(E\PYGZus{}values, function\PYGZus{}values\PYGZus{}varied, label=r\PYGZsq{}\PYGZdl{}f(E)\PYGZdl{}\PYGZsq{}, color=\PYGZsq{}red\PYGZsq{}, linestyle=\PYGZsq{}\PYGZhy{}\PYGZhy{}\PYGZsq{})}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Energy \PYGZdl{}E\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(E)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Function vs. Energy \PYGZdl{}(E \PYGZgt{} V\PYGZus{}0)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{k}{else}\PYG{p}{:}
+  \PYG{n}{root} \PYG{o}{=} \PYG{n}{find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{function\PYGZus{}values}\PYG{p}{)}
+  \PYG{n}{root2} \PYG{o}{=} \PYG{n}{find\PYGZus{}zeros\PYGZus{}ridder\PYGZus{}array}\PYG{p}{(}\PYG{n}{E\PYGZus{}values2}\PYG{p}{,} \PYG{n}{function\PYGZus{}values2}\PYG{p}{)}
+  \PYG{n}{fig}\PYG{p}{,} \PYG{n}{axs} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+  \PYG{n}{ax} \PYG{o}{=} \PYG{n}{axs}\PYG{o}{.}\PYG{n}{flatten}\PYG{p}{(}\PYG{p}{)}
+
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{E\PYGZus{}values2}\PYG{p}{,} \PYG{n}{function\PYGZus{}values2}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(E)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{black}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{root2}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros\PYGZus{}like}\PYG{p}{(}\PYG{n}{root2}\PYG{p}{)}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Root}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Energy \PYGZdl{}E\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(E)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Function vs. Energy \PYGZdl{}(E \PYGZlt{} V\PYGZus{}0)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{c+c1}{\PYGZsh{}ax[0].axhline(0, color=\PYGZsq{}gray\PYGZsq{}, linestyle=\PYGZsq{}dotted\PYGZsq{}, linewidth=0.8)  \PYGZsh{} Zero reference line}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{E\PYGZus{}values}\PYG{p}{,} \PYG{n}{function\PYGZus{}values}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(E)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{black}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{root}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros\PYGZus{}like}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Root}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Energy \PYGZdl{}E\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(E)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Function vs. Energy \PYGZdl{}(E \PYGZgt{} V\PYGZus{}0)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+  \PYG{c+c1}{\PYGZsh{}ax[1].set\PYGZus{}xlim(50, 60)}
+  \PYG{c+c1}{\PYGZsh{}ax[1].ylim(\PYGZhy{}0.5e4, 0.5e4)}
+  \PYG{c+c1}{\PYGZsh{}ax[1].axhline(0, color=\PYGZsq{}gray\PYGZsq{}, linestyle=\PYGZsq{}dotted\PYGZsq{}, linewidth=0.8)  \PYGZsh{} Zero reference line}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+
+  \PYG{n}{plt}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
+  \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

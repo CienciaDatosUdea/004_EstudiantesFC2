@@ -1,0 +1,20 @@
+#include "solver.hpp"
+#include <cmath>
+#include <iostream>
+
+int main() {
+    double x_min = 0.0, x_max = 1.0;
+    int N = 51;
+    Geometry g(x_min, x_max, N);
+
+    Temperature T(g);
+    auto f = [](double x){ return std::sin(M_PI * x); };
+
+    double D = 0.1, dt = 1e-4, t_max = 0.05, TL = 0.0, TR = 0.0;
+    DiffusionSolver solver(T, D, dt, t_max, TL, TR, f, "output.dat");
+
+    solver.run();
+
+    std::cout << "Simulation finished. Results written to output.dat\n";
+    return 0;
+}

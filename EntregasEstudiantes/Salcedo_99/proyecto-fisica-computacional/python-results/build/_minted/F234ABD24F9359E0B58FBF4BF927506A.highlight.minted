@@ -1,0 +1,54 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{plot\PYGZus{}wavefunction}\PYG{p}{(}\PYG{n}{Energy}\PYG{p}{,} \PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Plots the wavefunction for a given energy level in a quantum well system.}
+
+\PYG{l+s+sd}{    Parameters:}
+\PYG{l+s+sd}{    Energy     : float \PYGZhy{} Energy level for which the wavefunction is calculated}
+\PYG{l+s+sd}{    m\PYGZus{}val      : float \PYGZhy{} Particle mass}
+\PYG{l+s+sd}{    V\PYGZus{}0\PYGZus{}val    : float \PYGZhy{} Potential well depth}
+\PYG{l+s+sd}{    h\PYGZus{}bar\PYGZus{}val  : float \PYGZhy{} Reduced Planck’s constant}
+\PYG{l+s+sd}{    a\PYGZus{}val      : float \PYGZhy{} Width of the inner well}
+\PYG{l+s+sd}{    b\PYGZus{}val      : float \PYGZhy{} Width of the outer well}
+
+\PYG{l+s+sd}{    Returns:}
+\PYG{l+s+sd}{    None (Displays a figure with two subplots: real \PYGZam{} imaginary parts and magnitude of the wavefunction)}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+    \PYG{c+c1}{\PYGZsh{} Get the normalized wavefunction for the given parameters}
+    \PYG{n}{phi\PYGZus{}normalized} \PYG{o}{=} \PYG{n}{wavefunction}\PYG{p}{(}\PYG{n}{Energy}\PYG{p}{,} \PYG{n}{m\PYGZus{}val}\PYG{p}{,} \PYG{n}{V\PYGZus{}0\PYGZus{}val}\PYG{p}{,} \PYG{n}{h\PYGZus{}bar\PYGZus{}val}\PYG{p}{,} \PYG{n}{a\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Define x values for plotting (from \PYGZhy{}b to b)}
+    \PYG{n}{x\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b\PYGZus{}val}\PYG{p}{,} \PYG{n}{b\PYGZus{}val}\PYG{p}{,} \PYG{l+m+mi}{1000}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Compute the real and imaginary parts of the wavefunction}
+    \PYG{n}{phi\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{real}\PYG{p}{(}\PYG{n}{phi\PYGZus{}normalized}\PYG{p}{(}\PYG{n}{t}\PYG{p}{)}\PYG{p}{)} \PYG{k}{for} \PYG{n}{t} \PYG{o+ow}{in} \PYG{n}{x\PYGZus{}values}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{phi\PYGZus{}values\PYGZus{}im} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{imag}\PYG{p}{(}\PYG{n}{phi\PYGZus{}normalized}\PYG{p}{(}\PYG{n}{t}\PYG{p}{)}\PYG{p}{)} \PYG{k}{for} \PYG{n}{t} \PYG{o+ow}{in} \PYG{n}{x\PYGZus{}values}\PYG{p}{]}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Compute the magnitude of the wavefunction}
+    \PYG{n}{distribution} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{absolute}\PYG{p}{(}\PYG{n}{phi\PYGZus{}normalized}\PYG{p}{(}\PYG{n}{t}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2} \PYG{k}{for} \PYG{n}{t} \PYG{o+ow}{in} \PYG{n}{x\PYGZus{}values}\PYG{p}{]}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Create a figure with two subplots}
+    \PYG{n}{fig}\PYG{p}{,} \PYG{n}{axes} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{15}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} First subplot: real and imaginary parts of the wavefunction}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}values}\PYG{p}{,} \PYG{n}{phi\PYGZus{}values}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{blue}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real Part}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}values}\PYG{p}{,} \PYG{n}{phi\PYGZus{}values\PYGZus{}im}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dashed}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Imaginary Part}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Wavefunction for Energy = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{Energy}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ eV}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Wavefunction Value}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Second subplot: magnitude of the wavefunction}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}values}\PYG{p}{,} \PYG{n}{distribution}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{purple}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{|Ψ(x)|}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Wavefunction for Energy = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{Energy}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ eV}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Wavefunction Magnitude}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Adjust layout to prevent overlapping elements and display the plot}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}
